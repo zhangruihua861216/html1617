@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//检测数组:判断变量是否是数组类型
+			
+			
+			var a=1234;
+			var b=[1,2,3,4]
+			//返回布尔类型的数组,如果是数组,返回true,否则返回false
+			
+			var bol=Array.isArray(a);
+			console.log(bol);
+			
+			//把数组转换为字符串:tostring()
+			//只是把数组中的元素用逗号拼接成一个字符串返回出来,原数组依然是数组类型
+			 var arr=[1,2,3,4];
+			 console.log(arr.toString());
+			 console.log(arr);
+			 
+			 //join():把数组中的元素使用指定的符号拼接成一个字符串返回出来
+			 
+			 var str=arr.join('*');
+			 console.log(str);
+			 //在控制太中打印:数组元素的和,并且数组元素使用+拼接起来
+			 
+			 var result=1;
+			 for(var i=0;i<arr.length;i++){
+			 	result *=arr[i];
+			 }
+			 console.log(str+"="+result)
+			 
+			 //push():从数组的末尾添加新元素,并返回添加完元素后的数组长度
+			 
+			 var count=arr.push();
+			 console.log(count);
+			 console.log(arr);
+			
+			// pop():从数组结尾的位置删除数组元素,并返回删完元素后的新数组长度
+			
+			count=arr.pop();
+			count=arr.pop();
+			console.log(count);
+			console.log(arr);
+			
+			//shift():从数组的开始位置删除一个元素
+			var arr1=['1','2','3','4','5','6','7','8','9'];
+			arr1.shift();
+			count=arr1.shift();
+			console.log(arr1);
+			console.log(count);
+			
+			//unshift():从数组的开始位置插入一个元素
+			arr1.unshift(1,30);
+			console.log(arr1);
+			
+			
+			//sort():根据每一位上的数字大小进行升序(从小到大)排列
+			
+			var arr2=[1,50,3,8,7,5,100,2000];
+			arr2.sort();
+			console.log(arr2);
+			
+			//reverse():根据数组元素每一位上的数字大小进行降序(从大到小)排列
+			
+			arr2.reverse();
+			console.log(arr2);	
+			
+			
+			
+			
+			// 1、给算法依次传两个元素
+            // 2、根据算法比较完这俩元素的大小后返回值的情况，决定要不要交换元素位置 
+            
+            // sort:遇到返回值是1的时候换位置。
+						
+			arr2.reverse(compare);
+			console.log(arr2); 
+			
+				function compare (value1, value2) {
+				if (value1 > value2) {
+					return 1;
+				} else if (value1 == value2) {
+					return 0;
+				} else {
+					return -1;
+				}
+			};
+			
+			
+			arr2.sort(compare);
+			console.log(arr2);
+			console.log(arr2[1]);
+			
+			
+			arr2.reverse(compare);
+			console.log(arr2);
+
+
+
+
+			
+			
+			var arr3=[1,3,5];
+			//concat(参数1,参数2,参数3.....)
+			//根据现有的数组,拼接后边的参数,形成一个新数组返回出去,原数组不受影响(push是在原数组的基础上进行拼接)
+			var arr4=arr3.concat(2,4,9,'str',['hello','world']);
+			
+			console.log(arr4);
+			console.log(arr3);
+			
+			
+			//
+			
+			var arr5=[1,3,5,7,9,10];
+			
+			
+			//slice():根据当前数组截取其中的元素,形成一个新数组.参数只有一个:从参数指定的下标开始截取,一直截取到结束位置.参数有两个,第一个参数表示截取的起始下标,第二参数表示截取的结束下标(新数组中不包含截取结束下标的数值)
+			
+			var arr6=arr5.slice(2,4);
+			console.log(arr6);
+			
+			
+//			console.log(arr5.substr(2,4));
+			
+			
+			//第一类参数:操作数组元素的起始位置
+			//第二类参数:要删除的元素个数,如果是0就表示不删除元素
+			//第三类参数:要插入的新元素,值可以不止一个
+			//在数组的指定位置添加新元素:第二类参数值是0,防止删除原来的元素
+			var arr7=[1,3,5];
+			console.log(arr7);
+			arr7.splice(1,0,2,4);
+			
+			console.log(arr7);
+			
+			//删除元素:指定要删除的起始位置,再指定从起始位置连续删除元素的个数
+			arr7.splice(1,1);
+			console.log(arr7);
+			//替换元素
+			console.log(arr7);
+			arr7.splice(1,1,9,100,5,6,10);
+			console.log(arr7);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

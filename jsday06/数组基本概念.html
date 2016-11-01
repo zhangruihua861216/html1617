@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+			// 如何创建一个数组
+			
+			function sum(a,b){
+				return a+b;
+			}
+			//使用构造函数创建数组			
+			var arr=new Array();			
+			//在创建数组时指定数组长度
+			//在array()构造函数中传递一个数值类型的参数,则该参数表示数组的长度(数组能存放的数据个数)
+			var arr1=new Array(7);
+			//在创建数组时顺便给数组赋值,多个数值之间使用逗号分割
+			var arr2=new Array("张三","李四");
+			
+			//只是使用array构造函数创建
+			
+			var  arr3=Array(6);
+			var  arr4=Array("张三","李四");
+			
+			//使用字面量创建数组
+			
+			var arr5=['张三','李四',sum];
+			
+			//打印数组中的值
+			
+			console.log(arr5);
+			
+			//下标:给数组中存的值的编号(数组元素),编号从0开始,如果要访问数组中的元素,必须通过这个编号进行访问
+			
+	        //访问数组元素:数组名[下标]的形式来访问
+	        
+	          var str=arr5[1];
+	          console.log(str);
+	          //获取数组元素的个数(数组长度):length
+	          
+	          console.log(arr5.length);
+	          
+	          //修改某个位置上的元素:数组名[要修改元素的下标]=要修改的值
+	          arr5[0]="赵六";
+	          console.log(arr5);
+	          
+	          //如果在给数组长度并不存在的下标位置赋值,则数组的长度会先变成对于的长度,然后给这个下标添加现在.(如果发生了数组下标越界现象,则js依然会把数组扩充到对应长度后,再赋值)
+			 
+			  arr5[6]="钱七";
+			  console.log(arr5);
+			  
+			   //访问数组元素时,如果发生了数组下标越界,则会返回一个undefined值
+			  console.log(arr5[10]);
+			  
+			  //遍历数组元素:通过for循环来遍历数组元素
+			  //数组长度控制着循环次数,循环变量(i)控制着数组元素下标
+			  
+			  var arr6=["12","24"];
+			  for(var i=0;i<arr6.length;i++){
+			  	  console.log(arr6[i]);
+			  }
+			  console.log(arr6);
+			  //倒序遍历并打印数组元素
+			  var arr7=['1','2','3','4','5','6','7'];
+			  
+			  //因为数组长度是从1计算的,而下标是从0计算的,所以最后一个下标是长度-1.
+			  
+			  for(var i=arr7.length-1;i>=0;i--){
+			  	console.log("arr7["+i+"]="+arr7[i]);
+			  }
+			  
+			  
+			  var t;
+			  for(var i=0;i<arr7.length;i++){
+			  	  t=arr7[i];
+			  	  document.write("arr7["+i+"]="+arr7[i]+"<br />");
+			  	  arr7[i]=arr7[arr7.length-1-i];
+			  	  arr7[arr7.length-1]=t;
+			  	  document.write("t"+"="+t+"<br />");
+			  	  document.write("arr7["+(arr7.length-1-i)+"]="+arr7[arr7.length-1-i]+"<br />");
+			  	   console.log("arr7["+i+"]="+arr7[i]);
+			  	  
+			  }
+			  
+			 
+			  
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
