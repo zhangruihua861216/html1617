@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+			//字符,字符串
+			//js中倾向于使用单引号表示字符串
+			//html文档倾向于使用双引号表示字符串
+			
+			//使用字面量来创建字符串
+			// 转移符:如果在内层想使用字符串外层所包裹的引号,可以使用转移符把引号的含义抹去,让引号变成一个淡出的字符符号:\"
+			var str1='h\'e\'llo world';
+			console.log(str1);
+			//使用构造函数创建字符串
+			
+			var str2=new String("hello");
+			
+			//使用字面量和构造函数创建出的字符串在打印变量时,构造函数创造的变量会连同它的类型一起打印,但在使用方面,两种字符串用法完全一致
+			
+			
+			
+			//concat():字符串拼接,把两个字符串拼在一起后返回一个新字符串,并不会修改原字符串
+			
+			var str3="23";
+			var str4="str";
+			
+			var strResut=str3.concat(str4);
+			console.log(strResut);
+			console.log(str3);
+			var  arr=[1,2,3,4,5];
+			
+			//字符串截取
+			
+			var str6='hello world';
+			// slice():只有一个数值类型的参数,表示从当前字符下标开始,一直截取到结束位置,把截取出来的字符串返回
+			
+			//slice():有两个参数,第一参数表示截取的起始位置,第二个参数表示截取的结束位置(但不包含当前位置的字符),把截取出来的字符串返回
+			
+			var cutstr=str6.slice(3);
+		 	 
+		 	 console.log(cutstr);
+		 	 
+		 	 //substring()功能和用法与slice一致,该方法只有字符串类型才有,其它类型无此方法.
+		 	 
+		 	 cutstr=str6.substring(3,5);
+		 	 console.log(cutstr);
+		 	 
+		 	 //substr():只有一个参数时,表示从当前位置一直截取到结束
+		 	 //有两个参数时,表示从第一个参数指定的位置开始,连续截取第二个参数指定的个数个字符(第二个参数用来设置截取的个数,而不是截取的终止位置)
+		 	 
+		 	 cutstr=str6.substr(3,4);
+		 	 console.log(cutstr);
+		 	 console.log(str6);
+		 	 
+		 	 //获取字符位置
+		 	 
+		 	 //indexof():参数是要寻找的字符,从左向右寻找,把找到的第一个匹配的字符下标返回出来.如果没有找到指定的字符,返回-1.
+		 	 var str7="hello world";
+		 	 
+		 	 
+		 	 //当indexof()有两个参数时,第一个参数表示要搜寻的字符,第二个参数表示从当前指定的位置开始向后搜寻
+		 	 var index=str7.indexOf("or");
+		 	 
+		 	 console.log(index);
+		 	 
+		 	 //lastindexof()有两个参数时,第一个参数表示搜寻的字符,第二个参数表示从当前位置开始搜索,找到这个字符后,把字符的下标返回出来,否则,返回-1
+		 	 
+		 	  var index=str7.lastIndexOf("h",6);
+		 	  
+		 	  console.log(index);
+		 	  
+		 	  //注:在搜寻元素时,两种搜寻方法都会从指定的位置寻找(包含指定的位置)
+		 	  //因为lastindexof()和indexof()返回的都是字符的下标,所以不需要关心他们是从左向右还是从右向左寻找.因为寻找的方向只会影响寻找的次数,不会影响元素的下标
+		 	  
+		 	  
+		 	  //删除字符串开头结尾处的空格
+		 	  //使用场景:用户在输入框中输入文字时,如果不小心在开头或结尾的位置多写了一个字符串,则用户很难察觉到,我们可以利用trim()方法把用户的无心之失纠正过来.
+		 	 
+		 	 
+		 	 
+		 	 //总结:
+		 	 
+		 	 //indexof():只有一个参数时,从左向右获取到字符串中第一个匹配的字符,并返回该字符下标.有两个参数时,从第二个参数指定的字符开始向右遍历,找到第一个匹配的字符,并返回下标
+		 	 
+		 	 //lastindexof():只有一个参数时,从右向左找到第一个匹配的字符,并返回该字符的下标.有两个参数时,从第二个参数指定的字符开始向左遍历,找到第一个匹配的字符,并返回下标.
+		 	 var str8=" hello world  ";
+		 	  
+		 	  console.log('('+str8+')');
+		 	  
+		 	  str9=str8.trim();
+		 	  
+		 	  console.log(str8);
+		 	  
+		 	  console.log('('+str9+')');
+		 	  
+		 	  
+		 	  // 字符串的大小写转换(英文字符)
+		 	  //如果字符串中出现了大小写混用的存在,则转换方法会把他们统一转换为大写,或小写
+		 	  var str10="ABCD";
+		 	  var str11=str10.toLowerCase();
+		 	  console.log(str11);
+		 	  
+		 	  str11=str11.toUpperCase();
+		 	  console.log(str11);
+		 	  
+	
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+ 

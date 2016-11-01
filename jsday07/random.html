@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//产生一个随机数:math.random(),随机数是一个小数
+			//产生一个整数随机数,需要对小数进行取整操作,而直接对random进行取整,则得到的整数永远是0,所以,可以对random()所获取到的小数进行乘法运算.想得到一个[0,x)之间的随机整数,用random取得的值,乘以x即可得到一个[0,x)之间的整数随机数.
+			
+			console.log(parseInt(Math.random()*10));
+			
+			
+			function randomFun(min,max){
+			   return parseInt((Math.random()*(max-min)+min));
+			}
+			
+			
+			
+			for(var i=0;i<100;i++){
+				console.log(randomFun(2,4));
+			}
+			
+			
+			var result=1;
+			function cifangyunsuan(x,y){
+				for(var i=0;i<y;i++){
+					result=result*2;
+				}
+				return result;
+			}
+			
+			console.log(cifangyunsuan(2,12));
+			
+			//模拟验证码的产生
+			//产生一个随机数
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

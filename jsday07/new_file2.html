@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var box = 'Mr.Leelee';
+				console.log(box.concat(' is ', ' Teacher ', '!')); //Mr.Lee is Teacher !
+				console.log(box.slice(3)); //Lee
+				console.log(box.slice(3,5)); //Le
+				console.log(box.substring(3)); //Lee
+				console.log(box.substring(3,5)); //Le
+				console.log(box.substr(3)); //Lee
+				console.log(box.substr(3,5)); //Lee
+				var box1 = 'Mr.LeaLHH';
+				console.log(box1.slice(-5,-1)); //Lee，6+(-3)=3 位开始
+				console.log(box1.substring(-3,6)); //Mr.Lee 负数返回全部
+				console.log(box1.substr(-3,10)); //Lee，6+(-3)=3 位开始
+				
+				
+				var box = 'Mr.Lee is Lee'; //包含两个L 的字符串
+					var boxarr = []; //存放L 位置的数组
+					var pos = box.indexOf('L'); //先获取第一个L 的位置
+					while (pos > -1) { //如果位置大于-1，说明还存在L
+					boxarr.push(pos); //添加到数组
+					pos = box.indexOf('L', pos + 1); //从新赋值pos 目前的位置
+					}
+					alert(boxarr); //输出
+					
+					
+					
+					function disptime(){ 
+						  var today = new Date(); //获得当前时间
+					      var hh = today.getHours();  //获得小时、分钟、秒
+					      var mm = today.getMinutes();
+					      var ss = today.getSeconds();
+					      document.getElementById("myclock").innerHTML=hh+":"+mm+":"+ss;
+							}
+						window.setInterval("disptime()",1000);
+
+
+1
+		</script>
+	</head>
+	<body>
+		<div id="myclock"></div>	
+	</body>
+</html>
