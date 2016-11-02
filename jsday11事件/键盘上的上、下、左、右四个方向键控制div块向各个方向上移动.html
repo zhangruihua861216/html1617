@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		     *{
+		     	margin: 0;
+		     	padding: 0;
+		     }
+			div{
+				width: 100px;
+				height: 100px;
+				background: crimson;
+				position: absolute;
+			}
+		</style>
+		<script>
+		   window.onload=function(){
+		   	var div=document.querySelector('div');
+		   	var left=div.offsetLeft;
+		   	var top=div.offsetTop;
+		   	var width=div.offsetWidth;
+		   	var height=div.offsetHeight;
+		   	document.onkeydown=function(ev){
+		   		var eventObj=ev||event;
+//		   		console.log(eventObj);
+		   		
+		   		if(eventObj.keyCode==37){
+		   			
+		   			if(left<0){
+		   				console.log(left);
+		   				alert('不可以再向左移动啦')
+		   			}else{
+		   				left=left-10;
+		   				div.style.left=left+'px';
+		   			}
+		   			
+		   		}else if(eventObj.keyCode==38){
+		   			
+		   			if(top<0){
+		   				console.log(top);
+		   				alert('不可以再向上移动啦')
+		   			}else{
+		   				top=top-10;
+		   				div.style.top=top+'px';
+		   			}
+		   			
+		   			
+		   		}else if(eventObj.keyCode==39){
+		   			
+		   			if(left>(window.innerWidth-width)){
+		   				alert("不可以再向右移动啦")
+		   			}
+		   			else{
+		   				left=left+10;
+		   				div.style.left=left+'px';
+		   				console.log(left);
+		   				console.log(div.style.left);
+		   				console.log(window.innerWidth);
+		   				console.log(width);
+		   			}
+		   				
+		   				
+		   			
+		   			
+		   		}else if(eventObj.keyCode==40){
+		   			
+		   			if(top>(window.innerHeight-height)){
+		   				alert("不可以再向下移动啦")
+		   			}
+		   			else{
+		   				top=top+10;
+		   				div.style.top=top+'px';
+		   				console.log(top);
+		   				console.log(div.style.top);
+		   				console.log(window.innerHeight);
+		   				console.log(top);
+		   			}
+		   			
+		   		}else {
+//		   			alert('请选择方向键进行移动');
+		   		}
+		   		
+		   		
+		   		
+		   	}
+		   	
+		   	
+		   }
+		</script>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var tom={
+				name:"tom",
+				say:function(){}
+			}
+			
+			var sum=new Function('a','b','return a+b;')
+			var speak=function(){};
+			
+			function run(){}
+			
+			//IIFE： Immediately-Invoked Function Expression
+			
+			(function(){
+				console.log("hello");
+			}());
+			
+			(function(a,b){
+				console.log(a+b);
+			}("hello","world"));
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

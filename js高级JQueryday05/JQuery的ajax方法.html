@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<form action="">
+				<ul>
+					<li><input type="text" name='a1' /></li> 
+					<li><input type="text" name='a2'/></li>
+					<li class="calc"><button>计算</button></li>
+				</ul>
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript">
+//	var url="http://10.0.161.193:6500"+"/persons";
+	var url="http://10.0.161.193:8080"+"/myapp/mySerivce";
+	function calcResult(data){
+		//处理返回的数据
+		console.log(3);
+	};
+	
+	function error(){
+		console.log("服务器有内部错误")
+	};
+	
+	
+		$(document).ready(function(){
+
+			$(".calc").on('click',function(e){
+				e.preventDefault();
+//				//var str=$("form").Serializer();
+			var formData=$('form').serializer();
+			console.log(formData);
+				$.ajax({
+					url:url,
+					data:formData,
+					type:"get",
+					success:calcResult,
+					error:error
+			})	
+			
+			})
+			
+		});
+	</script>
+</html>

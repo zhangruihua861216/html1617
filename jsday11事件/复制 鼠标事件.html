@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: salmon;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				//什么是事件?
+				//用户对页面进行操作时都是事件,我们可以给事件绑定一个函数,当用户触发了该事件后,事件中所绑定的函数才会被执行
+				//鼠标的点击事件:click,用户按下并抬起鼠标左键
+				var div=document.getElementsByTagName('div')[0];
+				div.onclick=function(ev){
+					var eventObj=ev||event;
+					this.style.background='green';
+					
+			    //点击(鼠标)事件对象的常用属性
+			    
+			    //clientX/clientY:获取到的是鼠标点击的位置距离浏览器左边框和顶边框的间距
+			    //offsetX/offsetY:获取到的是鼠标点击的位置距离当前点击标签的左边框和顶边框的间距.
+			    //screenX/screenY:获取到的是鼠标点击的位置距离屏幕左边框和顶边框的间距
+			    //pageX/pageY:获取到的是鼠标点击的位置距离整个文档(页面)的左边框和顶边框的间距
+			    console.log(eventObj);
+				}
+				
+				
+				//按下鼠标左键:mousedown事件
+				div.onmousedown=function(ev){
+					var eventObj=ev||event;
+					div.style.background='red';
+//					console.log(eventObj);
+				}
+				//抬起鼠标左键:mouseup事件
+				div.onmouseup=function(ev){
+					var eventObj=ev||event;
+					div.style.background='darkblue';
+				}
+				
+				//总结:
+				//click事件:执行了mousedown和mouseup之后才触发该事件
+				//mousedown事件:当鼠标按下时触发
+				//mouseup事件:当鼠标抬起时触发
+				//如果事件是需要按下并抬起才能触发,则使用click事件
+				//如果鼠标按下,抬起需要触发两个不同的事件,按下使用mousedown,抬起使用mouseup而不是click
+				//为避免冲突,mouseup和mousedown事件尽量不要在同一个标签上同时使用
+				
+				//鼠标移入div标签
+				div.onmouseover=function(ev){
+					var eventObj=ev||event;
+					div.style.background='yellow';
+//					console.log(eventObj);
+				}
+				
+				//鼠标从标签内部移出
+				
+				div.onmouseout=function(ev){
+					var eventObj=ev||event;
+					div.style.background='purple';
+//					console.log(eventObj);
+				}
+				
+				//鼠标在标签内部移动:mousemove只要鼠标在标签内部移动,就会不断的触发该事件,可以通过该事件产生的事件对象不断获取当前鼠标移动的位置.
+				
+				div.onmousemove=function(ev){
+					var eventObj=ev||event;
+					div.style.background='peru';
+//					console.log(eventObj);
+				}
+				
+				//down move up
+				
+				//鼠标的双击:dbclick
+				
+				div.ondblclick=function(){
+//					this.style.background='yellow';
+					div.style.background='skyblue';
+				}
+				
+				//鼠标右键事件(调出右键菜单)
+				
+				div.oncontextmenu=function(){
+//					console.log('点击了右键');
+				}
+				
+				//定制右键的菜单
+				
+				document.oncontextmenu=function(){
+					//清理默认的事件样式
+					
+					return false;
+				}
+				
+				var a=document.getElementsByTagName('a')[0];
+				
+//				a.onclick=function(){
+//					return false;
+//				}
+			}
+		</script>
+	</head>
+	<body>
+		<!--<a href="http://www.baidu.com">百度一下</a>-->
+		<div></div>
+	</body>
+</html>

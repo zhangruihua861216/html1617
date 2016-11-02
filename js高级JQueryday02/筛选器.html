@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#table{
+				display: table;
+			}
+			.drow{
+				display: table-row;
+			}
+			.dcell{
+				display: table-cell;
+			}
+			.dcell img{
+				width: 70px;
+				height: 100px;
+			}
+			.dcell input{
+				width:20px;
+			}
+		</style>		
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="form">
+			<div id="table">
+				<div class="drow">
+					<div class="dcell">
+						<img src="img/1.jpg" alt="" />
+						<input type="text" />
+						<label for='tom'>tom</label>
+					</div>
+						<div class="dcell">
+						<img src="img/10.jpg" alt="" />
+						<input type="text" />
+						<label for='mark'>mark</label>
+					</div>
+					<div class="dcell">
+						<img src="img/11.jpg" alt="" />
+						<input type="text" />
+						<label for='jarry'>jarry</label>
+					</div>
+					<div class="dcell">
+						<img src="img/12.jpg" alt="" />
+						<input type="text" />
+						<label for='joe'>joe</label>
+
+					</div>
+				</div>
+				<div class="drow">
+					<div class="dcell">
+						<img src="img/13.jpg" alt="" />
+						<input type="text" />
+						<label for='john'>john</label>
+					</div>
+					<div class="dcell">
+						<img src="" alt="" />
+						<input type="text" />
+						<label for='max'>max</label>
+					</div>
+					<div class="dcell">
+						<img src="img/14.jpg" alt="" />
+						<input type="text" />
+						<label for='marry'>marry</label>
+					</div>
+					<div class="dcell">
+						<img src="img/15.jpg" alt="" />
+						<input type="text" />
+						<label for='xiaoming'>xiaoming</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//给所有的dcell加上边框
+			
+			var dcell=$(".dcell");
+			dcell.css("border","1px solid blue");
+			//选择第二个元素
+			dcell.eq(1).css("border","2px solid red");
+			//选中后4个元素
+			dcell.slice(4,dcell.length).css("border","2px solid pink");
+			//选中图片src中包含3的图片
+			//选择器
+			$("img").filter("[src*=3]").css("border","4px solid green")
+			//JQuery对象
+			var jq=$("[src*=2]");
+			$("img").filter(jq).css("border","2px solid gold");
+
+			//通过回调函数进行过滤
+			
+			$("img").filter(function(index){
+//				console.log(index);
+				if(index==4||(this.getAttribute("src")=="img/15.jpg")){
+					return this;
+				}
+			}).css("border","6px solid red");
+			
+			//所有label中包含j 和名字包含该max，文字变蓝色
+//			$("label").filter(function(){
+//				console.log(arguments);
+//				console.log(this.getAttribute("for")=='max');
+//				if(this.getAttribute("for")=='max'){
+//					return this;
+//				}
+//				
+//			}).css("color","blue");
+			
+//			$("label").filter(function(index,elem){
+//				console.log(elem.getAttribute("for")=='max');
+//				if(elem.getAttribute("for")=='max'){
+//					return elem;
+//				}
+//				
+//			}).css("color","red");
+//		})
+		
+			$("label").filter(function(index,elem){
+				console.log(elem);
+				var result=$(elem).filter("[for*=j]").length>0?elem:null;
+//				console.log(result!=null?result.innerHTML:"");
+//				console.log(elem.innerHTML=='max');
+				if(elem.innerHTML=='max'||elem.getAttribute('for').indexOf('j')>=0){
+					return elem;
+				}
+				
+			}).css("color","yellowgreen");
+			
+			
+//		  $("label").not("[for*=j]").css("color","red");
+		  $(".dcell").has("label[for*=a]").css("color","yellowgreen");
+		  
+		  
+		})	
+		
+
+	</script>
+</html>

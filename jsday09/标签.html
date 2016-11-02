@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		//通过标签的id属性获取对应的标签
+			var mydiv=document.getElementById('div1');
+			
+			console.log(document.getElementById('div1'));
+			
+			//通过 标签名获取标签,只要文档中有这个标签就会获取到
+			//返回值是一个和数组类型相似的集合,可以利用访问数组元素的方法来访问集合中的标签
+//			var li=document.getElementsByTagName('li');
+//			
+//			console.log(li);
+//			
+//			console.log(li[1]);
+//			
+//			//通过class属性值获取标签参数和返回值情况与tagName一样,只是该方法不是W3C协议中的方法,存在兼容性问题
+//			
+//			var ul=document.getElementsByClassName('ul1');
+//			console.log(ul);
+//			
+//			var user=document.getElementsByName('user');
+//			console.log(user[0]);
+//			
+//			
+//			//获取元素的属性
+//			
+//			//getAttributeNode:获取到的是参数指定的属性节点
+//			
+//		    var attr=div.getAttributeNode('class');
+//		    console.log(attr);
+//		    //getAttribute:获取到的是参数指定的属性值
+//		    
+//		    attr=div.getAttribute('class');
+//		    console.log(attr);
+//		    
+//		    attr=div.setAttribute(id,div3);
+//		    
+//		    //使用attributes属性获取到标签中的全部属性.使用方括号包裹字符串,就可以得到指定属性的值
+//		    
+//		    var attr=div.attributes['id'];
+//		    console.log(attr);
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<ul class="ul1">
+				<li id="id1">li1呵呵</li>
+				<li id="id2">li2</li>
+				<li id="id3">li3</li>
+				<li id="id4">li4</li>
+				<li id="id5">li5</li>
+				<li id="id6">li6</li>
+				<li id="id7">li7</li>
+				<li id="id8">li8</li>
+				<li id="id9">li9</li>
+				<li id="id10">li10</li>
+			</ul>
+		</div>
+		<input type="text" name='user' value="" />
+	</body>
+</html>

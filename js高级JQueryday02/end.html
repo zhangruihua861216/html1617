@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#table{
+				display: table;
+			}
+			.drow{
+				display: table-row;
+			}
+			.dcell{
+				display: table-cell;
+			}
+			.dcell img{
+				width: 70px;
+				height: 100px;
+			}
+			.dcell input{
+				width:20px;
+			}
+			table{
+				position: absolute;
+			}
+		</style>		
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="form">
+			<div id="table">
+				<div class="drow">
+					<div class="dcell">
+						<img src="img/1.jpg" alt="" />
+						<input type="text" />
+						<label for='tom'>tom</label>
+					</div>
+						<div class="dcell">
+						<img src="img/10.jpg" alt="" />
+						<input type="text" />
+						<label for='mark'>mark</label>
+					</div>
+					<div class="dcell">
+						<img src="img/11.jpg" alt="" />
+						<input type="text" />
+						<label for='jarry'>jarry</label>
+					</div>
+					<div class="dcell">
+						<img src="img/12.jpg" alt="" />
+						<input type="text" />
+						<label for='joe'>joe</label>
+
+					</div>
+				</div>
+				<div class="drow">
+					<div class="dcell">
+						<img src="img/13.jpg" alt="" />
+						<input type="text" />
+						<label for='john'>john</label>
+					</div>
+					<div class="dcell">
+						<img src="" alt="" />
+						<input type="text" />
+						<label for='max'>max</label>
+					</div>
+					<div class="dcell">
+						<img src="img/14.jpg" alt="" />
+						<input type="text" />
+						<label for='marry'>marry</label>
+					</div>
+					<div class="dcell">
+						<img src="img/15.jpg" alt="" />
+						<input type="text" />
+						<label for='xiaoming'>xiaoming</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		  $("label").add("img").add("input").css("border","1px solid red").end().css("border","1px solid blue");
+
+//		  $('label').css("border","2px solid green");
+
+		 console.log($(".dcell").children("img"));
+		 
+		 //选择器栈当中上一次选择的内容添加到当前选择器中
+		 
+		 $(".dcell").children("img").addBack().css("border","2px solid green")
+		  
+		
+		
+		console.log($("#table").children());
+		
+		console.log($("#table").children().children().children("img"));
+		
+		console.log($("#table").find("img"));
+		
+		$("#table").find("img").css("border","1px solid red");
+		
+		$("img:first").closest("div").css("border","3px solid yellow");
+		
+		$("img:first").offsetParent().css("border","1px solid green");
+		
+		
+		var imgParents=$("img").parent();
+		console.log(imgParents.length);
+		console.log(imgParents);
+		
+		var imgAllParents=$("img:first").parents();
+		console.log(imgAllParents.length);
+		console.log(imgAllParents);
+		
+		var imgAllParents1=$("img:first").parentsUntil("#table");
+		console.log(imgAllParents1.length);
+		console.log(imgAllParents1);
+		
+		$(".dcell:eq(1)").css("border","5px solid blue");
+		$(".dcell:eq(1)").next().css("border","5px solid blue");
+		$(".dcell:eq(1)").nextAll().css("border","5px solid blue");
+});
+	</script>
+</html>

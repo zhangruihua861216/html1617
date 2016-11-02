@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+	
+	
+//	   function sear(){
+//	   	var v1=document.getElementById("input1").value;
+////	   	var v2=document.getElementsByTagName("span")[0].innerHTML;
+//	   	alert(v1);
+//	   }
+
+//
+	for(var i=1;i<=5;i++){		
+		
+			for(var j=0;j<2*i-1;j++)
+			 
+			{
+				 for(k=5;k>j;k--){
+				 	document.write("#");
+				 }
+			document.write("*");
+			}
+			document.write("<br />");
+		
+	}
+	
+//	for(var i=3;i>=0;i--){
+//		for(j=0;j<i;j++)
+//		{
+//			document.write("#");
+//			
+//		}		
+//		
+//	}
+      
+//      	function sum(){
+//      		var count=0;var sum=0;
+//      		for(var i=0;i<3;i++){
+//      			var num=parseInt(prompt("请输入第"+(i+1)+"个数"));
+//      			if(num=="999"){
+//      				continue
+//      			}
+//      			
+//      			if(num>0){
+//      				count++;
+//      				sum=sum+num;
+//      				
+//      			}
+//      			
+//      		}
+//      		document.write("和:"+sum+"<br />");
+//      		document.write("正数个数:"+count+"<br />");
+//      	}
+//      	
+//      	sum();
+
+
+       
+//      	var answer=prompt("我爱你，嫁给我吧？");
+//      	do{
+//      		if(answer=='y'){
+//      			document.write("我们形影不离");
+//      		}else{
+//      			answer=prompt("我爱你，嫁给我吧？");
+//      		}
+//      		
+//      	}while(answer==n)
+
+
+           
+// 		 	for(var i=0;i<35;i++){
+// 		 		 
+// 		 		 if(2*i+4*(35-i)==94){
+//					
+//					document.write(i);
+// 		 		 }
+// 		 	 
+//     }
+// 
+
+//    for(var i=5;i>0;i--){
+//    	for(var j=0;j<i;j++){
+//    		document.write("*");
+//    	}
+//    	document.write("<br />")
+//    	}
+//      var n=0
+//      for(var year=1999;year<=2200;year++){
+//      	
+//      	if((year%4==0&&year%100!=0)||year%400==0)
+//      	{
+//      		document.write(year+" ");
+//      		n++
+//      	}
+//      	if(n%10==0){
+//      		document.write("<br />")
+//      	}
+//      	
+//      }
+
+
+	function cal(fuhao){
+		
+		var num1=Number(document.getElementById("num1").value);
+		var num2=Number(document.getElementById("num2").value);			
+    	var result=document.getElementById("result");
+	  switch(fuhao)
+	  {
+	     case "+":
+	         result.value=num1+num2;
+	         break;
+	     case "-":
+	         result.value=num1-num2;
+	         break;
+	     case "*":
+	         result.value=num1*num2;
+	         break;
+	     case "/":
+	         result.value=num1/num2;
+	         break;
+	         
+	}	
+	}
+		</script>
+	</head>
+	<body>
+		<!--<div>商品价格查询</div>
+		<div>***************************</div>
+		<div>1 T恤      2 网球鞋  3 网球拍</div>
+		<div>***************************</div>
+		<div>请输入要查询的商品编号:<input type="text" name="" id="input1" value="" /></div>
+		<div>价格为:<span id="span">0</span></div>
+		<input type="button" name="" id="" value="查询" onclick="sear()"/>-->
+		<!--<div>数字:<input type="text"  id="num1"/></div>
+		<div>数字:<input type="text" id="num2"/></div>
+		<div>结果:<input type="text" id="result"/></div>
+		<div><input type="button" name="" id="type" value="+" onclick="cal('+')"/>
+		<input type="button" name="" id="type" value="-"  onclick="cal('-')"/>
+		<input type="button" name="" id="type" value="*"  onclick="cal('*')"/>
+		<input type="button" name="" id="type" value="/" onclick="cal('/')" /></div>-->
+	</body>
+</html>

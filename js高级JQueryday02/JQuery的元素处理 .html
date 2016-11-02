@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.pp{
+				width: 100px;
+				border:  1px solid red;
+				background: #FFFF00;
+
+			}
+			.pp1 a{
+				color: green;
+				font-size: 20px;
+			}
+			.pp2{
+				background: #008000;
+			}
+		</style>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div>
+			<p><a href="#">1</a><span>hello</span></p>
+		</div>
+		<div>
+			<p><a href="#">2</a></p>
+		</div>
+		<div>
+			<p><a href="#">3</a></p>
+		</div>
+		<div>
+			<p><a href="#">4</a></p>
+		</div>
+		<div>
+			<p><a href="#">5</a></p>
+		</div>
+		<div>
+			<p><a href="#">6</a></p>
+		</div>
+		<div>
+			<p><a href="#">7</a></p>
+		</div>
+		<div>
+			<p><a href="#">8</a></p>
+		</div>
+		<input type="text" name="username" />
+		<button>提交</button>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("p").addClass('pp pp1');
+			
+//		var result=$("p:last").hasClass("pp2");
+//		console.log(result);
+		
+		$("p").toggleClass("pp");
+		
+
+//		$("p").attr("name","myname");
+
+//		$("p").each(function(index,elem){
+//			$(elem).attr("name","myname"+(index+1));
+//		});
+
+		$("p").attr("name",function(index){
+			return "name"+(index+1);
+		})
+		
+		
+		console.log($("p:eq(2)").attr("name"));
+		
+		$("p").addClass("pp").mouseenter(function(){
+			
+			$(this).addClass("pp2");
+			
+		}).mouseout(function(){
+			$(this).toggleClass("pp2");
+		})
+		});		
+		
+		var myMap={
+			'name':"abc",
+			'id':"xID1"	
+			
+		}
+		
+		$("p:last").attr(myMap);
+//		
+//		$("p:last").removeAttr("name");
+//		$("p:last").removeAttr("id");
+//		$("p:last").removeAttr("class");
+		
+		$("p:last").removeAttr( "name id class");
+		
+//		$("a").html("hello");
+		console.log($("a").html());
+		
+		console.log($("p").text());
+		
+		$("p").text("world");
+		
+		$("input").val("请输入数据")
+		
+		$("button").click(function(){
+			console.log($("input").val());
+		})
+		
+		var a=$("p:first").data("1W","129");
+		var b=a.clone(true);
+		console.log("克隆后的对象关联的数据"+b.data("1W"));
+		
+
+	</script>
+</html>

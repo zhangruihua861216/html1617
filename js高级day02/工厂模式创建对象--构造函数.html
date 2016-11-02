@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//构造函数
+		    function Computer(model,size){
+		    	this.model=model;
+		    	this.size=size;
+		    }
+		    
+		    
+		    //工厂的本质就是一个函数
+			function ObjectFactory(m,s){
+				//创建对象
+				
+				var o=new Computer(m,s);
+				
+				return o;
+				
+			}
+			
+			var c1=ObjectFactory('t420',14);
+			var c2=ObjectFactory('t430',14);
+			var c3=ObjectFactory('t440',14);
+			var c4=ObjectFactory('t450',14);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

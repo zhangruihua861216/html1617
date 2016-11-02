@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Auto(name){
+				this.name=name;
+			}
+			
+			function Car(){}
+			
+			Car.prototype=new Auto("车");
+			
+			var car=new  Car();
+			
+			console.log(car.name);
+			
+			car.name="汽车";
+			
+			console.log(car.name);
+			console.log(car.__proto__);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

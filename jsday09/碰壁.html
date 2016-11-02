@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		#wrap {
+			width: 1000px;
+			height: 500px;
+			position: relative;
+			border: 1px solid black;
+		}
+		
+		#div {
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			// 获取到碰撞边界、碰撞物体的标签
+			var wrap = document.getElementById('wrap');
+			var div = document.getElementById('div');
+			
+			// 获取到碰撞物体运动的宽度、高度极限
+			var maxWidth = wrap.clientWidth - div.offsetWidth;
+			var maxHeight = wrap.clientHeight - div.offsetHeight;
+			
+			// 设置运动速度
+			var speedX = 10;
+			var speedY = 5;
+			
+			// 开启定时器，让物体运动起来
+			setInterval(function(){
+				// 获取当前的标签
+				var top = div.offsetTop;
+				var left = div.offsetLeft;
+				
+
+				// 检测到物体移动到边界时，修改物体的移动方向
+				if (top > maxHeight || top < 0) {
+					speedY *= -1;
+				}
+				if (left < 0 || left > maxWidth) {
+					speedX *= -1;
+				}
+				
+				// 设置新坐标
+				top += speedY;
+				left += speedX;
+				
+				// 把新坐标赋给标签
+				div.style.left = left + 'px';
+				div.style.top = top + 'px';
+			},100)
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<div id="div"></div>
+	</div>
+</body>
+</html>

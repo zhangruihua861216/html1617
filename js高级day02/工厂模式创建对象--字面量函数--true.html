@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//字面量函数
+		    var Computer={
+		    	model:'t420',
+		    	size:'14'
+		    }
+		    
+		    var obj1=new Object();
+		    obj1.model="t420";
+		    obj1.size=14;
+		    
+		    //工厂的本质就是一个函数
+			function ObjectFactory(m,s){
+				//创建对象
+				var o={}
+//				var o=new Object();
+				o.model=m;
+				o.size=s;
+				return o;
+				
+			}
+			
+			var c1=ObjectFactory('t420',14);
+			var c2=ObjectFactory('t430',14);
+			var c3=ObjectFactory('t440',14);
+			var c4=ObjectFactory('t450',14);
+			
+			console.log(c1==c2);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

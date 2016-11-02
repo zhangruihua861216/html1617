@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 建立一个汽车Auto构造函数，包括轮胎个数，汽车颜色，车身重量、速度等成员变量。
+			 * 并通过不同的构造方法创建实例。至少要求：汽车能够加速，减速，停车。
+			 * 再定义一个小汽车类Car，继承Auto，并添加空调、CD等成员变量，覆盖加速，减速的方法
+			 */
+			
+			function Auto(num,color,weight,speed){
+				this.num=num;
+				this.color=color;
+				this.weight=weight;
+				this.speed=speed;				
+			}
+			Auto.prototype.upspeed=function(){
+				this.speed=this.speed+5;
+				console.log(this.speed);
+			}
+			
+			Auto.prototype.downspeed=function(){
+				this.speed=this.speed-5;
+				console.log(this.speed);
+			}
+			
+			Auto.prototype.stopspeed=function(){
+				this.speed=0;
+				console.log(this.speed);
+			}
+			
+			function Car(kongtiao,cd){
+				this.kongtiao=kongtiao;
+				this.cd=cd;
+				console.log(this.kongtiao+"  "+this.cd);
+			}
+			
+			Car.prototype =new Auto('2',"黄色","100kg",36);
+			
+			var car=new Car("kongtiao","cd");
+		    car.upspeed();
+		    car.downspeed();
+		    car.stopspeed();
+			
+			
+						
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

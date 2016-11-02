@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div>
+			<img src="img/1.jpg"/>
+			<img src="img/11.jpg"/>
+			<img src="img/13.jpg"/>
+			<img src="img/15.jpg"/>
+		</div>
+		<button>发射</button>
+		<button>回收</button>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("div:first").on("mouseenter",function(){
+				console.log("我是div");
+			})
+			$('img').on("mouseenter",function(){
+				$(this).css("border","1px solid red")
+				.css("opacity","0.5");
+			}).on("mouseout",function(){
+				$(this).css("border","none")
+				.css("opacity","1");				
+			});
+			
+//			$("button").on('click',function(){
+//				console.log(e);
+//				if($(this).html()=='发射'){
+//					$('img').trigger('mouseenter');
+//				}
+//			})
+			
+//			$("button").on('click',function(e){
+//				console.log(e);
+//				if($(this).html()=='发射'){
+//					e.type="mouseenter";
+//					$('img').trigger('mouseenter');
+//				}
+//			})
+			
+			$("button").on('click',function(e){
+				console.log(e);
+				if($(this).html()=='发射'){
+					$('img').triggerHandler('mouseenter');
+				}
+			})				
+		});
+	</script>
+</html>

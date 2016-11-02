@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+			function createXHR(){
+			//如果浏览器支持XMLHttpRquest那么直接创建返回该对象
+			
+			if(typeof XMLHttpRequest !="undefined"){
+				return new XMLHttpRequest();
+			}else if(typeof ActiveXObject !="undefined")
+			{
+				if(typeof arguments.callee.activeXString !="string"){
+					var versions=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp'];
+					for(var i=0;i<versions.length;i++){
+						try{
+							new ActiveXObject(versions[i]);
+							arguments.callee.activeXString=versions[i];
+						}catch(e){
+							
+						}
+						
+					}
+				}
+				
+				return new ActiveXObject(arguments.callee.activeXString);
+			}else{
+				throw new Error("无法正常创建ajax对象");
+			}
+		}
+					
+		</script>
+		<script type="text/javascript">
+			//封装，把参数封装到对象中
+			
+			function ajax(obj){
+				//1.创建一个XMLHttpRequest对象
+				var xhr=createXHR();
+				obj.URL=obj.URL+"?rand="+Math.random();
+				//2.初始化
+				if(obj.async==true){
+					xhr.open(obj.method,obj.url);
+				}else{
+					xhr.open(obj.method,obj.url,false);
+				}
+				
+				//3.发送
+				
+				if(obj.sendType=="application/json"){
+					xhr.setRequestHeader("Content-type","application/json");
+					xhr.send(JSON.stringify(obj.data));
+				}
+				else if(obj.sendType=="application/x-www-form-urlencoded"){
+				xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+								
+					xhr.send(handleData(obj.data));
+				}
+				else{
+					throw new Error("其它格式数据发送未支持");
+				}
+				//4.处理响应
+				
+				xhr.onreadystatechange=function(){
+					if(xhr.status==200||xhr.status==304){
+						if(xhr.readyState==4){
+							callback();
+						}
+						
+					}
+				}
+			
+			function callback(){
+				
+//				xhr.responseText()
+				obj.success(xhr.responseText);
+			}			
+		}
+
+			function handleData(data){
+				var ar=[];
+				for(var p in data){
+					ar.push(p+"="+data[p]);
+				}
+				
+				return ar.join("&");
+			}
+			
+			
+			var str=handleData({
+				
+					bookname:"123",
+					price:100
+			
+			})
+			
+			console.log(str);
+			var obj={
+				url:'http://127.0.0.1:5050/books',
+				method:'get',
+				data:{
+					bookname:"123",
+					price:100
+				},
+				success:function(data){
+					console.log(data);
+				},
+				async:true
+			}
+			
+			ajax(obj);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

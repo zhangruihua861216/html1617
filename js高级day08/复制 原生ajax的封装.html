@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			table{
+				border:1px solid royalblue;
+				border-collapse: collapse;
+			}
+			
+			td{
+				border:1px solid royalblue;				
+			}
+		</style>
+
+	</head>
+	<body>
+	<div></div>
+	<button>不用表格显示数据</button><button>用表格显示数据</button>
+	</body>
+	
+			<script>
+			function createXHR(){
+			//如果浏览器支持XMLHttpRquest那么直接创建返回该对象
+			
+			if(typeof XMLHttpRequest !="undefined"){
+				return new XMLHttpRequest();
+			}else if(typeof ActiveXObject !="undefined")
+			{
+				if(typeof arguments.callee.activeXString !="string"){
+					var versions=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp'];
+					for(var i=0;i<versions.length;i++){
+						try{
+							new ActiveXObject(versions[i]);
+							arguments.callee.activeXString=versions[i];
+						}catch(e){
+							
+						}
+						
+					}
+				}
+				
+				return new ActiveXObject(arguments.callee.activeXString);
+			}else{
+				throw new Error("无法正常创建ajax对象");
+			}
+		}
+					
+		</script>
+		<script type="text/javascript">
+			//封装，把参数封装到对象中
+			
+			function ajax(obj){
+				//1.创建一个XMLHttpRequest对象
+				var xhr=createXHR();
+				obj.URL=obj.URL+"?rand="+Math.random();
+				//2.初始化
+				if(obj.async==true){
+					xhr.open(obj.method,obj.url);
+					console.log("hehe");
+				}else{
+					xhr.open(obj.method,obj.url,false);
+					console.log("haha");					
+				}
+				
+				//3.发送
+				console.log(obj.sendType);
+				if(obj.sendType=="application/json"){
+					xhr.setRequestHeader("Content-type","application/json");
+					xhr.send(JSON.stringify(obj.data));
+				}
+				else if(obj.sendType=="application/www-form-urlencoded"){
+				xhr.setRequestHeader("Content-type","application/www-form-urlencoded");
+								
+					xhr.send(handleData(obj.data));
+				}
+				else{
+//					throw new Error("其它格式数据发送未支持");
+					console.log("hehe");
+				}
+				//4.处理响应
+				
+				xhr.onreadystatechange=function(){
+					if(xhr.status==200||xhr.status==304){
+						if(xhr.readyState==4){
+							callback();
+						}
+						
+					}
+				}
+			
+			function callback(){
+				
+//				xhr.responseText()
+				obj.success(xhr.responseText);
+			}			
+		}
+
+			function handleData(data){
+				var ar=[];
+				for(var p in data){
+					ar.push(p+"="+data[p]);
+				}
+				
+				return ar.join("&");
+			}
+			
+			
+			var str=handleData({
+				
+					bookname:"123",
+					price:100
+			
+			})
+			
+			console.log(str);
+			var obj={
+				url:'http://127.0.0.1:5050/books',
+				method:'get',
+				sendType:"application/json",
+				data:{
+					bookname:"123",
+					price:100
+				},
+				success:sHandleData,
+				async:true
+			}
+			var btns=document.getElementsByTagName("button");
+			btns[0].onclick=function(){
+				obj.success=sHandleData;
+				ajax(obj);			
+			}
+			btns[1].onclick=function(){
+				obj.success=wodehanshu;
+				ajax(obj);			
+			}
+			function sHandleData(data){
+				var root=document.getElementsByTagName("div")[0];
+				data=JSON.parse(data);
+				if(data instanceof Array){
+					for(var i=0;i<data.length;i++){
+						var div=document.createElement("div");
+						div.innerHTML=data[i].bookname;
+						root.appendChild(div);
+					}
+				}
+			}
+			
+			
+			function wodehanshu(data){
+				var root=document.getElementsByTagName("div")[0];
+				var table=document.createElement("table");
+				root.appendChild(table);
+				data=JSON.parse(data);
+				if(data instanceof Array){
+					for(var i=0;i<data.length;i++){
+						var tr=document.createElement("tr");
+						var td=document.createElement("td");
+						tr.appendChild(td);
+						table.appendChild(tr);
+						td.innerHTML=data[i].bookname;
+					}
+				}
+			}
+		</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: green;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				//this:指针(替代物),谁调用this,this就指向谁
+				var  a=this;
+				console.log(this);
+				var div=document.getElementById('div1')
+				div.onclick=function(){
+					setInterval(function(){
+						console.log(this);
+					},3000);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id='div1'></div>
+	</body>
+</html>

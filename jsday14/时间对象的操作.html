@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//事件对象的常用方法
+			var date=new Date();
+			//获取年份(4位)
+			var year=date.getFullYear();
+			console.log(year);
+			//获取月:从零开始计数
+			var month=date.getMonth();
+			console.log(month);
+			//获取第几天
+			var day=date.getDate();
+			console.log(day);
+			//获取小时数
+			var hour=date.getHours();
+			console.log(hour);
+			//获取分钟
+			var minute	=date.getMinutes();
+			console.log(minute);
+			//获取秒
+			
+			var sec=date.getSeconds();
+			console.log(sec);
+			//获取毫秒
+			var milliSec=date.getMilliseconds();
+			console.log(milliSec);
+			
+			//获取从1970年1月1日到指定时间(一般是当前时间)之间的毫秒数.时间戳
+			
+			var time=date.getTime();
+			console.log(time);
+			//获取当地时间与标准时间相差的分钟数(可以通过该值计算出当前时区)
+			
+			var offSet=date.getTimezoneOffset();
+			console.log(offSet/60);
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

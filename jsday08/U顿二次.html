@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//当页面渲染完毕后,触发window的onload事件,执行该事件的函数
+			
+			window.onload=function(){
+				//标签修改在页面渲染完毕后进行
+				
+				//工具函数:产生6位数字的随机函数
+				
+				function randomFun(min,max){
+					return parseInt(Math.random()*(max-min)+min);
+				}
+				
+				//获取页面中的p标签,通过定时器不断获取新验证码,并把验证码写进标签中
+				
+//				var pElement=document.getElementById("code");
+//				
+//				var timer=setInterval(function(){
+//					
+//					//获取验证码
+//					
+//					var code=randomFun(1000000,10000000);
+//					pElement.innerHTML=code;
+//					
+//				},20);
+				
+				//获取按钮标签,给标签添加点击事件,触发的函数是清除定时器
+				
+				var btn=document.getElementById("btn");
+				
+				//给按钮添加一个点击事件,点击按钮后,事件所绑定的函数会被触发
+				
+				btn.onclick=function(){
+					clearInterval(timer1);
+				}
+				
+				//获取到开始按钮,并添加事件
+				var pElement1=document.getElementById("code");
+				var start=document.getElementById("stat");
+				var timer1;
+				start.onclick=function(){
+					clearInterval(timer1);
+					timer1=setInterval(function(){
+						var code=randomFun(100,1000);
+						pElement1.innerHTML=code;
+					},2000)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p id="code">验证码在此显示</p>
+		<button id="btn">点我</button>
+		<button id="stat">开始</button>
+	</body>
+</html>

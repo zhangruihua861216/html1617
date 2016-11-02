@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			{}//花括号就代表个对象
+			
+			//对象：无序集合
+			var name="全局";
+			
+	　
+			var  zs = {
+				 name:"张三",
+				 height:174,
+				 sayName:function(){
+				console.log(this.name);
+				}
+			}
+			
+			var  ls = {
+				 name:"李四",
+				 height:174,
+				 sayName:function(){
+				console.log(this.name);
+				}
+			}
+			console.log("zs的名字:"+zs.name);
+			zs.sayName();
+			ls.sayName();
+			console.log(this.name);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

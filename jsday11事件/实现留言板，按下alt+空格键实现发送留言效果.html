@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var input=document.querySelector('input');
+				var div=document.querySelector('div');
+				document.onkeydown=function(ev){
+					var eventobj=ev||event;
+					console.log(eventobj);
+					if(eventobj.keyCode==32&& eventobj.shiftKey==true){
+						
+						var p=document.createElement('p');
+						p.innerHTML=input.value;
+						div.appendChild(p);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" name="text" id="text" value="" />
+		<div></div>
+	</body>
+</html>

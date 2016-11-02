@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+			//什么是事件对象?
+			//用户通过键盘或鼠标操作页面,让页面发生变化时,都会产生一个事件对象,我们可以通过这个事件对象获取必要的信息,比如:点击事件的点击坐标,键盘事件的按键位置等等
+			window.onload=function(){
+				//如何获取到事件对象?
+				//通过window对象下的event属性来获取当前事件产生的事件对象
+				//在老式浏览器中,事件对象是通过事件函数的形参传递进来的.
+				window.event;
+				event;
+//				console.log(event);
+				//兼容行写法:使用逻辑或表达式,判断哪种形式可以获取到事件对象,并把那种形式获取到的对象返回出来.
+			    
+			    document.onclick=function(ev){
+			    	//获取到点击事件产生的事件对象
+			    	var evObj=ev||event;
+//			    	console.log(evObj);
+			    }
+			    document.onkeydown=function(ev){
+			    	var evObj=ev||event;
+			    	console.log(evObj);
+			    }
+			    
+			    //总结:
+			    //任何事件(浏览器触发的,用户触发的)被触发后,都会产生一个事件对象.而这个事件对象中的属性以及属性值,是由当前产生该对象的事件决定的.
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

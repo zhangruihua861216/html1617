@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var btn=document.querySelector('button');
+				var div=document.querySelector('div');
+				
+				function randomfun(min,max){					
+					
+					return parseInt(Math.random()*(max-min)+min);
+				}					
+				btn.onclick=function(){
+				div.innerHTML="";
+				for(var j=0;j<1000;j++){			
+		
+				var str=[];
+				
+				for(var i=0;i<15;i++){
+					var code=String.fromCharCode(randomfun(65,91));
+					if(code=='O'||code=='I'||code=='Q'||code=='C'||code=='G'||code=='A'){
+						i--;
+					}else{
+						str.push(code);	
+					}									
+									
+				}
+				 var p=document.createElement('p');
+
+				  p.innerHTML='M5'+str.join('')+'&nbsp;&nbsp;'+j;
+				 
+				   div.appendChild(p);				
+				}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+		<button >生成</button>
+		<div></div>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				//获取到输入框和留言区域的标签
+				var text=document.querySelector('#text');
+				var area=document.querySelector('div');
+				
+				//给document添加键盘事件
+				text.onkeydown=function(ev){
+					//判断用户按的是否是回车键,如果是,就把输入框中的内容添加在留言区
+					
+					var eventObj=ev||event;
+					if(eventObj.keyCode==13){
+						
+						if(text.value.length==0){
+							text.placeholder="请输入留言";
+						}
+						else {
+							
+							//把输入框中的内容添加在留言区
+						var content=text.value;
+						//创建一个p标签,把用户输入的文本放在标签中
+						var p=document.createElement('p');
+						p.innerHTML=content;
+						//直接把留言内容丢在div标签中
+						area.appendChild(p);
+						//当用户按下回车按键后,需要清空当前输入框中的值
+						text.value='';
+							
+						}
+						
+						
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!--用户输入留言-->
+		<input type="text" name='text' id='text' value="" />
+		<!--留言显示区域-->
+		<div id="area"></div>
+	</body>
+</html>

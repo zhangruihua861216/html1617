@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//延时定时器? 让函数延迟若干毫秒执行,只执行一次.
+			
+			
+			alert('1');
+			
+			//延时定时器参数和循环定时参数一样.当代码执行到延时计时器时,会开启一个时钟,代码会跳过延迟函数继续向后执行,当时钟达到设定的时间后,再回来触发该函数.
+			
+			//每开启一个延时定时器,会返回该定时器的ID,通过这个ID就可以获取到这个定时器.
+			
+			var timer=setTimeout(function(){
+				alert('2');
+			},2000);
+			
+			
+			//清理延时定时器:通过id获取到要清理的定时器.
+			clearTimeout(timer);
+			
+			alert('3');
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

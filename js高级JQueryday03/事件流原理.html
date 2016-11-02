@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div>
+			<p><span><a href="#">我是a标签</a></span></p>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		var root=document.getElementsByTagName("body")[0];
+		var children=root.childNodes;
+		
+		var div=document.getElementsByTagName("div")[0];
+		
+		var p=document.getElementsByTagName("p")[0];
+		
+		var span=document.getElementsByTagName("span")[0];
+		
+		var a=document.getElementsByTagName("a")[0];
+		
+		root.onclick=function(){
+			console.log("我是body 1");
+		}
+		
+		root.onclick=function(){
+			console.log("我是body 2");
+		}
+		
+		root.addEventListener('click',function(){
+			console.log("1 我是body");
+		},true);
+		
+		div.addEventListener('click',function(){
+			console.log("2 我是div");
+		},true);
+		
+		p.addEventListener('click',function(){
+			console.log("3 我是p");
+		},true);
+		
+		span.addEventListener('click',function(){
+			console.log("4 我是span");
+		},true);
+		
+		a.addEventListener('click',function(){
+			console.log("5 我是a");
+		},true);
+		
+		
+		root.addEventListener('click',function(){
+			console.log("1 我是body");
+		});
+		
+		div.addEventListener('click',function(){
+			console.log("2 我是div");
+		});
+		
+		p.addEventListener('click',function(){
+			console.log("3 我是p");
+		});
+		
+		span.addEventListener('click',function(){
+			console.log("4 我是span");
+		});
+		
+		a.addEventListener('click',function(){
+			console.log("5 我是a");
+		});			
+		
+//		for(var i=0;i<children.length;i++){
+//			console.log(children[i]);
+//		}
+
+		for(var i=0;i<children.length;i++){
+			if(children[i].nodeType!=3){
+			console.log(children[i]);	
+			}
+			
+		}
+	</script>
+</html>

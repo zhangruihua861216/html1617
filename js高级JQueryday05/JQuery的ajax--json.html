@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<form action="">
+			<ul>
+				<li><span>用户名：</span><input type="text"  name="username"/></li>
+				<li><span>年龄：</span><input type="text"  name="password"/></li>
+				<li><span>性别：</span><input type="text"  name="age"/></li>
+				<li><span>性别：</span><input type="text"  name="height"/></li>
+				<li><button class="submit">提交</button></li>	
+				
+			</ul>
+		</form>				
+	</body>
+	<script type="text/javascript">
+	   
+	   var url="http://10.0.161.193：8080"+'/myapp/abc.js';
+
+		$(document).ready(function(){
+	     $.getJSON(url,fn);
+	     function fn(data){
+	     	console.log(data);
+	     	var obj=JSON.parse(data);
+	     	
+	     	console.log("name="+obj.name);
+	     	console.log("age="+obj.age);
+	     	obj.frends.forEach(function(elem,index){
+	     		console.log(elem);
+	     	})
+	     }
+		})
+	</script>
+</html>

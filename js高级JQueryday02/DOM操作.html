@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="container">
+			<button>点击打印</button>
+		</div>
+		<div id="targetContainer"></div>
+		<div>
+			<button id="statClone">开始克隆</button>
+		</div>
+	</body>
+	<!--<script type="text/javascript">
+		var source=document.getElementById("container");
+		var target=document.getElementById("targetContainer");
+		var cloneBtn=document.getElementById("statClone");
+		cloneBtn.onclick=function(){
+			target.appendChild(source.cloneNode(true)); //克隆子元素
+			target.appendChild(source.cloneNode()); //不克隆子元素
+		}
+	</script>-->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$("button").attr("data-mydata","hello");
+			
+			$("#container button").click(function(){
+				console.log("我是按钮");
+			})
+			
+			
+			
+			$("#statClone").click(function(){
+			$("#targetContainer").append($("#container").clone(true));				
+			})
+			
+
+		})
+	</script>
+	<!--<script type="text/javascript">
+	var myA=$("<a href='#'>百度</a>");
+	myA.css("border","1px solid red");
+	myB.css("border","1px solid green");
+	console.log("myA: "+myA);
+	var myB=myA.clone();
+	console.log("myB: "+myB);
+	</script>-->
+</html>

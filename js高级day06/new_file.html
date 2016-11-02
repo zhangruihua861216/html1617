@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<button>克隆</button>
+		<div>
+			<p>目标</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var btn=document.getElementsByTagName("button")[0];
+		btn.onclick=function(){
+			var div=document.getElementsByTagName("div")[0];
+			var cloneObj=div.cloneNode(true)
+			cloneObj.style.background="red";
+			document.getElementsByTagName("body")[0].appendChild(cloneObj);
+		}
+	</script>
+</html>

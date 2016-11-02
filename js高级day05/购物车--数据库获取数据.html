@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		   *{
+		   	margin: 0;
+		   	padding: 0;
+		   }
+		    body{
+		    	font-size: 14px;
+		    	color: #666666;
+		    	width: 1004px;
+		    	margin: 0 auto;
+		    }
+		    .content_left{
+		    	width: 212px;
+		    	background: peachpuff;
+		    	height: 1000px;
+		    	float: left;
+		    	margin-right: 12px;
+		    }
+		    .content_right{
+		    	width: 780px;
+		    	background: papayawhip;
+		    	float: left;
+		    	
+		    }
+		    li{
+		    	height: 26px;
+		    	border: 1px solid red;
+		    	line-height: 26px;
+		    }
+			.borderBottom{
+				border:  1px solid #dddddd;
+				height:178px ;
+			    padding-top: 25px;
+
+			}
+            .booknameBook{
+            	color: #0066aa;
+            }			
+			.bookImg{
+				width: 91px;
+				float: left;
+				border: 1px solid red;
+				
+			}
+			.bookUl{
+				list-style: none;
+				float: left;
+				margin-left: 10px;
+				width: 600px;
+
+
+			}
+			
+			.spanBook{
+				padding:0 15px;
+				border-right: 1px solid #949494;
+				font-size: 12px;
+			}
+			.spanBook:last-of-type{
+				border-right: none;
+			}
+			.spanBook:first-of-type{
+				padding-left: 0px;
+			}			
+			.bookhyPrice{
+				color:#fb751b;
+				font-weight: bold;
+				margin-right: 170px;
+			}
+			
+			.Price{
+			     text-decoration: line-through;
+			     color: #999999;
+			}
+			
+
+			.imgBookB{
+				vertical-align:middle;
+				margin-top: -5px;
+				margin-right: 6px;
+				
+			}
+
+			.buyBtnImg{
+				margin-left: 100px;
+				vertical-align: middle;
+				margin-top: -3px;				
+			}
+		</style>
+ 
+	</head>
+	<body>
+		
+		<div id="content">
+			<div class="content_left"></div>
+			<div class="content_right"></div>
+		</div>
+
+	</body>
+    <script>
+     			function createXHR(){
+			//如果浏览器支持XMLHttpRquest那么直接创建返回该对象
+			
+			if(typeof XMLHttpRequest !="undefined"){
+				return new XMLHttpRequest();
+			}else if(typeof ActiveXObject !="undefined")
+			{
+				if(typeof arguments.callee.activeXString !="string"){
+					var versions=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp'];
+					for(var i=0;i<versions.length;i++){
+						try{
+							new ActiveXObject(versions[i]);
+							arguments.callee.activeXString=versions[i];
+						}catch(e){
+							
+						}
+						
+					}
+				}
+				
+				return new ActiveXObject(arguments.callee.activeXString);
+			}else{
+				throw new Error("无法正常创建ajax对象");
+			}
+		}
+     			
+     			
+
+		//第一步：创建XMLHttpRequest对象
+		var XHR=createXHR()
+		//第二步：初始化该对象
+//		XHR.open(请求的方式或者类型,请求的url,同步或者异步的标志)
+		XHR.open("get","http://localhost:5050/books/");
+		
+		//第三 步：发送请求  有数据发送，传到send的方法中，没有一定要传null
+		
+		XHR.send(null);
+		
+		//第四步：处理接受数据
+		
+		XHR.onreadystatechange=function(){
+			if(XHR.readyState==4){
+			 console.log(XHR.responseText);
+			var data=JSON.parse(XHR.responseText);
+			 console.log(data);
+			 
+//////////////////////////////////////////////////////////////////////////////////////////
+	  		
+		for(var i=0;i<data.length;i++){
+
+			//第一步，设置下划线
+			var div=document.createElement("div");
+			div.setAttribute("class","borderBottom")
+			var contentRight=document.querySelector(".content_right");
+			contentRight.appendChild(div);
+			
+			//第二步，显示图片
+			var img=document.createElement("img");
+			img.setAttribute("class","bookImg");
+			img.setAttribute("src",data[i].pic);
+			div.appendChild(img);			
+			
+			//第三步显示文字，放到ul列表
+			//div.innerHTML=data[i].bookname;
+			
+			var ul=document.createElement("ul");
+			ul.setAttribute("class","bookUl");
+			
+			//第三步 第一个li显示 书本名称
+		    var li=document.createElement("li");
+		    li.setAttribute("class","booknameBook")
+			ul.appendChild(li);
+			li.innerHTML=data[i].bookname;
+			div.appendChild(ul);
+			
+			//第三步 第二个li的第一个span显示 作者
+			
+		    var li=document.createElement("li");
+			ul.appendChild(li);
+			
+			var span=document.createElement("span");
+			span.setAttribute("class","spanBook")
+			span.innerHTML=data[i].author;
+			li.appendChild(span);
+			div.appendChild(ul);
+			
+			//第三步 第二个li的第二个span显示 出版社
+			var span=document.createElement("span");
+			span.setAttribute("class","spanBook")
+			span.innerHTML=data[i].publisher;
+			li.appendChild(span);
+			
+			//第三步 第二个li的第三个span显示 版本号
+			var span=document.createElement("span");
+			span.setAttribute("class","spanBook")
+			span.innerHTML=data[i].isbn;
+			li.appendChild(span);			
+			
+
+			//第三步 第二个li的第四个span显示 日期
+			var span=document.createElement("span");
+			span.setAttribute("class","spanBook")
+			span.innerHTML=data[i].sjDate;
+			li.appendChild(span);
+			
+			
+			//第三步 第三个li显示 评价
+			
+		    var li=document.createElement("li");
+		    ul.appendChild(li);
+		    
+		   
+		    //获取评价数量data[i].pf
+		    //循环变量显示图片
+		     for(var j=0;j<data[i].pf;j++){
+		     	var img=document.createElement("img");
+		     	 img.setAttribute("src","images/star_1.gif");
+		     	 li.appendChild(img);
+		     }
+		     
+		     		     	 
+		     for(var k=0;k<5-data[i].pf;k++){
+		     	 var img=document.createElement("img");
+		     	 img.setAttribute("src","images/star_0.gif");
+		     	 li.appendChild(img);
+		     	 li.appendChild(document.createComment("ddddddd"));
+		     	}
+		     
+		     
+		     //第四步 显示B价格
+			 var li=document.createElement("li");
+		     ul.appendChild(li);		     
+		     var img=document.createElement("img");
+		     img.setAttribute("class","imgBookB");
+		     img.setAttribute("src","images/b.gif");
+		     li.appendChild(img);
+		     var span=document.createElement("span");
+		     span.setAttribute("class","spanBooktitle")
+		     span.innerHTML="VIP价:"
+		     li.appendChild(span);
+		     var span=document.createElement("span");
+		     span.setAttribute("class","bookhyPrice")
+		     span.innerHTML="￥"+data[i].hyPrice+"("+parseFloat((data[i].hyPrice/data[i].price)*10).toFixed(1)+"折)";
+		     li.appendChild(span);		     
+		     var span=document.createElement("span");
+		     span.setAttribute("class","Price")
+		     span.innerHTML="￥"+data[i].price;
+		     li.appendChild(span);
+		     var img=document.createElement("img");
+		     img.src="images/buyBtn.png";
+		     img.setAttribute("class","buyBtnImg");
+		     var imgA=document.createElement("a");
+		     imgA.setAttribute("href","#");
+		     imgA.appendChild(img);
+		     li.appendChild(imgA);
+		     
+		     
+		     //第五步 显示E价格
+			 var li=document.createElement("li");
+		     ul.appendChild(li);		     
+		     var img=document.createElement("img");
+		     img.setAttribute("class","imgBookB");
+		     img.setAttribute("src","images/e.gif");
+		     li.appendChild(img);
+		     var span=document.createElement("span");
+		     span.setAttribute("class","spanBooktitle")
+		     span.innerHTML="Ebook价:"
+		     li.appendChild(span);
+		     var span=document.createElement("span");
+		     span.setAttribute("class","bookhyPrice")
+		     span.innerHTML="￥"+data[i].hyPrice;
+		     li.appendChild(span);
+		     var span=document.createElement("span");
+		     span.setAttribute("class","Price")
+		     span.innerHTML="￥"+data[i].price;
+		     li.appendChild(span);			     
+		}//i 循环 	
+		
+	}
+}			
+			
+     </script>   	
+	<script>
+		
+	</script>
+</html>

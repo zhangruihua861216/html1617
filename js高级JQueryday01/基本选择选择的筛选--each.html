@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li class="type">家电</li>
+				<li class="type">手机</li>
+				<li class="type">食品</li>
+				<li class="type">服装</li>
+				<li class="type">小电器</li>
+				<li class="type">家电</li>
+				<li class="type">手机</li>
+				<li class="type">食品</li>
+				<li class="type">服装</li>
+				<li class="type">小电器</li>
+			</ul>
+		</div>
+		<div>
+			<button></button>
+			<button></button>
+			<button></button>
+			<button></button>
+		</div>
+		<div>
+			<input type="submit" value="1"/>
+			<input type="radio"  value="2"/>
+			<input type="radio"  value="20"/>
+			<input type="radio"  value="200"/>
+			<input type="checkbox" value="3"/>
+			<input type="hidden" value="4"/>
+		</div>
+		<div>
+			<h1></h1>
+			<h2></h2>
+			<h3></h3>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("ul").css("list-style","none").css("padding","0");
+			$("li").css("display","inline-block");
+			$("li:first").css("background","red");
+			$("li:last").css("background","greenyellow");
+			$("li:even").css("color","bisque");
+//			$("li:odd").css("color","aqua");
+			$("li:eq(3)").css("border","1px solid red");
+			$("li:lt(2)").css("font-weight","bold").css("font-size","50px");
+			$("li:gt(2)").css("text-decoration","underline").css("font-style","italic");
+			$("li:contains(电)").each(function(index,elem){
+				console.log(index+""+elem);
+				console.log(index+""+elem.innerHTML);
+			});
+			$("div>ul>li").each(function(index,elem){
+				console.log(index+""+elem);
+				console.log(index+""+elem.innerHTML);
+			})
+			console.log("----")
+			$("div>ul>li:eq(2)").each(function(index,elem){
+				console.log(index+""+elem.innerHTML);
+			})	
+			
+		   console.log($(":submit"));
+		   console.log($(":submit")[0].value);
+		   console.log($(":radio")[0].value);
+		   for(var i=0;i<$(":radio").length;i++){
+		   	console.log($(":radio")[i].value);
+		   }
+		   console.log($(":header"));
+		});
+		
+		
+		
+	</script>
+</html>

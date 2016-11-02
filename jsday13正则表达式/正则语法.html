@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//修饰符:用来修饰正则表达式的字符
+			// i:让正则表达式不区分大小写区分
+			// g:让正则在匹配时全局匹配,而不是找到一个符合规则后停止
+			var str='abceADfdgradfd';
+			
+			var regEXp=/a/ig;
+			
+			 alert(str.match(regEXp));
+			 
+			 //量词
+			 
+			 var str1='hdfdfello world,hellllllll';
+			 var regExp1=/^h.+l/g;
+			 alert(str1.match(regExp1));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

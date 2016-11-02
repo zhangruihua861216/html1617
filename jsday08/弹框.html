@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+		//confirm()弹框会给用户提供两个选择:确定和取消,用户点击确定,返回true;否则返回false(用户点击了取消按钮和关闭按钮都会返回false)
+		
+//			var bol=confirm("hello world");
+//			if(bol){
+//				alert("你点击了确定");
+//			}else{
+//				alert("你为什么要取消我");
+//			}
+//			
+			var str=prompt("你好呀,请输入您的名字","张三");
+			console.log(str);
+			
+			//判断用户在输入框中输入值
+			
+			if(str!=null&&str!="张三"&&str.length!=0){
+				
+				alert("hello"+str);
+				
+			}else{
+				alert("请输入名字");
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

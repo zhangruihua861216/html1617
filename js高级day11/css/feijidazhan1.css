@@ -1,0 +1,20 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/*开始页样式*/
+/*.start-page{
+	width: 512px;
+	height: 768px;
+	background: url(../img/img_bg_logo.jpg) no-repeat 100%;
+	border-radius: 8px;
+	box-shadow: 8px 8px 8px #666;
+	position: absolute;
+	z-index: 1;
+}*/
+
+ *{
+	background:url(../images/LOGO.png) no-repeat center;
+}
+
+

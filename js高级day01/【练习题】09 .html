@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Auto(num,color,weight,speed){
+				this.num=num;
+				this.color=color;
+				this.weight=weight;
+				this.speed=speed;
+			}
+			//创建一个新的对象，替换原来默认的原型
+			Auto.prototype={
+				constructor:auto,
+				stop:function(){
+					this.speed=0;
+				},
+				speedUp:function(){
+					this.speed++;
+				},
+				speedDown:function(){
+					this.speed--;
+				}
+				
+			}
+			
+			//在构造函数默认的原型对象上添加方法
+			
+			//
+			Auto.prototype.stop=function(){
+				this.speed=0;
+			}
+			
+			Auto.prototype.speedUp=function(){
+				this.speed++;
+			}
+			
+			Auto.prototype.speedDown=function(){
+				this.speed--;
+			}
+			
+			
+			function Car(){
+				var a=arguments;
+				this.kt=arguments[0];
+				this.cd=arguments[1];
+				Auto.call(this,a[2],a[3],a[4],a[5]);
+			}
+			
+			
+			
+			
+			var yx=new Auto();
+			
+			Car.prototype=yx;
+			
+			yx.speedUp=function(){
+				this.speed++;
+				this.speed++;
+			}
+			
+			yx.speedDown=function(){
+				this.speed--;
+				this.speed--;
+			}
+			
+			
+			var benz=new Car("海尔","索尼",4,"红色","200T","0");
+		     benz.speedUp();
+		     console.log(benz);
+		     console.log(benz.speed);
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

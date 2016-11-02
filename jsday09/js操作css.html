@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height:100px;
+				border: 5px solid black;
+				position: absolute;
+				left: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var div=document.getElementById('div1');
+				
+				//使用js修改标签样式
+				
+				//修改宽高
+				
+				div.style.width='200px';
+				div.style.height='200px';
+				
+				//修改背景颜色
+				div.style.backgroundColor='darkgoldenrod';
+				div.style.borderRadius='50%';
+				
+				//获取当前标签左侧的距离:offsetleft
+				
+//				console.log(div.offsetLeft);
+				
+				//设置定时器,每隔一秒钟,div的左间距+10
+				
+				var left=div.offsetLeft;
+				
+				var timer=setInterval(function(){
+					
+					//0.判断当前小球左侧是否达到1000px;达到就停止
+					
+					if(left>1000){
+				        clearInterval(timer);
+					}
+					
+					//1.获取到当前div左侧的间隔
+					
+//					left=div.offsetLeft;
+					
+					//2.在当前间隔基础上,加10
+					
+					left+=10;
+					
+					//3.把加完的数值赋给标签
+					div.style.left=left+'px';
+					
+				},10);
+				
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+</html>

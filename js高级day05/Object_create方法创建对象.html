@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Person(name){
+				this.name=name;
+			}
+			Person.prototype.say=function(){
+				console.log("我是"+this.name);
+			}
+			//两个参数：
+            //第一个参数是创建对象的原型
+            //第二个参数是创建对象新增属性
+			var tom =Object.create(new Person("tom"));
+			var jarry =Object.create(new Person("jarry"),{
+				age:{
+					value:12
+				}
+			});
+			console.log(tom);
+			tom.say();
+			jarry.say();
+			console.log(tom.__proto__==jarry.__proto__);
+			
+			var personProto=new Person("tom");
+			
+			var tom1=Object.create(personProto);
+			
+			var jarry1=Object.create(personProto);
+			
+			console.log(jarry)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//aop:面向方面的编程技术
+			
+			//面向方面的编程技术是面向对象的编程技术的补充
+			
+			//设计一个函数，调用前必须要输出一些字符，调用完成后，再输出一些字符
+			
+			function fn(){
+				console.log("我是函数");
+			}
+			
+			Function.prototype.before=function(beforeFn){
+				//原来函数的引用保存起来
+				var that=this;
+				return function(){//包含了原函数和代理函数
+					var result=beforeFn.apply(this,arguments);
+					//执行目标函数
+					if(result==true)
+					return  that.apply(this,arguments);
+				}
+			}
+			function bf(){
+			console.log("调用前");
+			return false;
+			}
+
+			fn();
+			console.log("调用后");			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

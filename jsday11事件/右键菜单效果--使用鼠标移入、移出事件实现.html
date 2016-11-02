@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    *{
+		    	margin: 0;
+		    	padding: 0;
+		    }
+			ul{
+				display: none;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){	
+				var ul=document.querySelector('ul');
+
+				document.oncontextmenu= function(ev){
+					var eventObj=ev||event;				  
+					ul.style.display='block';
+					var left=eventObj.pageX;
+					var top=eventObj.pageY;
+					ul.style.left=left+'px';
+					ul.style.top=top+'px';
+					return false;
+				}
+				var li=document.querySelectorAll('li');
+				for(var i=0;i<li.length;i++){
+					li[i].onmouseover=function(){	
+					this.style.background='red';
+					}
+				    li[i].onmouseout=function(){
+					this.style.background='none';
+					}
+				}
+				document.onclick=function(){
+					ul.style.display='none';
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>菜单1</li>
+			<li>菜单2</li>
+			<li>菜单3</li>
+			<li>菜单4</li>
+			<li>菜单5</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#table{
+				display: table;
+			}
+			.drow{
+				display: table-row;
+			}
+			.dcell{
+				display: table-cell;
+			}
+			.dcell img{
+				width: 70px;
+				height: 100px;
+			}
+			.dcell input{
+				width:20px;
+			}
+		</style>		
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="form">
+			<div id="table">
+				<div class="drow">
+					<div class="dcell">
+						<img src="img/1.jpg" alt="" />
+						<input type="text" />
+						<label for='tom'>tom</label>
+					</div>
+						<div class="dcell">
+						<img src="img/10.jpg" alt="" />
+						<input type="text" />
+						<label for='mark'>mark</label>
+					</div>
+					<div class="dcell">
+						<img src="img/11.jpg" alt="" />
+						<input type="text" />
+						<label for='jarry'>jarry</label>
+					</div>
+					<div class="dcell">
+						<img src="img/12.jpg" alt="" />
+						<input type="text" />
+						<label for='joe'>joe</label>
+
+					</div>
+				</div>
+				<div class="drow">
+					<div class="dcell">
+						<img src="img/13.jpg" alt="" />
+						<input type="text" />
+						<label for='john'>john</label>
+					</div>
+					<div class="dcell">
+						<img src="" alt="" />
+						<input type="text" />
+						<label for='max'>max</label>
+					</div>
+					<div class="dcell">
+						<img src="img/14.jpg" alt="" />
+						<input type="text" />
+						<label for='marry'>marry</label>
+					</div>
+					<div class="dcell">
+						<img src="img/15.jpg" alt="" />
+						<input type="text" />
+						<label for='xiaoming'>xiaoming</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		//map方法的演示
+		
+		$("label").map(function(index,elem){
+			
+//			console.log(index+"-----"+elem.innerHTML);
+			if(index%2!=0){
+				console.log(elem);
+				return elem;
+			}
+			
+		}).css("border","1px solid blue");
+		
+		result=$("img").is(function(index,elem){
+			console.log(elem.getAttribute("src"));
+			return elem.getAttribute("src")=="img/14.jpg";
+			
+			
+		});
+		
+		console.log(result);
+		  
+		})	
+		
+
+	</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#block1{
+				width: 200px;
+				height: 200px;
+				background:#8FBC8F;
+				position: absolute;
+				left: 40px;
+				top:40px;
+			}
+			#block2{
+				width: 100px;
+				height:100px;
+				background:#FA8072;
+				position: absolute;
+				left: 340px;
+				top:340px;
+			}			
+		</style>
+	</head>
+	<body>
+		<div id="block1"></div>	
+		<div id="block2"></div>			
+	</body>
+	<script type="text/javascript">
+	var b1=document.getElementById("block1");
+	var b2=document.getElementById("block2");
+	drag(b1);
+	drag(b2);
+		function drag(obj){
+			obj.onmousedown=function(e){
+				var dX=e.offsetX;
+				var dY=e.offsetY;
+				document.onmousemove=function(ev){
+					var x=ev.clientX;
+					var y=ev.clientY;
+					obj.style.left=(x-dX)+"px";
+					obj.style.top=(y-dY)+"px";
+					
+					//碰撞的判断					
+					
+					var l1=b1.offsetLeft;//第一个元素距离窗口左侧距离
+					var r1=b1.offsetWidth+l1;//第一个元素最右侧距离
+					var h1=b1.offsetTop;  //第一元素距离窗口顶部距离
+					var m1=b1.offsetHeight+h1;
+					
+					
+					var l2=b2.offsetLeft;//第二个元素距离窗口左侧距离
+					var r2=b2.offsetWidth+l2;//第二个元素最右侧距离
+					var h2=b2.offsetTop;  //第二元素距离窗口顶部距离
+					var m2=b2.offsetHeight+h2;
+
+						
+//					if((r2>=l1&&l2<=r1)&&(h1<=m2&&m1>=h2)){
+					if((l1<=r2&&r1>=l2)&&(h1<=m2&&m1>=h2)){						
+						b1.style.background="pink";
+						b2.style.background="pink";
+						
+					}else{
+						b1.style.background="";
+						b2.style.background="";
+					}
+
+				}
+			}
+			obj.onmouseup=function(){
+				document.onmousemove=null;
+			}
+		}
+	</script>
+</html>

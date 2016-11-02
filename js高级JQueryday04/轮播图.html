@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#banner{
+				width: 790px;
+				margin:0 auto;
+				height: 340px;
+				position: relative;
+			}
+			#banner img{
+				width: 790px;
+				height: 340px;
+			}
+			
+			#banner div a{
+				display: inline-block;
+				width: 26px;
+				height: 26px;
+				border-radius: 50%;
+				background: #ccc;
+				color: #fff;
+				line-height: 26px;
+				text-align: center;
+				text-decoration: none;
+				font-weight: bold;
+			}
+			#banner div{
+				position: absolute;
+				bottom: 7px;
+				background: #666;
+				width: 790px;
+				text-align: center;
+				opacity: 0.5;
+			}
+			#banner div a:hover{
+				background:red;
+			}
+			.hov{
+				background:red !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="banner">
+			<img src="img/1.jpg"/>			
+			<div>
+				<a href="#">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+				<a href="#">6</a>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+	    var root=document.getElementById("banner");
+	    var imgPath="img/";
+		var imgElem=root.getElementsByTagName('img')[0];
+		var allA=root.getElementsByTagName("a");
+		var index=1;
+		function changeImg(){
+			index++;
+			if(index==7){
+				index=1;
+			}
+			imgElem.src=imgPath+index+".jpg";
+			for(var m=0;m<allA.length;m++){
+				allA[m].setAttribute("class","");
+			}			
+			allA[index-1].className="hov";
+		}		
+		var k=setInterval(changeImg,2000);
+		for(var i=0;i<allA.length;i++){
+			(function(j){
+				allA[j].onmouseenter=function(){
+					clearInterval(k);
+					imgElem.src=imgPath+(j+1)+'.jpg';
+					//去掉所有a标签的类名
+					for(var m=0;m<allA.length;m++){
+						allA[m].setAttribute("class","");
+					}
+					allA[j].setAttribute("class","hov");
+					
+					this.onmouseout=function(){
+						k=setInterval(changeImg,2000);
+						this.setAttribute("class","hov");
+					}
+				}
+				
+			})(i);
+			
+
+		}
+	</script>
+</html>

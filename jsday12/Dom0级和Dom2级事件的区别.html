@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<style type="text/css">
+	div{
+		width: 100px;
+		height: 100px;
+		background: yellow;
+		border-radius: 50%;
+	}
+</style>
+<script type="text/javascript">
+		window.onload=function(){
+			//Dom0级事件的特征
+			
+			//同一个标签的同一个事件只能绑定一个函数,如果绑定多个,则后绑定的会覆盖前边绑定的
+			
+			//通过Dom0级事件处理添加的函数,在清理事件时,只需要给这个事件赋一个null即可
+			
+			//可以把事件写在标签内部
+			
+			//不存在兼容性问题
+			var div=document.querySelector('div');
+			div.onclick=function(){
+				alert("第一次添加事件");
+			}
+			div.onclick=function(){
+				alert("第二次添加事件");
+			}
+//			
+//			//Dom0级添加的事件,清除事件的操作
+//			div.onclick=null;
+			
+			//Dom2级事件特性
+			//Dom2级事件处理,可以给同一个标签的同一个事件绑定多个函数,触发事件时按照绑定的顺序执行相应的函数
+			//Dom2级事件处理移除事件时,使用removeEventListener()方法
+			//Dom2级事件处理函数存在兼容问题,在IE8以及之前的浏览器中需要使用IE的私有方法添加
+//			function sayHi(){
+//				alert('hello');
+//			}
+//			function sayBye(){
+//				alert('bye');
+//			}
+//			
+//			div.addEventListener('click',sayHi);
+//			div.addEventListener('click',sayBye);
+//			
+//			//移除Dom2级添加的事件
+//			//第一个参数表示要移除的事件名,第二个参数是要移除事件名所触发的函数名			
+//			div.removeEventListener('click',sayBye);
+//			
+//			//IE8以及之前浏览器的兼容写法
+//			div.attachEvent('onclick',sayhi);
+//			div.detachEvent('onclick',sayHi);
+		}
+</script>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

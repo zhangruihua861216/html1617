@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function phone(model,memory,power,size,weight){
+				bconsole.log(this);
+				this.model=model;
+				this.memory=memory;
+				this.power=power;
+				this.size=size;
+				this.weight=weight;
+				
+			}			
+			phone.prototype.call=function(){}
+			phone.prototype.sendMessage=function(){};
+			phone.prototype.alarm=function(){};
+			function Xiaomi(model,memory,power,size,weight){
+				
+				console.log("小米");
+				console.log(this);
+				phone.call(this,model,memory,power,size,weight);
+				
+//				phone.call(this.arguments);
+			}
+			function Samsung(model,memory,power,size,weight){
+				
+				console.log("三星");
+				console.log(this);
+				phone.call(this,model,memory,power,size,weight);
+			}
+			function Huawei(model,memory,power,size,weight){
+				console.log("华为");
+				console.log(this);
+				phone.call(this,model,memory,power,size,weight)
+			}
+			
+			var phoneproto=new phone();
+			
+			
+			Samsung.prototype=phoneproto;
+			
+			Xiaomi.prototype=phoneproto;
+			
+			Huawei.prototype=phoneproto;
+			
+			
+//			Samsung.prototype=new phone("1","2","3","4","5");
+//			
+//			Xiaomi.prototype=new phone("1","2","3","4","5");
+//			
+//			Huawei.prototype=new phone("1","2","3","4","5");
+
+			var s1=new Samsung("1","2","3","4","5");
+			
+			console.log("--------------------");
+			var s2=new Samsung("1","2","3","4","5");
+			console.log("--------------------");
+			var x1=new Xiaomi("1","2","3","4","5");
+			console.log("--------------------");			
+			var h1=new Huawei("1","2","3","4","5");
+			
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

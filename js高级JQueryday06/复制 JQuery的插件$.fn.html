@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div><a href="www.baidu.com"></a></div>
+		<div><a href="www.souhu.com"></a></div>
+		<div><a href="www.sina.com"></a></div>
+	</body>
+	<script type="text/javascript">
+		function Person(){
+			
+		}
+		Person.prototype.say=function(){
+			
+		}
+		Person.prototype.speak=function(){
+			
+		}
+		function turnRedBg(color){
+			console.log(this);
+//			if(this instanceof JQuery)
+			return this.css("background",color)
+		}
+//		function turnRedBg(color){
+////			console.log(this);
+//			if(this instanceof JQuery)
+//			this.css("background",color);
+//			return;
+//		}		
+		function turnBorder(bg){
+			return this.css("border",bg);
+		}
+//		function turnBorder(bg){
+//			this.css("border",bg);
+//			return;
+//		}		
+//		$.fn  //就是JQuery对象的原型
+
+		$.fn.turnRedBg=turnRedBg;
+		$.fn.turnBorder=turnBorder;
+//		turnRedBg();  //直接调用
+		var mydivs=$("div");
+		mydivs.turnRedBg("red").turnBorder("1px solid green");
+
+	</script>
+</html>

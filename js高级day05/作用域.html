@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var i=1;
+			function f(){
+				var i=10;
+			}
+			
+			f();
+			
+			function closure(){
+				
+				var i=10;
+				
+				return function(){
+					console.log(i);
+				}
+				
+			}
+			
+			var s=closure();
+			s();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

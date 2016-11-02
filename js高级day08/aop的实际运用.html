@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="container"></div>
+	</body>
+	<script type="text/javascript">
+		var root=document.getElementById("container");
+		var createSpan=function(root,data){
+				var elem=document.createElement("span");
+				elem.innerHTML=data;
+				root.appendChild(elem);
+
+		}
+		
+		for(var i=0;i<6;i++){
+			createSpan(root,i);
+		}
+		
+		function cSpan(fn){
+			var node=document.createElement("span");
+			if(typeof fn=="function"){
+				fn(node);
+			}
+			
+			return node;
+		}
+		
+		function cDiv(fn){
+			var node=document.createElement("div");
+			if(typeof fn=="function"){
+				fn(node);
+			}
+			
+			return node;
+		}	
+		
+		function cElem(elemName,fn){
+			var node=document.createElement(elemName);
+			if(typeof fn=="function"){
+				fn(node);
+			}
+			
+			return node;
+		}
+		
+		//aop函数
+		function proxy(bf,target){
+			//调用bf函数
+			var div=bf.apply(this,arguments);
+			var span=target.apply(this,arguments);
+			div.appendChild(span);
+			
+			return div;
+			
+		}
+		
+		for(var i=0;i<6;i++){
+			var e=proxy(cDiv,cSpan);
+			root.appendChild(e);
+		}
+	</script>
+</html>

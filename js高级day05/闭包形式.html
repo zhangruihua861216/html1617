@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<script type="text/javascript">
+		
+		//产生闭包的第一种形式
+			function f(){
+				var i=10;
+				return function(){
+					alert(i);
+				}
+			}
+			
+			var f1=f();
+			f1();
+			
+			//产生闭包的第二种形式
+			
+			function  ff(){
+				var i=1000;
+				n=function(){
+					console.log(i);
+				}
+			}
+			
+			ff();
+			n();
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

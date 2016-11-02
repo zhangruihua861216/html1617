@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		   *{
+		   	margin: 0px;
+		   	padding: 0px;
+		   }
+		   body{
+		   	font-family: "微软雅黑";
+		   }
+		    .Stayr{
+		   	height: 340px;
+		   	width: 45px;
+		   	background: #000000;
+		   	float: left;
+			border-radius: 0 8px 8px 0;	
+			display: none; 
+		
+		   	
+		   }
+
+			
+			.share{
+				height: 100px;
+				text-align: center;
+				width: 30px;
+				background: #000000;
+				color: #FFFFFF;
+				float: left;
+				line-height: 40px;
+				padding-top: 10px;
+				margin-top: 120px;
+				border-radius: 0 8px 8px 0;
+			}
+			ul{
+				list-style: none;
+				padding-top: 16px;
+			}
+			li{
+				width: 34px;
+				height: 34px;
+				background:url(img/CSSSatyr.gif);
+				margin-bottom: 20px;
+			
+			}
+			
+			li:nth-of-type(2){
+				background-position: 0 -50px;
+			
+			}
+			li:nth-of-type(3){
+				background-position: 0 -100px;
+
+			}
+			li:nth-of-type(4){
+				background-position: 0 -150px;
+			}
+			li:nth-of-type(5){
+				background-position: 0 -200px;
+			}
+			li:nth-of-type(6){
+				background-position: 0 -250px;
+			}
+			a{
+				display: inline-block;
+				width: 34px;
+				height: 34px;
+			}
+			.fix{
+				height: 340px;
+				position: fixed;
+				bottom: 36%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="fix">
+	        <div class="Stayr">
+				<ul>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>				
+				</ul>	
+			</div>
+			<div class="share">分享</div>			
+		</div>
+
+	
+	</body>
+     <script type="text/javascript">
+		var divShare=document.querySelector(".share");
+		var divStayr=document.querySelector(".Stayr");
+		divShare.onmouseover=function(){			
+				divStayr.style.display="block";
+		
+		}
+		divShare.onmouseout=function(){			
+				divStayr.style.display="none";
+		
+		}		
+		divStayr.onmouseout=function(){
+				divStayr.style.display="none";			
+		}
+		divStayr.onmousemove=function(){
+				divStayr.style.display="block";			
+		}
+
+     </script>
+
+</html>

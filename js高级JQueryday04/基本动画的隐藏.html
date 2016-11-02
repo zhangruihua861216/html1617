@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#container div{
+				width: 200px;
+				height: 50px;
+				margin-bottom: 2px;
+			}
+			#container div:first-of-type{
+				background: red;
+			}
+			#container div:nth-of-type(2){
+				background: blue;
+			}
+			#container div:nth-of-type(3){
+				background: green;
+				position: relative;
+				left: 100px;
+			}			
+			
+			
+		</style>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div>
+		<button>隐藏</button>
+		<button>显示</button>
+		<button>再说</button>			
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+//			//1.
+//			function handlerHideDiv(e){
+//				$("#container div").hide(3000,'linear',function(){
+//					console.log("隐藏动画已经执行完毕");
+//				});
+//			}
+//			//2.隐藏
+//			$("button:first").on("click",handlerHideDiv);
+//			
+//			//1.
+//			
+//			function handlerShowDiv(e){
+//				$("#container div").show(3000,'linear',function(){
+//					console.log("显示动画已经执行完毕");
+//				});
+//			}
+//			//2.
+//			$("button:eq(1)").on("click",handlerShowDiv);
+			
+			
+////////////////////////////////////////////////////////
+//			function hideDiv(){
+//				$("#container div").hide(1000,"linear",showDiv);
+//			}
+//
+//			function showDiv(){
+//				$("#container div").show(1000,"linear",hideDiv);
+//			}
+//			
+//			$("button:last").on("click",function(){
+//				hideDiv();
+//			})
+////////////////////////////////////////////////////////
+//			function handlerToggleDiv(){
+//				$("#container div").toggle(1000,'linear',handlerToggleDiv)
+//			}
+//			
+//			$("button:last").on("click",handlerToggleDiv);
+
+			$("#container div").first().css("display","none");
+			
+			$("button:eq(1)").on('click',function(){
+				$("#container div").first().slideDown("4000");
+			})
+//			
+//			$("button:eq(2)").on('click',function(){
+//				$("#container div").first().fadeIn("4000");
+//			})	
+
+//			var cssPropties={
+//				width:'400px',
+//				height:"100px",
+//			}
+//			var cssPropties1={
+//				left:"0px",
+//			}			
+//			$("button:eq(2)").on("click",function(){
+//				$("#container div").last().animate(cssPropties1,3000);
+//			})
+		})
+	</script>
+</html>

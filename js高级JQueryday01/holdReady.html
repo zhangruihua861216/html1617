@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+    <img src="img/img_bg_level_1.jpg"/>
+	</body>
+		<script type="text/javascript">
+		
+		
+		//holdReady方法控制ready事件的触发时机，该方法必须在ready事件触发之前调用
+		
+		//返回boolean值	
+		
+//		案列，页面元素加载完毕，5S后触发ready事件
+
+        $(document).ready(function(){
+        	console.log("say");
+        },5000);
+
+        $.holdReady(true);
+        
+        $(document).ready(function(){
+        	console.log("hi");
+        },5000);
+        setTimeout(function(){
+        	$.holdReady(false);
+        },5000)
+        $(document).ready(function(){console.log("hello world")})
+
+		</script>	
+</html>

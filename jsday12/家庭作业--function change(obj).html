@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			body{
+				margin: 50px auto;
+				width: 1000px;
+			}
+			#tab{
+				width: 440px;
+				height: 59px;
+				background: green;
+			}
+			#tab a{
+				text-decoration: none;
+				background:url(img/gray.gif);
+				display: inline-block;
+				height: 59px;
+				text-align:center;
+				line-height: 59px;
+				width: 141px;
+				margin-left:4px;
+				border-radius: 3px;
+			    
+			}
+			#tab a:hover{
+				background: url(img/blue.gif);
+			}
+			
+			ol{
+				list-style-position: inside;
+				margin-top: 22px;
+				width: 440px;
+				background: pink;
+				display: none;
+			}
+			ol li{
+				height: 40px;
+				line-height: 40px;
+				
+			}
+			
+			ol li a{
+				font-size: 20px;
+				text-decoration: none;
+				color: #000000;
+				
+			}
+			
+			ol:first-of-type{
+				display: block;
+			}
+			
+		</style>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var tabs=document.querySelectorAll('#tab a');
+				var divs=document.querySelectorAll('ol');
+				console.log(tabs.length);
+				for(var i=0;i<tabs.length;i++){
+					tabs[i].onmousemove=function(){					 
+			       change(this);
+			       
+					  }
+				}
+					function change(obj)
+					{
+						for(var i=0;i<tabs.length;i++)
+
+							{
+							
+							if(tabs[i]==obj){
+							console.log(tabs[i]);
+							divs[i].style.display='block';
+							
+							}
+							
+							else{
+							
+							divs[i].style.display='none';
+							
+							}
+					}
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div id='tab'><a href="">小说</a><a href="">非小说</a><a href="">少儿</a></div>
+		
+			<ol>
+				<li><a href="">时间是旅行者的妻子</a></li>
+				<li><a href="">女心理师(下)</a></li>
+				<li><a href="">鬼吹灯</a></li>
+				<li><a href="">女心理师(上)</a></li>
+				<li><a href="">小时候</a></li>
+				<li><a href="">追风筝的人</a></li>
+				<li><a href="">盗墓笔记</a></li>
+				<li><a href="">输赢</a></li>
+			</ol>
+			<ol>
+				<li><a href="">你在为谁工作,人生若只如初见</a></li>
+				<li><a href="">高效能人士的七个...</a></li>
+				<li><a href="">求医不如求己</a></li>
+				<li><a href="">人体使用手册</a></li>
+				<li><a href="">孩子,把你的手给我</a></li>
+				<li><a href="">别笑,这是英文单词</a></li>
+				<li><a href="">人体经络使用手册</a></li>
+				<li><a href="">股市稳赚</a></li>
+			</ol>
+			<ol>
+				<li><a href="">斯凯瑞金</a></li>
+				<li><a href="">哈利波特</a></li>
+				<li><a href="">不一样的卡梅拉</a></li>
+				<li><a href="">他们是怎么来的</a></li>
+				<li><a href="">坏小子</a></li>
+				<li><a href="">男生日记</a></li>
+				<li><a href="">哈利波特与魔法石</a></li>
+				<li><a href="">噼里啪啦丛书</a></li>
+			</ol>
+	 
+	</body>
+</html>

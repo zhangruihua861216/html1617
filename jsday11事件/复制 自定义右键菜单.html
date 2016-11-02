@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				height: 1800px;
+			}
+			ul{
+				display: none;
+				position: absolute;
+				background: gold;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+						//获取到菜单,并根据情况让菜单隐藏,显示
+						
+						//点击鼠标右键,显示
+					var ul=document.getElementById('menu');
+					document.oncontextmenu=function(ev){
+										var eventObj=ev||event;
+										console.log(eventObj);
+										//获取当前鼠标点击的坐标点
+										
+						//				var left=eventObj.clientX;
+						//				var top=eventObj.clientY;
+										
+										//因为页面一般需要用多屏才能展示完毕,使用pageX/pageY获取鼠标点击坐标时,永远是参照与文档的顶部和左侧,即使页面发生滚动,获取到的参照坐标也能准确的在页面中显示出来
+										
+										var left=eventObj.pageX;
+										var top=eventObj.pageY;
+										
+										//把鼠标点击的坐标当做菜单的偏移量,就可以把菜单移动到鼠标点击的位置
+										
+										ul.style.left=left+'px';
+										ul.style.top=top+'px';
+										ul.style.display='block';
+										
+											//点击鼠标左键,隐藏
+									       //因为鼠标左键让菜单消失的事件是鼠标右键调出菜单的下一个关联事件,所以为了方便后边给同一个标签添加同一个事件造成事件被覆盖,所以要把这个事件的添加时机放在右击菜单被触发的时候.这样每次右击鼠标,就会给对象的左击事件添加一次让标签消失的方法.
+									     document.onclick=function(){
+												ul.style.display='none';
+											}
+										
+										//把系统默认的事件取消
+										
+										return false;
+							}
+							
+						    document.onclick=function(){
+									    	
+									    	alert('hahaha');
+							    }
+						
+			}
+		</script>
+	</head>
+	<body>
+		<!--自定义菜单样式-->
+		<!--因为自定义菜单在点击鼠标右键时,才能出现,所以默认样式应该隐藏-->
+		<ul id="menu">
+			<li>菜单1</li>
+			<li>菜单2</li>
+			<li>菜单3</li>
+			<li>菜单4</li>
+			<li>菜单5</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function Fruit(){
+				
+			}
+			function Apple(){
+				
+			}
+			
+			var result=(Fruit.prototype==Apple.prototype);
+			console.log(result);
+			
+			Fruit.prototype.show=function(){
+				
+				console.log("green");
+			}
+			
+//			Fruit.show();//构造函数中并没有定义show  报错
+
+			var o=new Fruit();
+			console.log("修改原型之前");
+			o.show();
+			
+			var obj=new Object();
+			obj.show=function(){
+				console.log("orange");
+			}
+			Fruit.prototype=obj;//原型指向另一个对象
+			console.log("修改原型之后");
+			var o1=new Fruit();
+			o1.show();
+			o.show();
+			o1=null;
+			o=null;//销毁对象
+			</script>
+	</head>
+	<body>
+	</body>
+</html>

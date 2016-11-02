@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div >
+			<header class="header">头</header>
+			<nav>
+				<ul>
+					<li class="class1">1</li>
+					<li class="class2">2</li>
+					<li class="class3">3</li>
+					<li class="class4">4</li>
+					<li class="class5">5</li>
+					<li class="class6">6</li>
+					<li class="class7">7</li>
+				</ul>
+			</nav>
+			<div id="content">正文</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("*");
+			console.log($("*").length);
+			console.log($("*"));
+			$("*").css("margin",0);
+			console.log($("div"));
+			var result=$("div");
+//			result.css("background","red");
+			var divs=document.getElementsByTagName("div");
+			console.log(divs);
+			$("#content").css({
+				'border':"solid 1px pink",
+				"width":"100px"
+			});
+			
+			$(".header").css({
+				'border':'1px solid green',
+				'width':'100px'
+			})
+			$(".class1,.class3,.class5,.class7").css("border","solid 1px yellow").css("width","100px");
+		})
+
+		
+	</script>
+</html>

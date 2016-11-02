@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="container"></div>
+		<div>
+			<button>样式一</button>
+			<button>样式二</button>
+			<button>样式三</button>
+		</div>
+	</body>
+	<script>
+		function createElem(containerId){
+			  	var container=document.getElementById(containerId);
+			   	var div=document.createElement("div");
+				container.appendChild(div);
+				return div;
+			}
+		
+			function setStyle(elem){
+				console.log(elem);	
+				elem.style.color="red";
+				elem.style.width='100px';
+				elem.style.height='20px';
+				elem.style.backgroundColor="red";
+				elem.style.border="1px solid black";
+			}
+			function setStyle1(elem){
+				elem.style.color='green';
+				elem.style.width='100px';
+				elem.style.height='20px';
+				elem.style.backgroundColor="green";
+				elem.style.border="1px solid black";
+			}			
+			var btns=document.getElementsByTagName("button");
+			btns[0].onclick=function(){
+				clearElem("container");
+				for(var i=0;i<5;i++){
+					var elem=createElem("container");
+					setStyle(elem);
+				}
+			}
+			btns[1].onclick=function(){
+				clearElem("container");
+				for(var i=0;i<5;i++){
+					var elem=createElem("container");
+					setStyle1(elem);
+				}
+			}
+			
+		function clearElem(id){
+			 document.getElementById(id).innerHTML="";
+		}
+	</script>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="border">
+			<div class="hide"></div>
+			<div class="block">
+				<div class="green">1</div>
+				<div class="red">2</div>
+				<div class="yellow">3</div>
+				<div class="blue">4</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//	样式
+		//
+	    $("*").css("border-radius","20px").css("margin","0").css("padding","0");
+	    //
+	 	$(".border").css("border","2px solid black")
+	 	            .css("padding","30px")
+	 	            .css("width","750px")
+	 	            .css("height","500px");  //高：500+60=560
+	    //
+	 	$("div div div").css("width","200px")
+	 					.css("height","200px")
+	 					.css("float","right")
+	 					.css("margin","5px")
+	 					.css("font-size","80px")
+	 					.css("text-align","center")
+	 					.css("line-height","200px")
+	 					.css("color","#fff")
+	 					.css("position","absolute");
+	 	//
+		$(".green").css("background","green")
+		           .css("left","570px")
+				   .css("top","70px");
+		$(".red").css("background","red")
+		         .css("left","360px")
+		         .css("top","70px");       //距离浏览器顶端：200+70=270
+		$(".yellow").css("background","yellow")
+		            .css("left","360px")
+		            .css("top","290px");
+		$(".blue").css("background","blue")
+		          .css("left","570px")
+		          .css("top","290px");
+	    //
+		$(".hide").css("width","300px")
+				  .css("height","500px")
+				  .css("background","pink");
+		$(".hide").css("float","left")	    
+	    $(".block").css("float","right")
+	               .css("background","aquamarine")
+	               .css("width","430px")
+	               .css("height","500px");
+//	    $(".block").css("padding-top","35px");
+	</script>
+	<script type="text/javascript">
+//  动作、行为
+//  var g=document.querySelector(".green");
+//  var r=document.querySelector(".red");
+//  var y=document.querySelector(".yellow");
+//  var b=document.querySelector(".blue");
+//  console.log(g);         
+//  drag(g);
+//  drag(r);
+//  drag(y);
+//  drag(b);
+    $("div div div").each(function(index,elem){
+    	drag(elem);
+    })
+  var b4=document.querySelector(".blue");
+  var b3=document.querySelector(".yellow");
+  var b2=document.querySelector(".red");
+  var b1=document.querySelector(".green");
+  		  var a4L=b4.style.left;
+		  var b4T=b4.style.top; 
+//  var b4=$(".blue")
+     function drag(obj){
+     	obj.onmousedown=function(ev){
+     		var evObj=ev||event;
+     		var distanceX=evObj.offsetX;
+     		var distanceY=evObj.offsetY;
+//   		console.log("dx="+distanceX);
+//   		console.log("dy="+distanceY);
+     		document.onmousemove=function(e){     			
+     			var X=e.clientX;
+     			var Y=e.clientY;
+//   			console.log("x=",X);
+//   			console.log("y=",Y);
+     			obj.style.left=(X-distanceX)+"px";
+     			obj.style.top=(Y-distanceY)+"px";
+     			
+ 
+     		}
+     		
+     	}
+     	
+   	
+     	document.onmouseup=function(){
+     		document.onmousemove=null;
+     			//碰撞
+     			
+      			//第4个元素
+     			var h4=b4.offsetTop;//第4个元素顶部距离顶端距离
+     			var m4=b4.offsetHeight+h4;//第4个元素底部距离顶端距离
+     			var cT4=(b4.offsetHeight/2)+h4;
+     			var l4=b4.offsetLeft;//第4个元素左边距离左侧距离
+     			var r4=b4.offsetWidth +l4; //第4个元素右边距离左侧距离
+     			var cL4=b4.offsetWidth/2+l4;
+
+     			//第3个元素
+     			var h3=b3.offsetTop;//第3个元素顶部距离顶端距离
+     			var m3=b3.offsetHeight+h3;//第3个元素底部距离顶端距离
+     			var cT3=(b3.offsetHeight/2)+h3;
+     			var l3=b3.offsetLeft;//第3个元素左边距离左侧距离
+     			var r3=b3.offsetWidth+l3; //第3个元素右边距离左侧距离
+     			var cL3=(b3.offsetWidth/2)+l3;
+     			
+      			//第2个元素
+     			var h2=b2.offsetTop;//第2个元素顶部距离顶端距离
+     			var m2=b2.offsetHeight+h2;//第2个元素底部距离顶端距离
+     			var cT2=(b2.offsetHeight/2)+h2
+     			var l2=b2.offsetLeft;//第2个元素左边距离左侧距离
+     			var r2=b2.offsetWidth+l2; //第2个元素右边距离左侧距离
+     			var cL2=(b2.offsetWidth/2)+l2
+     			
+      			//第1个元素
+     			var h1=b1.offsetTop;//第1个元素顶部距离顶端距离
+     			var m1=b1.offsetHeight+h1;//第1个元素底部距离顶端距离
+     			var cT1=(b1.offsetHeight/2)+h1; //第一个元素中部距离顶端距离
+     			var l1=b1.offsetLeft;//第1个元素左边距离左侧距离
+     			var r1=b1.offsetWidth+l1; //第1个元素右边距离左侧距离    
+     			var cL1=(b1.offsetWidth/2)+l1 //第一元素中部距离左侧距离
+     			
+ //方块移动方法    			
+     			//第4个元素碰撞其它方块
+    			if(h4<cT1&&r4>cL1){
+                  b4.style.left=b1.style.left;
+                  b4.style.top=b1.style.top;
+                  b1.style.left=a4L;
+                  b1.style.top=b4T;
+                   
+    			
+    			}else{
+    				console.log("hehe");
+    			}
+    			
+    			
+
+    			
+// 隐藏方块方法   			
+    			if(cL1<330){
+//  				$(".blue").replaceAll($(".green"));
+    				$(".green").replaceWith("");
+    			}
+     			if(cL2<330){
+//  				$(".blue").replaceAll($(".red"));
+					$(".red").replaceWith("");
+    			} 
+     			if(cL3<330){
+//  				$(".red").replaceAll($(".yellow"));
+					$(".yellow").replaceWith("");
+    			}     			
+     			if(cL4<330){
+//  				$(".red").replaceAll($(".blue"));
+					$(".blue").replaceWith("");
+    			}   			
+    			    		
+     	}  
+     	
+
+     }
+     
+	</script>
+</html>

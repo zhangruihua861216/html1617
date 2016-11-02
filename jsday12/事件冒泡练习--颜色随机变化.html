@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 500px;
+				height: 500px;
+				background-color: red;
+				margin:0 auto;
+			}
+			#div2{
+				width: 300px;
+				height: 300px;
+				background-color: yellow;
+				margin: 0 auto; 
+			}
+			#div3{
+				width:100px;
+				height: 100px;
+				background-color: green;
+				margin:0 auto;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var div1=document.querySelector('#div1');
+				var div2=document.querySelector('#div2');
+				var div3=document.querySelector('#div3');
+				
+				//工具函数:产生指定范围的随机数
+				
+				function randomfun(min,max){
+				 return parseInt(Math.random()*(max-min)+min);
+				}
+				
+				//使用DOM2级事件处理给标签添加点击事件
+				div1.addEventListener('click',function turn(){
+					//修改标签背景颜色
+					var r=randomfun(0,256);
+					var g=randomfun(0,256);
+					var b=randomfun(0,256);
+					
+					this.style.backgroundColor='rgb('+r+','+g+','+b+')';
+					console.log(this.style.backgroundColor);
+				
+				});
+				
+				div2.addEventListener('click',function turn(){
+					
+					//修改标签背景颜色
+					var r=randomfun(0,256);
+					var g=randomfun(0,256);
+					var b=randomfun(0,256);
+					
+					this.style.backgroundColor='rgb('+r+','+g+','+b+')';
+					console.log(this.style.backgroundColor);
+					
+				});
+				
+				div3.addEventListener('click',function turn(){
+					
+					//修改标签背景颜色
+					var r=randomfun(0,256);
+					var g=randomfun(0,256);
+					var b=randomfun(0,256);
+					
+					this.style.backgroundColor='rgb('+r+','+g+','+b+')';
+					console.log(this.style.backgroundColor);
+					
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+		</div>
+	</body>
+</html>

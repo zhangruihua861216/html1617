@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/购物车.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+				function createXHR(){
+			//如果浏览器支持XMLHttpRquest那么直接创建返回该对象
+			
+			if(typeof XMLHttpRequest !="undefined"){
+				return new XMLHttpRequest();
+			}else if(typeof ActiveXObject !="undefined")
+			{
+				if(typeof arguments.callee.activeXString !="string"){
+					var versions=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp'];
+					for(var i=0;i<versions.length;i++){
+						try{
+							new ActiveXObject(versions[i]);
+							arguments.callee.activeXString=versions[i];
+						}catch(e){
+							
+						}
+						
+					}
+				}
+				
+				return new ActiveXObject(arguments.callee.activeXString);
+			}else{
+				throw new Error("无法正常创建ajax对象");
+			}
+		}
+		
+		
+
+	</script>
+	</head>
+	<body>
+		<form action="">
+			
+		</form>
+	</body>
+	<script type="text/javascript">
+	    var baseURL="http://127.0.0.1:5050";
+	//创建一个传递数据的表单
+		var form=document.getElementsByTagName("form")[0];
+		var ul=document.createElement("ul");
+		ul.style.listStyle="none";
+		form.appendChild(ul);
+		
+		for(var p in obj0){
+			var mLi=document.createElement("li");			
+			mLi.style.height="25px";
+			var mSpan=document.createElement("span");
+			var mInput=document.createElement("input");
+			mSpan.style.display="inline-block";
+			mSpan.style.width="80px";
+			mSpan.style.marginRight="20px";
+			mSpan.style.textAlign="right";
+			mSpan.innerHTML=obj0[p];
+			mInput.setAttribute("name",p);
+			mInput.setAttribute("type","text");
+			mInput.setAttribute("value","");
+			mLi.appendChild(mSpan);
+			mLi.appendChild(mInput);
+			ul.appendChild(mLi);
+		}
+		mLi=document.createElement("li");
+		mSubmitButton=document.createElement("button");
+		mSubmitButton.innerHTML="提交";
+		mLi.appendChild(mSubmitButton);
+		ul.appendChild(mLi);
+		
+		//1.如何获取表单中的数据
+		document.getElementsByTagName("button")[0].onclick=function(e){
+			//获取表单数据
+			var inputs=form.getElementsByTagName("input");	
+			var obj={};
+			for(var i=0;i<inputs.length;i++){
+			  obj[inputs[i].getAttribute("name")]=inputs[i]["value"];
+			}
+	           console.log(obj);
+	           console.log(JSON.stringify(obj));
+	           
+			  //组织发送
+			  var xhr=createXHR();
+			  xhr.open("post",baseURL+"/books");
+			  xhr.setRequestHeader("Content-type","application/json");        
+			  xhr.send(JSON.stringify(obj));
+			  xhr.onreadystatechange=function(){
+			  	if(xhr.status==200||xhr.status==304){
+			  		if(xhr.readyState==4){
+			  			console.log(xhr.responseText);
+			  			alert("数据添加成功");
+			  		}
+			  	}
+			  }	
+			  		e.preventDefault();
+			}
+		//2.如何传递
+
+		
+		//3.接受响应
+	</script>
+	
+	
+</html>

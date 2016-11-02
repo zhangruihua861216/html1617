@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+				(function(){
+					
+					function sum(a,b){
+						return a+b;
+					}
+					function sub(a,b){
+						return a-b;
+					}
+					
+					function multi(a,b){
+						return a*b;
+					}
+					function div(a,b){
+				        return a/b;
+					}
+					
+					function Calculator(){
+						
+					}
+					Calculator.prototype.sum=sum;
+					Calculator.prototype.div=div;
+					Calculator.prototype.multi=multi;
+					Calculator.prototype.div=div;
+					
+					calculator=new Calculator();
+					
+					
+					
+				})(window);
+				
+				console.log(calculator.sum(2,4));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

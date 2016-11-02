@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div>
+			<img src="img/1.jpg" alt="" />
+			<img src="img/10.jpg" alt="" />
+			<img src="img/11.jpg" alt="" />
+			<img src="img/12.jpg" alt="" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+////			$('img').bind('mouseenter',function(){
+////				$(this).css("border","2px solid  red");
+////			}).bind('mouseout',function(){
+////				$(this).css("border","2px solid green");
+////			})
+//
+////			var handler=function(e){
+////				console.log(e.data);
+//////				$(this).css("border","2px solid color")
+////				$(this).css("border","2px solid "+e.data);
+////			}
+//			var handler=function(e){
+//				console.log(e.data['msg']);
+////				e.data['say']();
+////				$(this).css("border","2px solid color")
+//				$(this).css("border","2px solid "+e.data['color']);
+//			}
+//
+//			
+//			$('img').bind('mouseenter','blue',handler).bind('mouseout','red',handler);
+//			
+//			
+//						
+//			var myData={
+//				color:'blue',
+//				msg:'hello world',
+//				say:function(){
+//					console.log(this.color)
+//				}
+//			};
+//			
+//			$('img:first').bind('mouseenter',myData,handler).bind('mouseout',myData,handler);
+//
+//
+////			$('img').bind('click',false);
+//			$('img:first').parentsUntil('html').bind('click',function(){
+//				console.log("执行");
+//			});
+//			
+//			var myHandler={
+//				'mouseenter':function(){
+//					console.log("我是鼠标进入")
+//				},
+//				'click':function(){
+//					console.log("我是点击")
+//				},
+//				'mouseout':function(){
+//					console.log("我是离开")
+//				}
+//			}
+//			$('img:eq(1)').bind(myHandler);
+//			
+//			$('img:eq(2)').one('click',function(){
+//				console.log("我是one");
+//			})
+//			
+//			$("img").unbind(myHandler);
+//			$('img').unbind('click');
+
+//			$("img:first").bind('click',function(){
+//				console.log("1");
+//			}).bind('click',function(){
+//				console.log('2');
+//			}).bind('click',function(){
+//				console.log('3');
+//			});
+//			
+//			$('img').unbind('click');
+
+//			$("img:first").bind('click.a',function(){
+//				console.log("1");
+//			}).bind('click.b',function(){
+//				console.log('2');
+//			}).bind('click.c',function(){
+//				console.log('3');
+//			});
+//			
+//			$('img').unbind('click.b');
+		})
+		
+	
+	</script>
+	
+	
+	<!--<script type="text/javascript">
+	    var f=function(){console.log('1')};
+	    var f1=function(){console.log('2')};
+	    var f2=function(){console.log('3')};
+		var img=document.getElementsByTagName('img')[0];
+		img.addEventListener('click',f);
+		img.addEventListener('click',f1);
+		img.addEventListener('click',f2);
+		
+		img.removeEventListener('click',f);
+	</script>-->
+</html>

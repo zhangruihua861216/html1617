@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+		    var i=100;
+			function closure(m){
+				var i=m;
+				return function(){
+					alert(i);
+				}
+			}
+			
+			var f=closure(12);
+			var f1=closure(13);
+			f();
+			f1();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>js基础学习</title>
+		<script type="text/javascript">
+//			var k=0;
+//		    var x=++k;
+////  		alert("x="+x);
+//   		var y=k++;
+////  		alert("k="+k);
+////  		alert("y="+y);
+//		    var z=++k;
+////  		 alert("k="+k);
+////   		alert("z="+z);
+//   		var m=(++k)+(k++)+( ++k)+k;
+//   		var n=(++k)+(k++)+( ++k)+k;
+//   		var f=(++k)+(k++)+( ++k)+k;
+//   		var g=(++k)+(k++)+( ++k)+k;
+//          alert(k);
+//		   alert(m);
+//		   alert(n);
+//		   alert(f);
+//		   alert(g);
+//			alert(y);
+//			alert(z);
+//		
+		
+//		 var num=9;
+//		 var num2=4;
+//		 var x=num--;
+//		 var y=++num2;
+//		 var z=x+y;
+//		  alert(x);
+//		  alert(y);
+//		  alert(z);
+
+//      var username=prompt("请输入用户名");
+//      var pwd=prompt("请输入密码");
+//      alert(username);
+//       if(username=="admin"&&pwd="123456") {
+//       	document.write("登录成功");
+//       }else{
+//       	document.write("登录失败")
+//       }
+
+//       var age=prompt("请输入年龄");
+//       if(age>"18"){
+//       	alert("可以")
+//       }
+//       else{
+//       	alert("不可以");
+//       }
+         
+//       var year=prompt("请输入年份");
+//       if(((year%4==0)&&(year%100!=0))||year%400==0){
+//       	document.write("闰年");
+//       }
+//       else{
+//       	document.write("非闰年");
+//       }
+//       var a=null;
+//       var b=parseInt(a);
+//       var c=Number(a);
+//       alert(b);
+//       alert(c);
+//       var a=prompt("请输入一个数");
+//       var b=prompt("再输入一个数");
+//       if(a>=b){
+//       	alert("a="+a);
+//       }
+//       else{
+//       	alert("b="+b);
+//       }
+
+//        var  a=prompt("请输入一个数");
+//        var  b=prompt("请输入另一个数");
+
+//		var score=prompt("请输入成绩");
+//		if(score==100)
+//		{
+//			document.write("100分");
+//		}
+//		else if(score>=90){
+//			document.write("90----100分");
+//		}
+//		else if(score>=60)
+//		{
+//			document.write("60分---90分");
+//		}
+//		else {
+//			document.write("60分以下");
+//		}
+//		
+//       var day=prompt("请输入一个数");
+//       if(day==0)
+//       {
+//       	document.write("0");
+//       }
+//      var student=confirm("是否是学员");
+//      if (student){
+//      	  var course=prompt("请输入课程");
+//      	    if(course=="html5"||course=="android"||course=="java")
+//      	    {
+//      	    	document.write("你选择的课程是："+course);
+//      	     }
+//      	    else{
+//      	    	document.write("其它");
+//      	    }
+//      }else{
+//      	document.write("不是学员")
+//      }
+//      var score=prompt("请输入成绩");
+//      
+//      var sex="男";
+//      
+//      if(score>=85){
+//      	if(sex="男"){
+//      		document.write("男子决赛");
+//      	}
+//      	else
+//      	{
+//      	    document.write("女子决赛")	
+//      	}
+//      }
+//      else{
+//      	  if(score>70){
+//      	  	document.write("复活");
+//      	  	
+//      	  }else{
+//      	  	document.write("go home");
+//      	  }
+//      	  
+//      }
+
+//      var k=23.45;
+//      alert(typeof(k));
+//      
+//       var k=new Date();
+//      alert(typeof(k));
+
+//     alert(typeof('23.45'))
+//     var a1="3";
+//     alert(a1+++7);
+//     alert(++a1);
+//      var a=1,b=2,c=3,d=4,n=2;
+//      var num=prompt("请输入一个数");
+//       var numreverse=num.arr;
+//      
+////      document.write(num);
+//      document.write(numreverse.reverse());
+
+//      var code=Number(prompt("请输入数字"));
+//      
+//        switch (code){
+//        	case 1:
+//        		document.write("1");
+//        		break;
+//        	case 2:
+//        	    document.write("2");
+//        	    break;
+//        	case 3:
+//        	     document.write("3");
+//        	default:
+//        	     document.write("666");
+//        }
+
+//        var week=prompt("请输入星期");
+//        switch (week)
+//        {
+//        	case "1":
+//        	case "2":
+//        	    document.write("1或2");
+//        	    break;
+//        	case "3":
+//        	case "4":
+//        	    document.write("3或4");
+//        	    break;
+//        	case "5":
+//        	     document.write("5");
+//        	case "6":
+//        	case "7":
+//        	      document.write("6或7");
+//        	      break;
+//        	 default:
+//        	       document.write("hehe");
+//        }
+
+//         var num1=Number(prompt("请输入一个数字"));
+//         var num2=Number(prompt("再输入一个数字"));
+//         var fuhao=prompt("请输入运算符号");
+//         switch(fuhao)
+//         {
+//         	case "+":
+//         	    document.write(num1+num2);
+//         	     break;
+//         	    
+//         	case "-":
+//         	     document.write(num1-num2);
+//         	     break;
+//         	 case "*":
+//         	     document.write(num1*num2);
+//         	     break;
+//         	case "/":
+//         	     document.write(num1/num2);
+//         	     break;
+//         	 default:
+//         	     document.write("运算符输入有误")
+//         }
+//             alert(isNaN(parseInt(NaN)));
+
+
+//          var jiangjin=Number(prompt("请输入奖金"));
+//             if(jiangjin>500) {
+//             	document.write("买房、买车、娶媳妇")
+//             }
+//             else{
+//             	document.write("谢谢惠顾 继续吃泡面 革命尚未成功，通知仍需努力")
+//             }
+
+//          var shouru=prompt("请输入收入");
+//          if(shouru>10000){
+//          	document.write("税收:"+shouru*0.2);
+//          }else if(shouru>8000)
+//          {
+//          	document.write("税收:"+shouru*0.175);
+//          }
+//          else if(shouru>4000)
+//          {
+//          	document.write("税收:"+shouru*0.15);
+//          	
+//          }else if(shouru>2500){
+//          	document.write("税收："+shouru*0.1);
+//          	
+//          }else {
+//          	document.write("税收:"+0);
+//          }
+
+//          var java=Number(prompt("请输入java成绩"));
+//          var html=Number(prompt("请输入html成绩"));
+//          if((java>90&&html>80)||(java==100&&html>70)){
+//          	document.write("师傅奖励武功秘籍《独孤九剑》")
+//          }else{
+//          	document.write("上思过崖思过");
+//          }
+
+//           var cunkuan=Number(prompt("请输入存款"));
+//           if(cunkuan>500){
+//           	document.write("买凯迪拉克");
+//           }else if(cunkuan>100){
+//           	document.write("买帕萨特");
+//           }else if(cunkuan>50){
+//           	document.write("买伊兰特");
+//           }else if(cunkuan>10){
+//           	document.write("买奥拓");
+//           }else{
+//           	document.write("买捷安特");
+//           }
+
+// 			var tuangou=prompt("请选择付款方式");
+// 			switch(tuangou)
+//          {
+//          	case "1":
+//          	document.write("支付宝");
+//          	break;
+//          	
+//          	case "2":
+//          	document.write("微信");
+//          	break;
+//          	
+//          	case "3":
+//          	
+//          	document.write("NFC");
+//          	break;
+//          	
+//          	case "4":
+//          	
+//          	document.write("网银");
+//          	break;
+//          	
+//          	case "5":
+//          	
+//          	document.write("现金");
+//          	
+//          	break;
+//          	
+//          	
+//          	default:
+//          	
+//          	document.write("其它方式");
+//          	break;
+//          
+//          	 
+//          	 
+//     
+//            
+//          }
+////        
+
+        var letter=prompt("请输入一个字母");
+         switch(letter){
+         	case "a":
+         	case "A":
+         	document.write("90-100");
+         	  break;
+            case "b":
+            case "B":
+              document.write("85-90");
+              break;
+            case "c":
+            case "C":
+               document.write("60-85");
+             break;
+             
+            case "d":
+            case "D":
+              document.write("60以下");
+             break;
+             
+             default:
+             
+             document.write("没有该等级");
+             
+             break;
+         }
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

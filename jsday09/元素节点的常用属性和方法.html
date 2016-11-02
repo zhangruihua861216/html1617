@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				border:1px solid black;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				//通过id值获取到div标签
+				var div=document.getElementById('div1');
+				
+				//innerHTML获取,赋值
+				//innerHTML不仅可以获取到当前标签内部的文本,还可以拿到内部嵌套的子标签
+				var content=div.innerHTML;
+//				console.log(content);
+//				//innerHTML不仅可以给当前标签设置文本,还可以设置子标签,且子标签能被浏览器解析
+//				div.innerHTML="<p>到处找水喝</p>";
+//				
+				//innerText只能获取到当前标签内部的文本,如果有子标签,获取不到
+				//innerText只能设置当前标签的文本,如果设置了子标签,则子标签也会当做普通文本原样输出.
+				
+				
+				//脚本化css:使用js来设置标签的样式
+				
+				//使用js来设置获取标签的样式,只能获取到,设置行内的样式,如果标签样式是设置在头部,外部样式表中,使用标签的style属性无法获取到
+				
+				//使用js操作标签样式的套路:
+				
+				//标签.style.样式属性名
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div id="div1">
+			<p>一只乌鸦口渴了</p>
+		</div>
+	</body>
+</html>

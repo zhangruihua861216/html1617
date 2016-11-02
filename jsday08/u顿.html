@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		function randomFun(min,max){
+				
+				return parseInt(Math.random()*(max-min)+min);
+				
+			}
+			
+//			console.log(randomFun());
+			setInterval("randomFun(100000,1000000)",1000)
+			
+			
+			setInterval(function(){
+			   console.log("hello");
+			},1000)
+			
+			
+			window.onload=function(){
+				
+			 function randomFun2(min,max){
+				 return parseInt(Math.random()*(max-min)+min);				 
+			
+			}
+			var pElement=document.getElementById("code");
+			
+			setInterval(function(){
+			     pElement.innerHTML=randomFun2(1000000,10000000);
+			},2000)
+			}
+		</script>
+	</head>
+	<body>
+		<p id="code">这里显示验证码</p>
+	</body>
+</html>

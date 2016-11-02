@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		function createXHR(){
+			//如果浏览器支持XMLHttpRquest那么直接创建返回该对象
+			
+			if(typeof XMLHttpRequest !="undefined"){
+				return new XMLHttpRequest();
+			}else if(typeof ActiveXObject !="undefined")
+			{
+				if(typeof arguments.callee.activeXString !="string"){
+					var versions=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp'];
+					for(var i=0;i<versions.length;i++){
+						try{
+							new ActiveXObject(versions[i]);
+							arguments.callee.activeXString=versions[i];
+						}catch(e){
+							
+						}
+						
+					}
+				}
+				
+				return new ActiveXObject(arguments.callee.activeXString);
+			}else{
+				throw new Error("无法正常创建ajax对象");
+			}
+		}	
+		
+	</script>
+	<body>
+<form action="">
+	<ul>
+		<li><span>用户名：</span><input type="text"  name="username"/></li>
+		<li><span>年龄：</span><input type="text"  name="age"/></li>
+		<li><span>性别：</span><input type="text"  name="gender"/></li>
+		<li><button class="submit">提交</button></li>	
+		
+	</ul>
+	
+</form>
+	</body>
+	<script type="text/javascript">
+        var baseURl="http://10.0.161.193:8080"
+        //1.获取xhr对象
+		var xhr=createXHR();
+		//2.初始化
+		xhr.open("get",baseURl+"myapp/hello");
+		
+		var data={};
+		data.username=document.getElementsByName("username")[0].value;
+		data.age=document.getElementsByName("age")[0].value;
+		data.gender=document.getElementsByName("gender")[0].value;
+		console.log(data);
+		
+		//3.发送请求
+		xhr.setRequestHeader("Content-type","application/json");
+		xhr.send(JSON.stringify(data));
+		
+//		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//		var str="username="+data.username+"&age="+data.age+"&gender"+data.gender;
+//		xhr.send(str);
+		xhr.onreadystatechange=function(){
+			if(xhr.status==200||xhr.status==304){
+				if(xhr.readyState==4){
+					console.log(xhr.responseText);
+				}
+			}
+		}
+	</script>
+</html>

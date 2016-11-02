@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<img src="img/14.jpg"/>
+		<form action="new_file.html" method="get">
+			<input type="text"/>
+			
+			<button>提交</button>
+		</form>
+	</body>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		//method 1
+//		function handler(e){
+//			$(this).css("border",'1px solid '+e.data);
+//		}
+//		$('img').bind('mouseenter','blue',handler).bind('mouseout','red',handler);
+
+		//method 2
+		
+//		function handler(e){
+//			console.log(e.type);
+//			if(e.type=='mouseenter'){
+//				$(this).css('border','1px solid red');
+//			}else if(e.type=='mouseout'){
+//				$(this).css('border','1px solid yellow');
+//			}
+//		}
+//		$('img').bind('mouseenter mouseout',handler);
+
+		$('button').bind('click',function(e){
+			//获取表单中的数据
+			
+			e.preventDefault();
+		})
+		
+		
+		
+	})
+
+
+	</script>
+</html>

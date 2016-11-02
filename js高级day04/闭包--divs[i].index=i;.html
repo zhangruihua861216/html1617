@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			button{
+				width: 150px;
+				height: 50px;
+			}
+		</style>
+		<script type="text/javascript">
+		
+		   window.onload=function(){
+			   	var btns=document.querySelectorAll("button");
+				for(var i=0;i<btns.length;i++){
+					btns[i].index=i;
+					console.log(btns[i].index);
+					btns[i].onclick=function(){
+
+						alert("我是"+this);
+					}
+				}
+		   }
+			
+		</script>
+	</head>
+	<body>
+		<button></button>
+		<button></button>
+		<button></button>
+		<button></button>
+		<button></button>
+	</body>
+</html>

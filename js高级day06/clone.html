@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+	    #container{
+	    	width: 100px;
+	    	height: 100px;
+	    	background: red;
+	    }
+		</style>
+	</head>
+	<body>
+		<div id="rq">
+			<div id="container">
+			
+		    </div>
+		</div>
+		
+		<button id="b1">克隆</button>
+	</body>
+	<script type="text/javascript">
+		var btn=document.getElementById("b1");
+		var target=document.getElementById("container");
+	
+		btn.onclick=function(){
+			target.onclick=function(){
+				console.log("abc");
+			}
+			var result=target.cloneNode()
+			var rq=document.getElementById("rq");
+			rq.appendChild(result);
+		}
+	</script>
+</html>

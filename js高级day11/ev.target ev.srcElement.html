@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: hotpink;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+	  <button>添加数据</button>
+	  <div></div>
+	</body>
+	<script type="text/javascript">
+		var btn=document.getElementsByTagName("button")[0];
+		var div=document.getElementsByTagName("div")[0];
+		btn.onclick=function(e){
+			var ev=e||event;
+			var t=ev.target||ev.srcElement;
+			console.log(t.innerHTML);
+			if(t.innerHTML=="添加数据"){
+				t.innerHTML="隐藏数据";
+				div.style.display="block";
+			}else{
+				t.innerHTML="添加数据";
+				div.style.display="none";				
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background:#f6f6f6;
+			width: 1190px;
+			margin: 0 auto;
+		}
+		.address{
+			background:#f1f1f1;
+			height:30px;
+			line-height:30px;
+			padding-left:250px;
+			color:#616161;
+			font-size:13px;
+			
+		}
+		.address a{
+			display:inline-block;
+			width:60px;
+			height:55px;
+			line-height:30px;
+			text-align:center;
+			color:#958f99;
+			text-decoration: none;
+			
+		}
+
+		.pro{
+			width:328px;
+			height:249px;
+			margin-left:300px;
+			margin-top: -30px;
+			position:absolute;
+		}
+		.pro ul{			
+			/*width:328px;
+			height:249px;*/
+			width:64px;
+			height:31px;
+			overflow: hidden;
+	
+		}
+		.pro ul li:nth-of-type(2){
+			border-left:1px solid #cdcdcd;
+		}
+        .pro ul li:nth-of-type(2),.pro ul li:nth-of-type(3),.pro ul li:nth-of-type(4),.pro ul li:nth-of-type(5){
+        	background: #f1f1f1;
+        	border-bottom: 1px solid #cdcdcd;        	
+        }
+         .pro ul li:nth-of-type(36),.pro ul li:nth-of-type(37),.pro ul li:nth-of-type(38),.pro ul li:nth-of-type(39),.pro ul li:nth-of-type(40){
+            border-bottom: 1px solid #cdcdcd;        	
+        }
+        
+         .pro ul li:nth-of-type(36),.pro ul li:nth-of-type(1),.pro ul li:nth-of-type(6),.pro ul li:nth-of-type(11),.pro ul li:nth-of-type(16){
+            border-left: 1px solid #cdcdcd; 
+            padding-left:7px;
+            border-right:none;       	
+        }
+        .pro ul li:nth-of-type(21),.pro ul li:nth-of-type(26),.pro ul li:nth-of-type(31){
+            border-left: 1px solid #cdcdcd; 
+            padding-left:7px;
+            border-right:none;        	
+        }       
+        
+        .pro ul li:nth-of-type(10),.pro ul li:nth-of-type(15),.pro ul li:nth-of-type(20),.pro ul li:nth-of-type(25),.pro ul li:nth-of-type(30),.pro ul li:nth-of-type(35),.pro ul li:nth-of-type(40){
+        	border-right: 1px solid #cdcdcd;
+            }
+         
+		.pro ul li{
+			list-style:none;
+			float:left;
+			width:64px;
+			height:31px;
+			line-height: 30px;
+			text-align: left;
+			background:#fff;
+		}
+		.pro ul li a{
+			text-decoration:none;
+			color:#958f99;
+			padding:2px 5px;
+		}
+		.pro ul li a:hover{
+			text-decoration:none;
+			color:red;
+			padding:2px 5px;
+			background: #f4f4f4;
+		}
+/*nav 横向导航条*/
+	    .navH{
+	    	height:141px;
+	    	width:1190px;
+	    	background:pink;
+	    	margin:0 auto;
+	    }
+	    
+
+/*nav 纵向导航条*/
+		.navZ{
+			height:479px;
+			background: #c81622;
+			width: 210px;
+			padding-top: 16px;
+			padding-left: 1px;
+			float: left;
+		}
+	    .navZ ul li{
+	    	list-style: none;
+	    	color: #FFFFFF;
+	    	height: 30px;
+	    	line-height: 30px;
+	    	padding-left: 8px;
+	    	/*width:370px;*/
+	    }
+	    /*.navZ ul li:hover{
+	    	background: #f7f7f7;
+	    	color: red;
+	    }*/
+	    .navZ ul li a{
+	    	text-decoration: none;
+	    	color: #FFFFFF;
+	    	margin: 0 3px;
+	    	font-size: 14px;
+	    }
+	    /*.navZ ul li a:hover{
+	    	color: #bc1c1c;
+	    	font-weight: bold;
+	    }		*/
+/*nav 纵向导航条 第二个子元素*/
+        .navZson2 ul{
+        	height: 62px;
+        	/*padding:25px 0;*/
+        	border: 1px solid black;
+        	border-bottom: 1px solid red;
+        	width: 980px;
+        	background: gold;
+        	float: right;
+        	
+        }
+		.navZson2 ul li{
+			list-style: none;
+			float:  left;
+			line-height: 62px;
+			background: pink;
+	
+		}
+		
+		.navZson2 ul li a{
+			text-decoration: none;
+			color: #6b6a7a;
+			font-size: 12px;
+		}
+		.navZson2 ul li span{
+			color: #6b6a7a;
+			font-size: 12px;
+			margin: 0 10px;
+		}
+		.navZson2 ul li:first-of-type {
+			height: 62px;
+			line-height: 62px;
+		}			
+		.navZson2 ul li:first-of-type a{
+			font-weight: bold;
+
+		}
+		.navZson2 ul li:first-of-type span{
+			font-weight: bold;
+			margin-left: 3px ;
+		}
+		.navZson2 ul:first-of-type{
+			font-weight: bold;
+				
+		}
+		.navZson2 ul:first-of-type li{
+			background: #79716e;
+			margin: 0 5px;
+			display: inline-block;
+			height: 35px;
+		    line-height: 35px;
+			padding: 0px 0 0 6px;		
+		}
+		.navZson2 ul:first-of-type li a{
+			color: #FFFFFF;
+		}
+		.navZson2 ul:first-of-type li span{
+			color: #FFFFFF;
+			background: #5d5151;
+			display: inline-block;
+			height: 35px;
+		    line-height: 35px;
+		    width: 30px;
+		    margin-right: 0px;
+		    padding-left: 6px;
+		}
+		.navZson2 ul:first-of-type li:first-of-type{
+			margin-left: 0;
+		}			
+		</style>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--header-->
+		<div class="address">送至：</div>
+        <div class="pro">        	
+        	<ul>
+        		<li><a href="#">北京</a></li>
+        		<li><a href="#"></a></li>
+        		<li><a href="#"></a></li>
+        		<li><a href="#"></a></li>
+        		<li><a href="#"></a></li>        		
+        		<li><a href="#">北京</a></li>
+        		<li><a href="#">上海</a></li>
+        		<li><a href="#">天津</a></li>
+        		<li><a href="#">重庆</a></li>
+        		<li><a href="#">河北</a></li>
+        		<li><a href="#">山西</a></li>
+        		<li><a href="#">河南</a></li>
+        		<li><a href="#">辽宁</a></li>
+        		<li><a href="#">吉林</a></li>
+        		<li><a href="#">黑龙江</a></li>
+        		<li><a href="#">内蒙古</a></li>
+        		<li><a href="#">江苏</a></li>
+        		<li><a href="#">山东</a></li>
+        		<li><a href="#">安徽</a></li>
+        		<li><a href="#">浙江</a></li>
+        		<li><a href="#">福建</a></li>
+        		<li><a href="#">湖北</a></li>
+        		<li><a href="#">湖南</a></li>
+        		<li><a href="#">广东</a</li>
+        		<li><a href="#">广西</a></li>
+        		<li><a href="#">江西</a></li>
+        		<li><a href="#">四川</a></li>
+        		<li><a href="#">海南</a></li>
+        		<li><a href="#">贵州</a></li>
+        		<li><a href="#">云南</a></li>
+        		<li><a href="#">西藏</a></li>
+        		<li><a href="#">陕西</a></li>
+        		<li><a href="#">甘肃</a></li>
+        		<li><a href="#">青海</a></li>
+        		<li><a href="#">宁夏</a></li>
+        		<li><a href="#">新疆</a></li>
+        		<li><a href="#">港澳</a></li>
+        		<li><a href="#">台湾</a></li>
+        		<li><a href="#">钓鱼岛</a></li>
+        		<li><a href="#">海外</a></li>
+        	</ul>     	
+        </div>       
+      <!--nav 横向导航条-->      
+      <div class="navH"></div>
+      <!--nav 纵向导航条-->
+      <div class="navZ">
+      	<ul>
+
+      		<li><a href="">家用电器</a></li>
+      		<li><a href="">手机</a><span>/</span><a href="">运营商</a><span>/</span><a href="">数码</a></li>
+      		<li><a href="">电脑</a><span>、</span><a href="">办公</a></li>
+      		<li><a href="">家居</a><span>/</span><a href="">家具</a><span>/</span><a href="">家装</a><span>/</span><a href="">厨具</a></li>
+      		<li><a href="">男装</a><span>/</span><a href="">女装</a><span>/</span><a href="">童装</a><span>/</span><a href="">内衣</a></li>
+      		<li><a href="">个护化妆</a><span>/</span><a href="">清洁用品</a><span>/</span><a href="">宠物</a></li>
+      		<li><a href="">鞋靴</a><span>/</span><a href="">箱包</a><span>/</span><a href="">珠宝</a><span>/</span><a href="">奢侈品</a></li>
+      		<li><a href="">运动</a><span>/</span><a href="">户外</a><span>/</span><a href="">钟表</a></li>
+      		<li><a href="">汽车</a><span>/</span><a href="">汽车用品</a></li>
+      		<li><a href="">母婴</a><span>/</span><a href="">玩具乐器</a></li>
+      		<li><a href="">食品</a><span>/</span><a href="">酒类</a><a href="">生鲜</a><span>/</span><a href="">特产</a></li>
+      		<li><a href="">医药保健</a></li>
+      		<li><a href="">图书</a><span>/</span><a href="">音像</a><span>/</span><a href="">电子书</a></li>
+      		<li><a href="">彩票</a><span>/</span><a href="">旅行</a><span>/</span><a href="">充值</a><span>/</span><a href="">票务</a></li>
+      		<li><a href="">理财</a><span>/</span><a href="">众筹</a><span>/</span><a href="">白条</a><span>/</span><a href="">保险</a></li>
+      	</ul>
+      </div>
+     <div class="navZson2">
+       	<ul>
+      		<li><a href="">20天价保</a><span>></span></li><li><a href="">玩3C</a><span>></span></li><li><a href="">手机频道</a><span>></span></li>
+      		<li><a href="">网上营业厅</a><span>></span></li><li><a href="">影像Club</a><span>></span></li><li><a href="">以旧换新</a><span>></span></li>
+       	</ul>
+       	<ul>
+      		<li><a href="">手机通讯</a><span>></span></li><li><a href="">20天价保</a><span>|</span></li><li><a href="">手机</a><span>|</span>
+      		</li><li><a href="">对讲机</a><span>|</span></li><li><a href="">以旧换新</a><span>|</span></li><li><a href="">手机维修</a></li>
+      	</ul>
+      	
+       	<ul>
+      		<li><a href="">运营商</a><span>></span></li><li><a href="">充话费/流量</a><span>|</span></li><li><a href="">170选号</a><span>|</span>
+      		</li><li><a href="">合约机</a><span>|</span></li><li><a href="">办套餐</a><span>|</span></li><li><a href="">选号码</a><span>|</span></li>
+      		</li><li><a href="">固话宽带</a><span>|</span></li><li><a href="">京东通信</a><span>|</span></li><li><a href="">中国移动</a><span>|</span></li>
+      		</li><li><a href="">中国联通</a><span>|</span></li><li><a href="">中国电信</a></li>
+      	</ul> 
+ 
+        <ul>
+      		<li><a href="">手机配件</a><span>></span></li><li><a href="">手机壳</a><span>|</span></li><li><a href="">贴膜</a><span>|</span>
+      		</li><li><a href="">手机存储卡</a><span>|</span></li><li><a href="">数据线</a><span>|</span></li><li><a href="">充电器</a><span>|</span></li>
+      		</li><li><a href="">手机耳机</a><span>|</span></li><li><a href="">创意配件</a><span>|</span></li><li><a href="">手机饰品</a><span>|</span></li>
+      		</li><li><a href="">手机电池</a><span>|</span></li><li><a href="">苹果周边</a><span>|</span></li><li><a href="">移动电源</a><span>|</span></li><li><a href="">蓝牙耳机</a><span>|</span></li>
+      		<li><a href="">手机支架</a><span>|</span></li><li><a href="">车载配件</a><span>|</span></li><li><a href="">拍照配件</a></li>
+      	</ul> 
+      	
+       	<ul>
+      		<li><a href="">摄影摄像</a><span>></span></li><li><a href="">数码相机</a><span>|</span></li><li><a href="">单电/微单相机</a><span>|</span>
+      		</li><li><a href="">单反相机</a><span>|</span></li><li><a href="">拍立得</a><span>|</span></li><li><a href="">运动相机</a><span>|</span></li>
+      		<li><a href="">摄像机</a><span>|</span></li><li><a href="">镜头</a><span>|</span></li><li><a href="">户外器材</a><span>|</span></li>
+      		<li><a href="">影棚器材</a><span>|</span></li><li><a href="">冲印服务</a><span>|</span></li><li><a href="">数码相框</a></li>
+       	</ul>      	
+       	<ul>
+      		<li><a href="">数码配件</a><span>></span></li><li><a href="">存储卡</a><span>|</span></li><li><a href="">三脚架/云台</a><span>|</span>
+      		</li><li><a href="">相机包</a><span>|</span></li><li><a href="">滤镜</a><span>|</span></li><li><a href="">闪光灯/手柄</a><span>|</span></li>
+      		<li><a href="">相机清洁/贴膜</a><span>|</span></li><li><a href="">机身附件</a><span>|</span></li><li><a href="">镜头附件</a><span>|</span></li>
+      		<li><a href="">读卡器</a><span>|</span></li><li><a href="">支架电池/充电器</a></li>
+      	</ul>
+      	
+       	<ul>
+      		<li><a href="">影音娱乐</a><span>></span></li><li><a href="">耳机/耳麦</a><span>|</span></li><li><a href="">音箱/音响</a><span>|</span>
+      		</li><li><a href="">便携/无线音箱</a><span>|</span></li><li><a href="">收音机</a><span>|</span></li><li><a href="">麦克风</a><span>|</span></li>
+      		<li><a href="">MP3/MP4</a><span>|</span></li><li><a href="">专业音频</a></li>
+      	</ul>
+      	
+       	<ul>
+      		<li><a href="">智能设备</a><span>></span></li><li><a href="">智能手环</a><span>|</span></li><li><a href="">智能手表</a><span>|</span>
+      		</li><li><a href="">智能眼镜</a><span>|</span></li><li><a href="">智能机器人</a><span>|</span></li><li><a href="">运动跟踪器</a><span>|</span></li>
+      		<li><a href="">健康监测</a><span>|</span></li><li><a href="">智能配饰</a><span>|</span></li>
+      		<li><a href="">智能家居</a><span>|</span></li><li><a href="">体感车</a><span>|</span></li>
+      		<li><a href="">无人机</a><span>|</span></li><li><a href="">其他配件</a></li>
+      	</ul>
+      	
+       	<ul>
+      		<li><a href="">电子教育</a><span>></span></li><li><a href="">学生平板</a><span>|</span></li><li><a href="">点读机/笔</a><span>|</span>
+      		</li><li><a href="">早教益智录音笔</a><span>|</span></li><li><a href="">电纸书人</a><span>|</span></li><li><a href="">电子词典</a><span>|</span></li>
+      		<li><a href="">复读机</a></li>
+      	</ul>
+
+      </div>
+	</body>
+	<script>
+	//地址栏效果
+		$(document).ready(function(){
+			//header
+
+			$(".pro ul li a:first").on("mouseenter",function(){				
+				  $(".pro ul").animate({ 
+//				    width: "100%",
+//				    height: "100%", 
+					width:'320px',
+					height:'248px',
+				  }, 10)				
+				
+			});
+
+			$(".pro").on("mouseleave",function(){
+					 $(".pro ul").animate({ 
+						width:'64px',
+						height:'31px',
+					 },0)
+
+			});
+			 $(".pro ul li:eq(1)").add(".pro ul li:eq(2)").add(".pro ul li:eq(3)").add(".pro ul li:eq(4)").on("mouseenter",function(){
+					 $(".pro ul").animate({ 
+						width:'64px',
+						height:'31px',
+					 },0)
+
+			});			
+		});
+
+	</script>
+	
+	<script type="text/javascript">
+	
+		$(".navZ ul li").hover(function(){
+			$(this).css("background","#f3f4f6");
+			$(this).children().css("color","#bd1c24");
+		},function(){
+			$(this).css("background","#c81622");
+			$(this).children().css("color","#FFFFFF");
+		});
+	</script>
+
+</html>

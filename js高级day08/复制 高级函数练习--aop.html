@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//aop:面向方面的编程技术
+			
+			//面向方面的编程技术是面向对象的编程技术的补充
+			
+			//设计一个函数，调用前必须要输出一些字符，调用完成后，再输出一些字符
+			
+			function abf(){
+				console.log("调用前");
+			}
+			
+			//目标函数
+			
+			var target=function(){
+				console.log(2);
+			}
+			
+			var af=function(){
+				console.log("调用后");
+			}
+			
+			var proxy=function(bf,target,af){
+				bf.apply(this,arguments);
+				target.apply(this,arguments);
+				af.apply(this,arguments);
+			}
+			
+			proxy(abf,target,af);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

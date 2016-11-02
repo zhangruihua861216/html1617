@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#block{
+				width: 150px;
+				height: 150px;
+				/*background: #FA8072;*/
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+			#block2{
+				width: 250px;
+				height: 250px;
+				background:#8FBC8F;
+				position: absolute;
+				left: 200px;
+				top: 200px;
+			}			
+		</style>
+	</head>
+	<body>
+		<div id="block">
+			<img src="img/1.jpg"/>
+		</div>
+		<div id="block2">
+			
+		</div>		
+	</body>
+	<script type="text/javascript">
+		var block=document.getElementById("block");
+		//给元素添加事件处理器
+		
+		block.onmousedown=function(event){
+			//获取鼠标相对于自身的X和Y的值
+			var distanceX=event.offsetX;
+			var distanceY=event.offsetY;
+			
+			document.onmousemove=function(e){
+				//获取鼠标的坐标
+				var x=e.clientX;
+				var y=e.clientY;
+				block.style.left=(x-distanceX)+"px";
+				block.style.top=(y-distanceY)+"px";
+			}
+			
+		}
+		
+		block.onmouseup=function(event){
+			document.onmousemove=null;
+
+		}
+	</script>
+</html>

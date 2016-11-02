@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		table{
+			border:2px solid #8c8885;
+			width: 1000px;
+			margin: 0 auto;
+			border-collapse: collapse;
+			font-size: 14px;
+			
+			
+			
+		}
+		
+		
+		table th{
+			background: #d7e4c6;
+			height: 30px;
+		}
+		
+		table td{
+			text-align:center;
+			height: 46px;
+			border-bottom:1px dashed #8c8885;	
+				
+		}
+		
+		table td:first-of-type{
+			text-align: left;
+			padding-left: 30px;
+			color: #7a88d1;
+			font-weight: bold;	
+			
+		}
+		
+		.del,.clear{
+			cursor: pointer;
+		}
+		
+	    table tr:last-of-type{
+	    	background: #d7e4c6;
+			height: 95px;
+	    }
+		
+	    table td input[type='text']{
+		width: 30px;
+		text-align: center;
+		}
+		
+		tr:nth-of-type(even){
+			background: #fefbf2;		
+			
+		}
+		
+		tr:nth-of-type(odd){
+			background:#ffeccc;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var trs=document.querySelectorAll('tr');
+			var inputs=document.querySelectorAll('input');
+			var tds=document.querySelectorAll('.price');
+			var span=document.querySelector('span');
+			
+			
+			for(var i=0;i<trs.length-1;i++)
+			{    	
+					trs[i].onmousemove=function(){
+					this.style.background="#fff";
+				
+					  }
+					trs[i].onmouseout=function(){
+					this.style.background="";
+					  }
+			
+				    inputs[i].onchange=function(){
+				      
+					   alert("修改成功，您的商品总金额为："+sum());
+					   span.innerHTML=sum();
+					}
+			  
+			    
+				     function sum(){
+				     	var result=0;
+						     	for(var j=0;j<tds.length;j++){
+						     		 result+=tds[j].innerHTML*inputs[j].value;
+						     	
+						     	  }
+						    	return result;
+				    }//function sum()
+			
+			 span.innerHTML=sum();
+			
+			}//for(var i=0;i<trs.length-1;i++)
+			
+			
+			var tdsdel=document.querySelectorAll('.del');
+			
+			var clears=document.querySelector('.clear');
+			
+			var yinchang=document.querySelector('#yinchang');
+			
+			var table=document.querySelector('table');
+			
+				for(var k=0;k<tdsdel.length;k++){
+						tdsdel[k].onclick=function(){
+							
+						var bool=confirm("您确定要删除商品么");
+						 
+						 if(bool)
+							{
+							  this.parentElement.remove();							  
+							}
+						else{
+							   alert("已取消");
+						 }
+					}//tdsdel[k].onclick=function()
+					
+						
+			}//for(var k=0;k<tdsdel.length;k++)
+			
+			
+						clears.onclick=function(){
+							
+							var clearbool=confirm("您确定要清空购物车么");
+							 
+							if(clearbool)
+								{
+								  for(j=0;j<tdsdel.length;j++){
+								  	tdsdel[j].parentElement.remove();
+								  }
+								  var Newtr=document.createElement('tr');
+								  var Newtd=document.createElement('td');
+								  Newtd.style.colSpan='6';	
+								  Newtd.style.height="200px";
+								  Newtd.style.width="1000px";
+								  Newtd.style.background='pink';
+                                  var Newtrtd=Newtr.appendChild(Newtd);
+                                 yinchang.appendChild(Newtr);
+								 // table.insertBefore(Newtrtd,lastlist);
+								}
+							else{
+								   alert("已取消");
+							 }
+			  	
+			  			}// clears.onclick
+			
+			
+			
+			
+			  
+			
+		}//window.onload
+	</script>
+	<body>
+		
+		
+		<table cellspacing="0" >
+			<tr><th>商品名</th><th>单品积分</th><th>市场价</th><th>当当价</th><th>数量</th><th>删除</th></tr>
+			<tr><td>私募</td><td>189</td><td>￥32.00</td><td class='price'>1</td><td><input type="text" value="1"/></td><td class='del'>删除</td></tr>
+			<tr><td>小团圆</td><td>173</td><td>￥28.00</td><td class='price'>1</td><td><input type="text" value="1"/></td><td class='del'>删除</td></tr>
+			<tr><td>不抱怨</td><td>154</td><td>￥24.80</td><td class='price'>1</td><td><input type="text" value="1"/></td><td class='del'>删除</td></tr>
+			<tr><td>福玛特双</td><td>358</td><td>￥458.00</td><td class='price'>1</td><td><input type="text" value="1"/></td><td class='del'>删除</td></tr>
+			<tr><td>PHP和mysql</td><td>712</td><td>￥95.00</td><td class='price'>2</td><td><input type="text" value="1"/></td><td class='del'>删除</td></tr>
+			<tr><td>法布尔</td><td>10</td><td>￥198.00</td><td class='price'>1</td><td><input type="text" value="1"/></td><td class='del'>删除</td></tr>
+            
+            <tr id='lastlist'>
+            <td class="clear">清空购物车</td><td></td><td></td><td>您共节省金额：￥233.7<br>可获商品积分：1750</td><td>商品金额总计:<span></span></td><td><input type="submit" value="结算"/></td>
+            </tr>
+		</table>
+	</body>
+</html>

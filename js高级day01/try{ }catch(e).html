@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			var gum=function(num,round){				
+				if(num>round){
+					throw new Error("参数出错");
+				}
+				var flag=false;
+				var arr=[];
+				for(var i=0;i<num;){
+					 var rand=~~(Math.random()*round)+1;
+					 
+					for(var j=0;j<arr.length;j++){					   
+						if(arr[j]==rand){
+							flag=true;
+							break;
+						}
+					}//var j=0;j<arr.length;j++
+				    if(flag==true){				    	
+				    	flag=false;
+				    }else{
+				    	i++;
+				    	arr.push(rand);
+				    }
+				}//var i=0;i<num;
+				arr.sort(function (a,b){
+				return a-b;
+				});
+				
+                return arr;
+			}//var gum=function(num,roud)
+			try{
+				for(var i=0;i<5;i++){
+			    console.log(gum(6,8));	
+			    console.log("1.正常处理");
+			    }
+			}catch(e){
+				console.log("2.异常处理");
+			}
+			console.log("3.流程结束");
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

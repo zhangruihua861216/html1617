@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				width: 800px;
+				margin: 0 auto;
+			}
+			
+			.content{
+				width: 800px;
+			}
+			
+			.bookTitleName{
+				background: pink;
+				width: 200px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content"></div>
+	</body>
+	
+	<script type="text/javascript">
+			function Book(name,price,pic){
+				this.name=name;
+				this.price=price;
+				this.pic=pic;
+				
+			}
+			
+			//2.定义一个存储图书对象的容器，数组
+			var books=[];
+			books.push(new Book("编写可靠的JavaScript代码",70,"img/1.jpg"));
+			books.push(new Book("JavaScript权威指南",129,"img/2.jpg"));
+			
+			//3.把数组当中存储的图书全部显示在.content容器中
+			
+			var content=document.querySelector(".content");
+			
+			//创建表格对象			
+			var myTable=document.createElement("table");	
+			//创建一个标题行对象
+			var headTr=document.createElement("tr");
+			//给tr对象添加一个属性，名class
+			headTr.setAttribute("class","bookTitle");			
+			//把列 标题行对象放到表格中			
+			myTable.appendChild(headTr);
+			//表格添加到div中			
+			content.appendChild(myTable);				
+			
+			//标题的第一列
+			var nameTd=document.createElement("td");
+			nameTd.setAttribute("class","bookTitleName");
+			nameTd.innerHTML="书名";
+			headTr.appendChild(nameTd);
+
+
+			//标题的第二列
+			var priceTd=document.createElement("td");
+			priceTd.setAttribute("class","bookTitleName");
+			priceTd.innerHTML="价格";
+			headTr.appendChild(priceTd);
+
+
+
+			//标题的第三列
+			var picTd=document.createElement("td");
+			picTd.setAttribute("class","bookTitleName");
+			picTd.innerHTML="图片";
+			headTr.appendChild(picTd);
+
+			//标题的第四列
+			var optTd=document.createElement("td");
+			optTd.setAttribute("class","bookTitleName");
+			optTd.innerHTML="操作";
+			headTr.appendChild(optTd);
+
+			for(var i=0;i<books.length;i++){
+				//添加图书
+				
+				var bookTr=document.createElement("tr");
+				var bookNameTd=document.createElement("td");
+				var bookPriceTd=document.createElement("td");
+				var bookPicTd=document.createElement("td");
+				
+				
+				//列放到行中
+				
+				bookTr.appendChild(bookNameTd);
+				bookTr.appendChild(bookPriceTd);
+				bookTr.appendChild(bookPicTd);
+				
+				//td当中添加数据
+				
+				bookNameTd.innerHTML=books[i].name;
+				
+				bookPriceTd.innerHTML=books[i].price;
+				//创建一个img对象添加到td中				
+				var  picImg=document.createElement("img");
+				picImg.setAttribute("src",books[i].pic)
+				bookPicTd.appendChild(picImg);	
+				
+				
+				//创建td
+				
+				var optTd=document.createElement("td");
+				//创建操作的按钮				
+				var optBtn=document.createElement("button");
+				optBtn.innerHTML="查看";
+				optTd.appendChild(optBtn);
+				bookTr.appendChild(optTd);
+				//给按钮添加监听器
+				
+				(function(){
+					var m=i;
+					optBtn.addEventListener('click',function(){
+					alert(books[m].name);
+					}
+					)
+					
+				})();
+				
+				
+				//把tr放到表格当中				
+				myTable.appendChild(bookTr);
+			}
+</script>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				width: 721px;
+				margin: 0 auto;
+				
+			}
+			
+			div{
+				height: 27px;
+				line-height: 27px;
+				font-size: 14px;
+			}
+			
+			label{
+				width: 100px;
+				display: inline-block;
+				text-align: right;
+			}
+			
+			input{
+				margin-left: 5px;
+				
+			}
+		    
+		    input[type='text'],input[type='password']{
+		    	width: 200px;
+		    }
+		    
+		    span{
+		    	margin-left: 6px;
+		    }
+		</style>
+		
+		<script type="text/javascript">
+			window.onload=function(){	
+			   
+			
+				var inputs=document.querySelectorAll('input');
+			    var spans=document.querySelectorAll('span');
+			    var lables=document.querySelectorAll('label');			    
+			    var forms=document.querySelector('form');
+			    
+		        
+			for(var i=0;i<inputs.length;i++){				
+				inputs[i].index=i;				
+					inputs[i].onfocus=function()
+					{
+							for(var j=0;j<spans.length;j++)
+							{
+								spans[this.index].innerHTML="请输入"+lables[this.index].innerHTML;
+							}
+					}
+					
+					inputs[i].onblur=function()
+					{
+						  var regEXp1=/^\w+$/g;
+						  var regEXp2=/^\w+@\w+\.[A-z]{2,6}$/;
+						  var regExp3=/^1[345789]\d{9}$/;
+						  var regExp4=/^.\{4,10}$/;
+							for(var j=0;j<spans.length;j++)
+							{  
+								switch(this.index){
+									case 0:
+									     if(regEXp1.test(inputs[this.index].value))
+									       { spans[this.index].innerHTML="";
+									        break;
+									       }
+									     else
+									        { spans[this.index].innerHTML="用户名不正确";
+									           break;
+									        }
+									        
+									    
+									case 1:
+									    if(regEXp2.test(inputs[this.index].value))
+									          {spans[this.index].innerHTML="";
+									           break;
+									       }
+									     else
+									        { spans[this.index].innerHTML="Email地址不正确";
+									           break;
+									        }
+									        
+									case 2:
+									
+									if(regExp3.test(inputs[this.index].value))
+									         {spans[this.index].innerHTML="";
+									          break;
+									         }
+									     else
+									        { spans[this.index].innerHTML="手机不正确";
+									           break;
+									        }
+									        
+									case 3:
+									
+									if(regExp4.test(inputs[this.index].value))
+									        { spans[this.index].innerHTML="";
+									         break;
+									       }
+									     else
+									        { spans[this.index].innerHTML="密码不正确";
+									           break;
+									        }
+									}//switch(this.index)
+								
+							}//for(var j=0;j<spans.length;j++)
+							
+							
+					}//inputs[i].onblur=function()
+					
+					
+					
+			}//for(var i=0;i<inputs.length;i++)
+					
+		
+			
+		
+   }//onload
+			
+		</script>
+	</head>
+	<body>
+		<img src="img/logo.jpg"/>
+		<form action="#" method="get">	
+			
+			
+		<div><label>用户名</label><input type="text" /><span></span></div>				
+			
+			
+		<div><label>Email地址</label><input type="text" /><span></span></div>				
+			
+			
+		<div><label>手机号码</label><input type="text" /><span></span></div>				
+			
+			
+		<div><label>登录密码</label><input type="password" /><span></span></div>				
+			
+			
+		<div><label>确认密码</label><input type="password" /><span></span></div>				
+			
+			
+		<div><input type="submit" name="" id="" value="注册完成" /></div>
+			
+		
+		
+		</form>
+	</body>
+</html>

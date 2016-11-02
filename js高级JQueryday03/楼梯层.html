@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+ 	<div id="log"></div>
+	</body>
+	<script type="text/javascript">
+	 $(document).ready(function () {
+	 	
+	 	
+	    $('body').css("margin","0 auto").css("width","1000px");
+		var div1=$("<div>1 层</div>").css("width",'1000px').css("height","2000px").css("border","1px solid red").css("font-size","200px").css("text-align","center");
+		$("body").append(div1);
+		var div=$("<div>2 层</div>").css("width",'1000px').css("height","2000px").css("border","1px solid red").css("font-size","200px").css("text-align","center");
+		$("body").append(div);
+		var div=$("<div>3 层</div>").css("width",'1000px').css("height","2000px").css("border","1px solid red").css("font-size","200px").css("text-align","center");	
+		$("body").append(div);
+		var div=$("<div>4 层</div>").css("width",'1000px').css("height","2000px").css("border","1px solid red").css("font-size","200px").css("text-align","center");
+		$("body").append(div);
+		var div=$("<div>5 层</div>").css("width",'1000px').css("height","2000px").css("border","1px solid red").css("font-size","200px").css("text-align","center");
+		$("body").append(div);
+		
+		var F1=$("<div>1F</div>").css("border","1px solid green").css("width","50px").css("height","50px").css("font-size","30px").css("text-align","center").css("line-height","50px").attr("class","F");
+		$("body").append(F1);
+		var F2=$("<div>2F</div>").css("border","1px solid green").css("width","50px").css("height","50px").css("font-size","30px").css("text-align","center").css("line-height","50px").attr("class","F");
+		$("body").append(F2);
+		var F3=$("<div>3F</div>").css("border","1px solid green").css("width","50px").css("height","50px").css("font-size","30px").css("text-align","center").css("line-height","50px").attr("class","F");
+		$("body").append(F3);
+		var F4=$("<div>1F</div>").css("border","1px solid green").css("width","50px").css("height","50px").css("font-size","30px").css("text-align","center").css("line-height","50px").attr("class","F");
+		$("body").append(F4);
+		var F5=$("<div>5F</div>").css("border","1px solid green").css("width","50px").css("height","50px").css("font-size","30px").css("text-align","center").css("line-height","50px").attr("class","F");
+		$("body").append(F5);
+		$(".F").wrapAll("<div class='wrap'></div>");		
+		$(".wrap").css("position","fixed").css("bottom","200px").css("left","200px");
+		
+		var f1=$("div:eq(2)");
+		
+		console.log( $(document).scrollTop());
+		
+		$(document).bind('scroll',function(e){
+			console.log("e.pageX="+e.offsetX);
+			console.log("e.pageY="+e.pageY);
+            $("#log").text("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY);
+         });
+	 	
+	 });
+
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//形式一
+		function fn(f){
+			if(typeof f=='function'){
+				fn();
+			}
+		}
+		
+		fn(function(){
+			console.log("hello world");
+		});
+		
+		//形式2
+		
+		function invokedAddFn(a,b){
+			return a+b;
+		}
+		
+		function invokedSubFn(a,b){
+			return a-b;
+		}
+		
+		function calc(fn,a,b){
+			if(typeof fn=='function'){
+				return fn(a,b);
+			}else{
+				console.log("hehe");
+			}
+		}
+		function calc1(fn){
+			if(typeof fn=='function'){
+				return fn.apply(this,参数数组);
+			}
+		}
+		
+		function calc2(fn){
+			return function(){
+				if(typeof fn=='function'){
+					return fn.apply(this,arguments);
+				}				
+			}
+
+		}
+		console.log(calc2(invokedAddFn)(1,9));
+		
+		var result=calc(invokedAddFn,1,5);		
+		console.log(result);
+		var result=calc(invokedSubFn,2,1);		
+		console.log(result);	
+		
+		//用call执行invokedAddFn
+		console.log(invokedAddFn.call(this,3,2));
+		//用apply执行invokedAddFn
+		console.log(invokedAddFn.apply(this,[5,2]));
+	</script>
+</html>

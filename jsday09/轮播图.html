@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		   *{
+		   	margin: 0px;
+		   	padding: 0px;
+		   }
+			img{
+				width: 100%;
+				position: absolute;
+			}
+			img:nth-of-type(1){
+				left: 0;
+			}
+			img:nth-of-type(2){
+				left: 1209px;
+			}
+			img:nth-of-type(3){
+				left: 2418px;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				
+				var img1=document.getElementById('img1');
+				var img2=document.getElementById('img2');
+				var img3=document.getElementById('img3');
+				
+				var left1=img1.offsetLeft;
+				var left2=img2.offsetLeft
+				var left3=img3.offsetLeft;
+				
+				console.log(left1);
+				console.log(left2);
+				console.log(left3);
+				setInterval(function(){
+					
+				 left1=left1+2418;
+				
+					}
+					
+					
+					img1.style.left=left1+'px';
+					img2.style.left=left2+'px';
+					img3.style.left=left3+'px';
+				},10);
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+		<img src="img/banner1.jpg" alt="" id='img1' />
+		<img src="img/banner2.png" alt="" id='img2'/>
+		<img src="img/banner3.jpg" alt="" id='img3'/>
+		</div>
+	</body>
+</html>

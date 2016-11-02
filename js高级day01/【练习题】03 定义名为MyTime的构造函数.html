@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		
+		<script type="text/javascript">
+			//定义名为MyTime的构造函数，其中应有三个成员：时（hour），分（minute），秒（second）。再定义diaplay方法，用于将时间信息打印出来。
+			
+			function MyTime(){
+				
+			}
+			
+			MyTime.prototype.diaplay=function(){
+			
+				console.log(this.hour+":"+this.minute+":"+this.second);
+			},
+			MyTime.prototype.setMyTime=function(hour,minute,second){
+				this.hour=hour;
+				this.minute=minute;
+				this.second=second;
+			}
+			
+			var ObjMyTime=new MyTime();
+			ObjMyTime.setMyTime(23,35,24);
+			ObjMyTime.diaplay();
+		</script>
+		
+		
+	</head>
+	<body>
+	</body>
+</html>

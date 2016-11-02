@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="file" id="file" style="width: 250px" /> 
+		<div class="imageBox"> 
+		    <div class="thumbBox"></div> 
+		    <div class="spinner" style="display: none">Loading...</div> 
+		</div> 
+		<div class="action"> 
+		    <input type="button" id="btnCrop" value="裁剪" /> 
+		    <input type="button" id="btnZoomIn" value="放大" /> 
+		    <input type="button" id="btnZoomOut" value="缩小" /> 
+		</div> 
+		<div class="cropped"></div>
+	</body>
+	<script type="text/javascript">
+		$(window).load(function() { 
+    var options = { 
+        thumbBox: '.thumbBox', 
+        spinner: '.spinner', 
+        imgSrc: 'images/avatar.png' 
+    } 
+    var cropper = $('.imageBox').cropbox(options); 
+    $('#file').on('change', 
+    function() { 
+        var reader = new FileReader(); 
+        reader.onload = function(e) { 
+            options.imgSrc = e.target.result; 
+            cropper = $('.imageBox').cropbox(options); 
+        } 
+        reader.readAsDataURL(this.files[0]); 
+        this.files = []; 
+    }) 
+    $('#btnCrop').on('click',
+    function() { 
+        var img = cropper.getDataURL(); 
+        $('.cropped').append('<img src="' + img + '"/>'); 
+    })
+    $('#btnZoomIn').on('click',
+    function() { 
+        cropper.zoomIn(); 
+    })
+    $('#btnZoomOut').on('click',
+    function() { 
+        cropper.zoomOut(); 
+    }) 
+});
+	</script>
+</html>

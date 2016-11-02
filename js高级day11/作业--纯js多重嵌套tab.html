@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			box-sizing: border-box;
+			font-size: 16px;
+         	font-family: "微软雅黑";
+         	margin: 0px;
+         	padding: 0px;				
+		}
+		body{
+			margin-top: 50px;
+			margin-left: 50px;
+		}
+		a{
+         	text-decoration: none;
+         	color: #000000;
+         	font-family: "微软雅黑";			
+		}
+        a:hover{
+         	color: red;
+         }		
+ 		.one{
+ 			height: 187px;
+ 			width:454px ;
+ 			border: 1px solid #b7b7b5;
+ 		}
+ 		
+ 		.one .page1 span{
+ 			display: inline-block;
+ 			height: 93px;
+ 			width: 113px;
+ 			border-right: 1px solid #b7b7b5;
+ 			cursor: pointer;
+ 		}
+  		.one .page1 span:last-of-type{
+  			border-right: none;
+  		}
+  		.one .page1:first-of-type span{
+  			border-bottom: 1px solid #b7b7b5;
+  		}		
+         .two{
+        	height: 187px;
+        	background: #FFFFFF;       	
+         }
+         .page2 a{
+         	width: 113px;
+         	display: inline-block;
+         	height: 32px;
+         	border-bottom: 1px solid #b7b7b5; 
+         	border-top: 1px solid #b7b7b5;
+         	border-left: 1px solid #b7b7b5;
+         	text-align: center; 
+         	line-height: 32px;
+
+         }
+         .page2 a:hover{
+         	border-bottom: none;
+         }
+         .page2 a:last-of-type{
+         	border-right: 1px solid #b7b7b5;
+         	width: 115px;
+         }
+		.tab{
+         	overflow:hidden;
+          	height: 155px;
+          	width: 454px;       				
+		}
+         .show{
+         	border: 1px solid #b7b7b5;
+         	width: 454px;
+         	border-top:  none;
+         	font-size: 14px;
+         	height: 155px;
+
+         }
+         .show div{
+         	height: 37px;
+          	line-height: 37px;
+          	padding-top: 4px;
+          	    	
+         }
+         .show .title{
+         	display:inline-block;
+         	width: 100px;
+         	text-align: right;
+         	padding-right: 5px;
+         }
+         
+         .show input{
+         	width: 250px;
+         	height: 22px;
+         }
+         .show button{
+         	background: red;
+         	color: #FFFFFF;
+         	width: 80px;
+         	height: 36px;
+         	margin-right: 5px;
+         }
+         
+         .lvxing ul,.youxi ul{
+         	list-style: none;
+         	border-bottom: 1px solid #b7b7b5;
+         	height: 32px;
+         }
+         .lvxing li,.youxi li{
+         	float: left;
+         	width: 80px;
+         	text-align: center;
+         	height: 32px;
+         	line-height: 32px;
+         }
+         .lvxing li a,.youxi li a{
+            color: #2c71aa;	
+         }
+         .lvxing li a:hover,.youxi li a:hover{
+            color: red;	
+         }
+         
+         .caipiao{
+         	text-align: center;
+         } 
+         
+         textarea{
+         	height: 117px;
+            width: 452px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+         }
+         .textareaShow{
+         	height: 117;
+         	width: 452px;
+         }  
+
+		</style>
+	</head>
+	<body>
+		<!--page1-->
+		<div class="one">
+			<div class="page1"><span>点我呀</span><span>点我呀</span><span>点我呀</span><span>点我呀</span></div>
+			<div class="page1"><span>点我呀</span><span>点我呀</span><span>点我呀</span><span>点我呀</span></div>
+		</div>
+		<!--page2-->
+		<div class="two">
+			<div class="page2"><a href="#">话费</a><a href="#">旅行</a><a href="#">彩票</a><a href="#">游戏</a></div>	
+			<div class="tab">
+			<div class="show huafei">
+			<div><span class="title">手机号:</span><input type="text" /></div>		
+			<div><span class="title"></span><span>支持移动、联通、电信</span></div>	
+			<div><span class="title">面值:</span><select name="">
+				<option value="">100元</option>
+				<option value="">200元</option>
+				<option value="">300元</option>
+			</select></div>
+			<div><span class="title"></span><button>点击充值</button>充10元话费抽大奖</div>
+	        </div>
+			<div class="show lvxing">
+		
+			<ul>
+				<li><a href="">机票</a></li>
+				<li><a href="">酒店</a></li>
+				<li><a href="">旅游</a></li>
+				<li><a href="">签证</a></li>
+				<li><a href="">租车</a></li>
+			</ul>
+			<div class="textareaShow">
+			<textarea>机票</textarea>
+			<textarea>酒店</textarea>	
+			<textarea>旅游</textarea>
+			<textarea>签证</textarea>	
+			<textarea>租车</textarea>
+			
+			</div>
+	        </div>
+			<div class="show caipiao">
+			<div>买主 <select name="">
+				<option value="">双色球</option>
+			</select>试试手气 </div>
+			<div>03 07 18 19 24 31 03</div>
+			<div>[机选1主][自助选号]</div>
+			<button>提交数据</button>
+	        </div>
+			<div class="show youxi">
+		
+			<ul>
+				<li><a href="">点卡</a></li>
+				<li><a href="">qq</a></li>
+				<li><a href="">页游</a></li>
+			</ul>
+			<div class="textareaShow">			
+			<textarea>点卡</textarea>
+			<textarea>qq</textarea>	
+			<textarea>页游</textarea>
+			</div>
+	        </div>	
+	       </div> 
+		</div>
+	</body>
+	<script type="text/javascript">
+		var spans=document.querySelectorAll(".page1 span");
+		var oneP1=document.querySelector(".one");
+		var twoP2=document.querySelector(".two");
+		var k=187;
+	
+
+		for(var i=0;i<spans.length;i++){
+		    spans[i].onclick=function(){
+
+ 		    twoP2.style.position="absolute";
+			console.log(twoP2.style.top);
+			taskId=setInterval(function(){				
+				k--;
+ 		    	twoP2.style.top=k+"px";	
+ 		    	if(k==50){
+ 		    		clearInterval(taskId);
+ 		    	}
+			},1);
+
+		    }			
+		}
+
+	</script>
+	<script type="text/javascript">
+		var aTabs=document.querySelectorAll(".page2 a");
+        var shows=document.querySelectorAll(".show");
+		for(var i=0;i<aTabs.length;i++){
+			aTabs[i].index=i;
+			aTabs[i].onmouseover=function(){	
+				for(var j=0;j<aTabs.length;j++){
+					shows[j].style.display="none";
+					shows[this.index].style.display="block";
+				}
+			}
+		}
+	</script>
+	<!--旅行tab切换-->
+	<script type="text/javascript">
+		var lvxing=document.querySelectorAll(".lvxing ul li");
+		var textareaS=document.querySelectorAll(".lvxing textarea");
+		for(var i=0;i<lvxing.length;i++){
+			lvxing[i].index=i;			
+			lvxing[i].onmouseover=function(){
+					for(var j=0;j<aTabs.length;j++){
+						textareaS[j].style.display="none";
+						textareaS[this.index].style.display="block";
+					}				
+			}
+		}
+	</script>
+	<!--游戏tab切换-->
+	<script type="text/javascript">
+		var youxi=document.querySelectorAll(".youxi ul li");
+		var textareaS=document.querySelectorAll(".youxi textarea");
+		console.log(textareaS);
+		for(var i=0;i<youxi.length;i++){
+			youxi[i].index=i;			
+			youxi[i].onmouseover=function(){
+					for(var j=0;j<aTabs.length;j++){
+						
+						textareaS[j].style.display="none";
+						textareaS[this.index].style.display="block";
+					}				
+			}
+		}		
+	</script>
+</html>

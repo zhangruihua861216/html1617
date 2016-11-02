@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width:100px;
+				height:100px;
+				background: darkseagreen;
+			   }
+		</style>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				
+				//获取到div和按钮标签
+				var div=document.getElementById('div1');
+				var btn=document.getElementById('btn');
+				
+				//给按钮添加点击事件
+				
+				btn.onclick=function(){
+					//判断当前标签是否显示,然后进行相反操作
+					if(div.style.visibility=='hidden'){
+						div.style.visibility='visible';
+						
+					}
+					else{
+						div.style.visibility='hidden';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>		
+        <button id='btn'>显示/隐藏</button>	
+			
+	    
+	</body>
+</html>

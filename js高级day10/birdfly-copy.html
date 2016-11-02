@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#bird{
+				background: url(img/bird.jpg);
+				width: 128px;
+				height: 85px;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div id="bird">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var x=0;
+		var y=0;
+		var bird=document.getElementById("bird");
+		//变换图片的位置
+        setInterval(moveBird,100);
+		function moveBird(){
+			console.log(x);
+			bird.style.backgroundPositionX=x+"px";
+			bird.style.backgroundPositionY=y+"px";
+			if(x>-896){
+				x=x-128;
+			}else{
+				x=0;
+			}
+		}
+		
+		
+	</script>
+</html>

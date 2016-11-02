@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//猜数字游戏：一个类A有一个成员变量v，有一个初值100。定义一个类，对A类的成员变量v进行猜。如果大了则提示大了，小了则提示小了。等于则提示猜测成功。
+			
+			function A(){
+				v=100;
+				return v;
+			}
+			
+			
+		   function guessNumer(){
+		   	var b=A();
+			while(true){
+			   var num=prompt("请输入一个数字");
+			   	if (num>b){
+			   		console.log("大了");
+			   	}else if(num==b){
+			   		console.log("猜测成功");
+			   		break;
+			   	}else if(num<b){
+			   		console.log("小了");
+			   	}else{
+			   		console.log("你输入数据不合法");
+			   	}
+			  }
+		    }
+
+		  guessNumer();
+
+		 
+		 
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

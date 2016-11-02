@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div>
+			<a href="#">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+			<a href="#">7</a>
+			<a href="#">8</a>
+			<a href="#">9</a>
+			<a href="#">10</a>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+//			var a=document.getElementsByTagName("a");
+//			for(var i=0;i<a.length;i++){			
+//				(function(m){
+//				a[i].onmousemove=function(){				
+//				console.log("第"+m+"个标签")
+//				}
+//				})(i);	
+//			}
+			
+//			$("a").css("border","1px solid red").css("display","inline-block").css("width","80px")
+//			.mouseenter(function(){
+//				$(this).css("background","red");
+////				this.style.background="green";
+//				console.log(this.innerHTML);
+//			}).mouseout(function(){
+//				this.style.backgroundColor="white";
+//			});
+//			var myarrays=$("a").toArray();
+//			console.log(myarrays);
+//			myarrays.forEach(function(elem,index,self){
+//				console.log(elem);
+//				console.log(index);
+//				console.log(self);
+//			})
+//			
+//			$("a").each(function(index,elem){
+//				$(elem).css("color","red");
+//			})
+			$("a").css("display","inline-block").css("width","89px");
+			var a=$("a:lt(3)");
+			var b=a.add("a:gt(6)");
+			console.log(a);
+			console.log(b);
+			console.log(a==b);
+			b.mouseenter(function(){
+				$(this).css("background","red");
+			}).mouseout(function(){
+				$(this).css("background","white");
+			})
+		})
+	</script>
+</html>

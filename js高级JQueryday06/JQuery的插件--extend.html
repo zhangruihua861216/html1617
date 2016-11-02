@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				function printMsg(name){
+					console.log(name?"hello"+name:"没有传递参数");
+				}
+			
+			function myLog(msg){
+				var currentNow=new Date()
+				console.log("当前时间"+currentNow+"打印内容"+msg);
+			}
+			var o={
+				abc:"hello",
+				printMsg:printMsg,
+				mylog:myLog
+			}
+			
+			$.extend(o)  //通过$变量可以调用extend方法进行扩展
+			console.log($.abc);
+			$.printMsg();
+			$.printMsg("world");
+			
+			$.mylog("abc");
+				
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

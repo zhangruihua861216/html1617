@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+		   *{
+		   	margin: 0px;
+		   	padding: 0px;
+		   	box-sizing: border-box;
+		   }
+		   
+		   body{
+		   	width: 100%;
+		   }
+		   
+			#div1{
+				width: 200px;
+				height:200px;
+				border-radius: 50%;
+				background: red;
+				border: 1px solid black;
+				position: absolute;
+				left: 0px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var div=document.getElementById('div1');
+				var body=document.body;
+				
+				var left=div.offsetLeft;
+				
+				var top=div.offsetTop;
+
+				var timer=setInterval(function(){
+					
+					if(0<=left&&left<body.clientWidth-div.offsetWidth){
+	               
+					left+=5;
+	
+					div.style.left=left+'px';
+					}
+					
+					var timer1=setInterval(function(){ 	
+					if(left>=body.clientWidth-div.offsetWidth){	
+                      clearInterval(timer);
+				        top+=5;
+				        div.style.top=top+'px';	
+				        
+				        console.log(window.innerHeight);
+				        console.log(top+'haha');
+				        
+				        if(top>=155){
+				        clearInterval(timer);
+					 	clearInterval(timer1);
+					 	
+					 	console.log('hihi');
+					   }
+   					 }
+					
+					 
+
+					},10);
+
+					
+				},10);
+				
+		
+
+
+			     
+			     
+			 }
+				        
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+</html>

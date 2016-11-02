@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//实现留言板效果,当用户按了control+enter按键后,发送留言到留言区
+			window.onload=function(){
+				var Text=document.querySelector("#text");
+				var div=document.querySelector("div");
+				//判断当前是否按下了control+enter组合键
+				document.onkeydown=function(ev){
+					var evenObj=ev||event;
+					
+					//判断组合按键,使用该按键所对应的按键属性,和组合件配合使用的按键,使用keyCode属性判断
+					if(evenObj.keyCode==13&&evenObj.ctrlKey==true)
+					{
+						if(Text.value==''){
+							Text.placeholder="请输入留言";
+						}
+						else{
+							//发消息
+							var content=Text.value;
+							console.log(content);
+							var pElemnent=document.createElement('p');
+						    pElemnent.innerHTML=content;
+						    div.appendChild(pElemnent);
+						    Text.value='';
+						}
+						
+						  
+					}
+					
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" name="" id="text" value="" />
+		<div></div>
+	</body>
+</html>

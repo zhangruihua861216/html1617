@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+	</body>
+	<script type="text/javascript">
+		$.fn.turnBg=function(){
+			var defaults={
+				"color":"red",
+				"fontSize":"12px",
+				'bg':"#FFD"
+			}
+			//比较low方法
+			if(arguments.length<1){
+				
+				return	this.css({
+				"color":defaults['color'],
+				"font-size":defaults["fontSize"],
+				'background':defaults['bg']
+			});
+				
+			}else{
+				return	this.css({
+				"color":args['color'],
+				"font-size":args["fontSize"],
+				'background':args['bg']
+			});
+			}
+			
+			
+			
+			var s=$.extend(defaults,args);
+			
+			return this.css({
+				'color':s['color'],
+				'font-size':s['fontSize'],
+				'background':s['bg'],
+			})
+
+		}
+		
+		var  map={
+			"color":"blue",
+			"fontSize":"18px",
+			"bg":"red",
+			"border":"1px solid green"
+			
+		}
+		
+		$("div").turnBg(map).css("font-size","30px");
+		
+		$("div").turnBg().css("font-size","30px");
+	</script>
+</html>

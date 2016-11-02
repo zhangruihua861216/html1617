@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#block{
+				width: 150px;
+				height: 150px;
+				background: #FA8072;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+			#block2{
+				width: 250px;
+				height: 250px;
+				background:#8FBC8F;
+				position: absolute;
+				left: 200px;
+				top: 200px;
+			}			
+		</style>
+	</head>
+	<body>
+		<div id="block">
+			
+		</div>
+		<div id="block2">
+			
+		</div>		
+	</body>
+	<script type="text/javascript">
+		var block=document.getElementById("block");
+		//给元素添加事件处理器
+		
+		block.onmousedown=function(event){
+			
+			var sourceX=this.offsetLeft;
+			var sourceY=this.offsetTop;
+			
+			var dx=event.clientX;
+			var dy=event.clientY;
+			
+			document.onmousemove=function(e){
+				//获取鼠标的坐标
+				var x=e.clientX;
+				var y=e.clientY;
+				
+				block.style.left=(x-dx+sourceX)+"px";
+				block.style.top=(y-dy+sourceY)+"px";
+
+			}
+			
+		}
+		
+		block.onmouseup=function(event){
+			document.onmousemove=null;
+
+		}
+	</script>
+</html>

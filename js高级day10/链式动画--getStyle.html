@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#odiv{
+				width: 1000px;
+				height: 1000px;
+				background: #8B0000;
+				opacity: 0.3;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div id="odiv">
+
+		</div>
+	</body>
+	<script type="text/javascript">
+		var odiv=document.getElementById("odiv");
+		odiv.onmousemove=function(){
+			startMove(odiv,-200,"width",function(){
+				startMove(odiv,-150,"height",function(){
+					startMove(odiv,100,"opacity");
+					console.log("结束");
+				})
+			})
+		}
+
+		
+//		odiv.onmouseout=function(){
+//			startMove(odiv,1,"opacity",function(){
+//				startMove(odiv,100,"height",function(){
+//					startMove(odiv,100,"width");
+//					console.log("结束");
+//				})
+//			})
+//		}		
+	//obj  执行动画的对象
+	//targetValue  目标值
+	//attr   动画的属性
+	//nextFn  下一个动画
+		function startMove(obj,targetValue,attr,nextFn){
+
+			//执行之前动画的结束
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){
+				//执行动画的定时器
+				var currentValue=0;//执行动画对应的属性当前值
+				if(attr=='opacity'){
+					//因为计算机浮点运算不精确
+				currentValue=(Math.round(getStyle(obj,attr))*100);
+
+				}else{
+					//去掉字符串中的px，然后变成整数
+					currentValue=parseInt(getStyle(obj,attr));
+				
+				}
+				var speed=0;//每次动画增长的幅度
+				speed=(targetValue-currentValue)/3;
+//				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+				console.log("speed="+speed);
+				console.log("C"+Math.ceil(speed));
+				console.log("F"+Math.floor(speed));				
+
+				//当对象到达目标时，停止动画，开始下一个动画
+				if(currentValue==targetValue){
+					clearInterval(obj.timer);
+					if(nextFn){
+						nextFn();
+					}
+				}else{
+					if(attr=="opacity"){
+						obj.style.opacity=(currentValue+speed)/100;
+
+					}else{
+						obj.style[attr]=currentValue+speed+"px";
+						
+					}
+				}
+			},50)
+		}
+		//获取obj元素当前样式状态的样式对象
+		function getStyle(obj,attr){
+			if(obj.currentStyle){//IE8以前浏览器的方法
+				return obj.currentStyle[attr];
+			}else{
+				return getComputedStyle(obj,false)[attr];
+			}
+		}
+
+		
+//		var odiv=document.getElementById("odiv");
+//		odiv.style.width=parseInt(Math.random()*900)+"px";
+//		console.log(getStyle(odiv,"width"));
+	</script>
+</html>

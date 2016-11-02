@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+	</head>
+	<body>
+		<div>
+			<header>从服务端取回来的数据</header>
+			<div id="contet"></div>
+			<button>单击</button>
+		</div>
+	</body>
+			<script type="text/javascript">
+		
+		//创建一个ajax的对象
+//			var xhr=new XMLHttpRequest();
+		
+		
+		function createXHR(){
+			//如果浏览器支持XMLHttpRquest那么直接创建返回该对象
+			
+			if(typeof XMLHttpRequest !="undefined"){
+				return new XMLHttpRequest();
+			}else if(typeof ActiveXObject !="undefined")
+			{
+				if(typeof arguments.callee.activeXString !="string"){
+					var versions=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp'];
+					for(var i=0;i<versions.length;i++){
+						try{
+							new ActiveXObject(versions[i]);
+							arguments.callee.activeXString=versions[i];
+						}catch(e){
+							
+						}
+						
+					}
+				}
+				
+				return new ActiveXObject(arguments.callee.activeXString);
+			}else{
+				throw new Error("无法正常创建ajax对象");
+			}
+		}
+		
+		
+		var btn=document.getElementsByTagName("button")[0].onclick=function(){
+		//第一步：创建XMLHttpRequest对象
+		var XHR=createXHR()
+		//第二步：初始化该对象
+//		XHR.open(请求的方式或者类型,请求的url,同步或者异步的标志)
+		XHR.open("get","http://localhost:5050/books/");
+		
+		//第三 步：发送请求  有数据发送，传到send的方法中，没有一定要传null
+		
+		XHR.send(null);
+		
+		//第四步：处理接受数据
+		
+		XHR.onreadystatechange=function(){
+//			console.log(XHR.readyState);
+			if(XHR.readyState==4){
+				//DOM
+			 console.log(XHR.responseText);
+			 var data=JSON.parse(XHR.responseText)
+			 
+			 for(var j=0;j<data.length;j++)
+			 {
+			 console.log(data.length);
+			 document.getElementById("contet").innerHTML=data[j].bookname;			 	
+			 }
+
+			}
+		}
+		
+		//http://localhost:5000/dashboard/books/api/
+			
+		}
+		
+		
+		</script>
+</html>

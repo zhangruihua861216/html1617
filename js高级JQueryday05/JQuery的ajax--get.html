@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<form action="">
+		用户名：<input type="text" name="username" id="username" value="" />
+		年龄： <input type="text" name='age' id='age' value="" />
+		性别：<input type="text" name="gender" id='gender' value="" />
+		
+		</form>		
+   <button>发送</button>
+	</body>
+		<script type="text/javascript">
+		var baseUrl="http://10.0.161.193:8080"+"/myapp/hello";
+		function handerReturnData(data){
+			
+			//处理返回的数据
+			console.log(data);
+			$("input:first").value=$(data.username);
+			$("input:eq(1)").value=$(data.age);
+			$("input:eq(2)").value=$(data.gender);
+		}
+			$(document).ready(function(){
+				$("button").click(function(){
+					//四个参数 
+					//1. url  2.请求时客户端发送给服务器端的数据  3.回调，当请求成功返回时，那么调用的函数  4.返回的类型type
+					var data='id=skjdfks001&name=zhangsan';
+				   $.get(baseUrl,data,handerReturnData,'json');
+		
+				})
+				
+			})
+		</script>	
+</html>

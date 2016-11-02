@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			//正则表达式:专门用来验证字符串的一种规则,我们可以自由的编写我们想要的验证规则,然后通过相关方法让这个正则去验证指定的字符串,并返回我们希望得到的结果
+			//正则表达式是一种单独的语法,与使用环境的开发语言无关(任何开发环境中都可以使用正则)
+			
+			
+			//1.如何创造一个正则表达式
+			
+			//第一个参数是正则表达式的主体内容
+			//第二个参数是正则的修饰符
+			var regExp=new RegExp('sdvsv','gi');
+			
+			//使用字面量创建正则:两个斜杠之间是正则主体,最后一个斜杠后是正则修饰符
+			
+			var regExp1=/[0-9]{2,3}/g;
+			
+//			var regExp2=/\d{2,3}/;
+			
+			var str='234gsggfad4321235fsrw32';		
+			
+			
+//			alert(str.match(regExp1));
+			
+			//2.如何用正则去验证字符串
+			
+			//使用正则对象下的方法调用正则
+			
+			var regExp2=/ab/;
+			var str1='adfdfdferereaA';
+			//test()方法:如果找到正则规则中匹配的字符,返回true.参数是要验证的字符串
+//			 alert(regExp2.test(str1));
+			 
+			 //exec()方法:搜索字符串符合正则规则的字符并把第一个匹配的字符返回出来,如果没有,返回null
+			 
+//			 alert(regExp2.exec(str1));
+			
+			//调用者是正则对象,方法参数是要验证的字符串
+			
+			//字符串对象下的正则验证方法
+			
+			//'':在引号中出现的字符是字符串
+			
+			// //:在两个斜杠之间出现的是正则
+			// search():字符串下的方法,找到参数指定的字符并返回下标,如果没有找到,就返回-1,参数可以使用字符串,也可以使用正则表达式
+			
+//			alert(str1.search(/a/));
+			
+			//replace()
+			
+			var str2='hello world';
+			
+//			 alert(str2.replace('hello','hi')) ;
+//			 alert(str2.replace(/h|w/g,'**'));
+			 
+			 //match()
+			 
+			 var str3='hello,my name is liLei';
+			 
+//			 alert(str3.match('e'));
+			 alert(str3.match(/e/g));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

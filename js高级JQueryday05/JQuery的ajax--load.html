@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="myForm"></div>
+	</body>
+	<script type="text/javascript">
+	   
+	   var url="http://10.0.161.193:8080"+'/myapp/form.html';
+
+		$(document).ready(function(){
+			
+			$("#myForm").load(url);
+	
+		})
+	</script>
+</html>

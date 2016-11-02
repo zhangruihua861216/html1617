@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+					function createXHR(){
+			//如果浏览器支持XMLHttpRquest那么直接创建返回该对象
+			
+			if(typeof XMLHttpRequest !="undefined"){
+				return new XMLHttpRequest();
+			}else if(typeof ActiveXObject !="undefined")
+			{
+				if(typeof arguments.callee.activeXString !="string"){
+					var versions=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp'];
+					for(var i=0;i<versions.length;i++){
+						try{
+							new ActiveXObject(versions[i]);
+							arguments.callee.activeXString=versions[i];
+						}catch(e){
+							
+						}
+						
+					}
+				}
+				
+				return new ActiveXObject(arguments.callee.activeXString);
+			}else{
+				throw new Error("无法正常创建ajax对象");
+			}
+		}
+
+		</script>
+	</head>
+	<body>
+		<div>
+			<div class="hearder">
+				<button>获取数据</button>
+				<div class="content" id="contet"</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var baseUrl='http://localhost:5000';
+
+		var getDatabtn=document.getElementsByTagName("button")[0];
+		getDatabtn.onclick=function(){
+			//创建ajax对象
+			var xhr=createXHR();
+			xhr.open('get',baseUrl+"/books");
+			xhr.send(null);
+			
+			xhr.onreadystatechange=function(){
+				if(xhr.status==200||xhr.status==304){
+					if(xhr.readyState==4){
+//						console.log(xhr.responseText);
+						showDataOnPage(xhr.responseText);
+					}					
+				}
+
+			}
+		}
+		//该函数处理返回的数据，放在页面上显示
+		function showDataOnPage(data){
+			var d=JSON.parse(data);
+			console.log(typeof data);
+			console.log(typeof d);
+			console.log(d instanceof Array);
+			var content=document.getElementById("contet");
+			//创建表格
+//			var table=document.createElement("table");
+			var table=cj("table");
+			content.appendChild(table);
+			//创建一个行
+			var headTr=cj("tr");
+			//创建第一列的列名
+			var booknameTitle=cj("td");
+			booknameTitle.innerHTML="书名";
+			
+			var priceTitle=cj("td");
+			priceTitle.innerHTML="价格";
+			
+			headTr.appendChild(booknameTitle);
+			headTr.appendChild(priceTitle);
+			table.appendChild(headTr);
+			
+			
+			d.forEach(function(elem,index){
+//				console.log(elem.bookname);
+				var tr=cj("tr");
+				var td=cj("td");
+				td.innerHTML=elem.bookname;
+				tr.appendChild(td);
+				//true 是否克隆目标元素的事件处理器
+				td=td.cloneNode();
+				td.innerHTML=elem.price;
+				tr.appendChild(td);
+				table.appendChild(tr);
+			});
+			
+//			var myArry=[1,2,3,4,5,6];
+//			myArry.forEach(function(a,b,c){
+//				console.log(myArry==c);
+//				console.log(a+b+c);
+//				
+//			})
+		}
+	</script>
+	<script>
+		function cj(name){
+			return document.createElement(name);
+		}
+		
+		function bj2id(id){
+			return document.getElementById(id);
+		}
+	</script>
+</html>

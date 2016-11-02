@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<img src="img/img_bg_level_1.jpg"/>
+		<img src="img/LOGO.png"/>
+	</body>
+	<script type="text/javascript">
+		var no1=$("img").get(0);
+		no1.style.border="5px solid red";
+//		no1.css("10px solid green");
+//		var no2=document.getElementsByTagName("img")[1];
+		var no2=document.querySelectorAll("img")[0];
+		var a=$("img");
+		console.log(a.index(no2));
+		
+		console.log(a.index($("img:last")));
+		console.log($(":header:eq(1)"));
+	</script>
+</html>

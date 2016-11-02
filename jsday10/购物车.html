@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				//获取到删除按钮
+				var divs=document.getElementsByTagName('div');
+				for(var i=0;i<divs.length-1;i++){
+					
+					//通过遍历集合,给集合中的每个元素添加点击事件
+					divs[i].onclick=function(){
+						//this:谁调用this,this就指向谁
+						//获取到当前触发的删除按钮的父标签,删掉父标签
+						console.log(this);
+						this.parentElement.remove();
+//						console.log(i);
+//						divs[i].parentElement.remove();
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+		<ul>
+			<li>商品1
+				<div>删除</div>
+			</li>
+			<li>商品2
+				<div>删除</div>
+			</li>
+			<li>商品3
+				<div>删除</div>
+			</li>
+			<li>商品4
+				<div>删除</div>
+			</li>
+			<li>商品5
+				<div>删除</div>
+			</li>
+			<li>商品6
+				<div>删除</div>
+			</li>
+			<li>商品7
+				<div>删除</div>
+			</li>
+			<li>商品8
+				<div>删除</div>
+			</li>
+			<li>商品9
+				<div>删除</div>
+			</li>
+			<li>商品10
+				<div>删除</div>
+			</li>
+			<li>商品11
+				<div>删除</div>
+			</li>
+		</ul>
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

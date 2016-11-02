@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#odiv{
+				width: 100px;
+				height: 100px;
+				background: #8B0000;
+				/*position: absolute;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="odiv">
+
+		</div>
+	</body>
+	<script type="text/javascript">
+	
+		var odiv=document.getElementById("odiv");
+		var x=100;
+		var y=100;
+		var opacityX=1;
+		var opacityY=0;		
+		var count=0;
+		var maxY=500;
+		var maxX=500;
+		var xId=setInterval(Fx,10);
+		 odiv.style.opacity=opacityX; 
+		function Fx(){
+
+			x++;			
+			odiv.style.width=x+"px";
+			odiv.style.opacity=sub();
+			console.log("修改后透明度"+odiv.style.opacity);
+			if(odiv.style.width>=maxX+"px"){
+				clearInterval(xId);
+				 yId=setInterval(Fy,10);
+				
+			}
+        function sub(){
+        	console.log("x="+x);      	
+            if((parseFloat(odiv.style.opacity)+(opacityX)/(maxX-100))>0){         
+	    	return parseFloat(odiv.style.opacity-(opacityX)/(maxX-100));             	
+        }			
+		}
+	    function Fy(){
+				y++;
+				count++;
+				odiv.style.height=y+"px";
+			    console.log(odiv.style.opacity);
+				odiv.style.opacity=sum();
+
+				if(odiv.style.height>=maxY+"px"){
+				    odiv.style.opacity=1;
+					clearInterval(yId);
+				
+				}
+						
+			}
+	    function sum(){
+           if(parseFloat(odiv.style.opacity)+((1-opacityY)/(maxY-100))<1){
+        
+	    	return parseFloat(odiv.style.opacity)+((1-opacityY)/(maxY-100));           	
+           }
+
+	    }
+}
+	</script>
+</html>

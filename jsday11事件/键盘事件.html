@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				
+				//按键事件对象保存着当前按下的键位信息.我们可以通过keyCode获取到当前用户按下的是哪个按键
+				//enter键:13
+				//a-z键:65--90
+				//0-9键:48-57
+				
+				//alt\control\shift按下时,对象的属性值会变成true
+				//左右shift按键区分:location属性值是1时,表示左shift,值是2时,表示右键;
+				document.onkeydown=function(ev){
+					var eventObj=ev||event;
+					console.log(eventObj);
+					console.log('hello');
+					
+				}
+				
+				document.onkeyup=function(){
+				console.log('抬起来啦~~~~~~~~~~');
+			}
+				document.onkeypress=function(){
+				 var eventObj=ev||event;
+				 console.log(event);
+				 console.log('world');
+				}
+		}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

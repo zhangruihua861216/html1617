@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		//1.字面量
+			var tom={}; //new Object();
+			tom.name="TOM";
+			tom.say=function(){
+		//2.构造函数
+		
+			function Person(name){
+				this.name=name;
+			}
+			
+			Person.prototype.speak=function(){
+				
+			}
+			
+			var mark=new Person("mark");
+			//new关键字执行的4个过程
+			
+			}
+			
+			//原型
+			function Fruit(name){
+				this.name=name;
+				
+			}
+			
+			console.log(Fruit.prototype);
+			
+			//任何函数的原型指向Function的原型
+			
+			console.log(Fruit.__proto__==Function.prototype);
+			console.log(Fruit.prototype.constructor.__proto__==Function.prototype);
+			
+			function Apple(){}
+			Apple.prototype=new Fruit();// 等价Fruit.prototype，但无法继承私有属性
+			
+			
+			
+			function Auto(){
+				
+			}
+			Auto.prototype.run=Function(){
+				console.log("车在行驶");
+			}
+			function Car(name){
+				this.name=name;
+				
+			}
+			Car.prototype=new Auto();
+			Car.prototype.loadPerson=function(){
+				console.log("载人");
+			}
+			function Benz(){
+				
+			}
+			function BMW(){
+				
+			}
+			Benz.prototype=new  Car("奔驰");
+			BMW.prototype=new Car("宝马");
+			
+			Benz.prototype.sayName=function(){
+				console.log("我是"+this.name);
+			}
+			BMW.prototype.sayName=function(){
+				console.log("我是"+this.name);
+			}	
+			var x5=new BMW();
+			var s600=new Benz();
+			
+			
+
+		</script>
+	</body>
+</html>

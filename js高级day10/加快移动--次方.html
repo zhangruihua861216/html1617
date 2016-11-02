@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#ball{
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background: darkred;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="ball"></div>
+	<script>
+		var ball=document.getElementById("ball");
+		var i=1;
+		var j=1;
+		function cifang(i){
+			return i*i;
+		}
+		setInterval(function(){
+			i++;
+			j++;
+			ball.style.left=cifang(i)+"px";
+			ball.style.top=cifang(j)+"px";
+			console.log(ball.style.left);
+			console.log(ball.style.top);
+		},100);
+	</script>		
+	</body>
+
+</html>

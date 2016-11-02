@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 定义一个网络用户构造函数，要处理的信息有用户ID、用户密码、email地址。
+			 * 在建立类的实例时，把以上三个信息都作为构造函数的参数输入，其中用户ID和用户密码时必须的，
+			 * 缺省的email地址是用户ID加上字符串"@yztcedu.com"
+			 */
+			
+			function user(id,pwd){
+				this.id=id;
+				this.pwd=pwd;
+			}
+			
+			function user(id,pwd,email){
+				this.id=id;
+				this.pwd=pwd;
+				this.email=email;
+			}
+			
+			function print(p)
+			{   
+				if(p.email==undefined){
+					console.log("用户ID"+ p.id+" 密码:"+p.pwd+" Email:"+p.id+"@yztcedu.com");
+					
+				}else{
+					console.log("用户ID"+ p.id+" 密码:"+p.pwd+" Email:"+p.email);
+				}
+				
+			}
+			var p1=new user("10010",'123456');
+			var p2=new user("10011","12345678","123@qq.com");
+			print(p1);
+			print(p2);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

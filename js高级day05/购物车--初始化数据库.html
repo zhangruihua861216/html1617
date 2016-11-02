@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/购物车.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		function createXHR(){
+			//如果浏览器支持XMLHttpRquest那么直接创建返回该对象
+			
+			if(typeof XMLHttpRequest !="undefined"){
+				return new XMLHttpRequest();
+			}else if(typeof ActiveXObject !="undefined")
+			{
+				if(typeof arguments.callee.activeXString !="string"){
+					var versions=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp'];
+					for(var i=0;i<versions.length;i++){
+						try{
+							new ActiveXObject(versions[i]);
+							arguments.callee.activeXString=versions[i];
+						}catch(e){
+							
+						}
+						
+					}
+				}
+				
+				return new ActiveXObject(arguments.callee.activeXString);
+			}else{
+				throw new Error("无法正常创建ajax对象");
+			}
+		}
+			
+		</script>
+	</head>
+		<script type="text/javascript">
+		var url = "http://localhost:5050/books";
+		var number=0;
+		var dataLength = data.length;
+		function dataSubmit(data){
+			var xhr = createXHR();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if((xhr.status>=200&&xhr.status<300)||(xhr.status==304)){
+						number++;
+						if (number==dataLength) {
+							alert("数据已全部提交成功，请勿重复提交！");
+						}
+					}
+				}
+			}
+			xhr.open("post",url,true);
+			xhr.setRequestHeader("Content-Type","application/json");
+			xhr.send(JSON.stringify(data));
+		}
+		//提交数据至服务器
+		data.forEach(function(elem){
+			dataSubmit(elem);
+		})
+		
+		
+
+	</script>
+	<body>
+	</body>
+</html>

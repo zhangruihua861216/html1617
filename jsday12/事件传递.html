@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 500px;
+				height: 500px;
+				background: red;
+			}
+			
+			#div2{
+				width: 300px;
+				height: 300px;
+				background: green;
+			}
+			
+			#div3{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var div1=document.querySelector('#div1');
+				var div2=document.querySelector('#div2');
+				var div3=document.querySelector('#div3');
+				
+//				div1.onclick=function(){
+//					alert('say');
+//				}
+//				div2.onclick=function(){
+//					alert('good');
+//				}
+//				div3.onclick=function(ev){
+//					var eventObj=ev||event;
+//					alert('bye');
+//					eventObj.cancelBubble=true;
+//				}
+				
+				var body=document.body;
+				
+				body.addEventListener('click',function(){
+					alert('hi');
+				});
+				
+				div1.addEventListener('click',function(){
+					alert("hello");
+				});
+				
+				div2.addEventListener('click',function(){
+					alert('world');
+				});
+				
+				div3.addEventListener('click',function(ev){
+				var eventObj=ev||event;
+					alert("!!!");
+					
+					//取消事件的传递
+					eventObj.stopPropagation();
+					
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+		</div>
+	</body>
+</html>

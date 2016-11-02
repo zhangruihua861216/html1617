@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+					//作用域链是由变量对象或活动对象产生
+			var i=10;
+			function scope1(){
+				var i=100;
+				console.log(i);
+				console.log(this);
+				return function(){
+					var i=1000;
+					console.log("i="+i);
+					console.log(this);
+					
+				}
+			}
+			
+			console.log(i);
+			scope1();
+			scope1()();
+			
+		console.log("---------------")	
+		
+			var m={};
+			scope1().call(m);
+			
+		console.log("---------------")	
+			function Trunk(name){
+				this.name=name;
+				console.log(this);
+			}
+			
+			var volvo=new Trunk("张三");
+			console.log(volvo.name);
+			console.log(window.name);			
+			Trunk("奔驰");
+			console.log(window.name);
+			
+	</script>
+</html>

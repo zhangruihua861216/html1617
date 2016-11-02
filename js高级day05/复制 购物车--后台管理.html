@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		button{
+			width: 130px;
+			height: 53px;
+			background: #282725;
+			color: #fff;
+			font-size: 22px;
+			border:3px solid #aebebe;
+		}
+		
+		table{
+		  border-spacing: 0px;
+		  border-collapse: collapse;
+		}
+		tr{
+			height: 50px;
+		}
+		td{
+			border: 1px solid salmon;
+		}
+		
+		td:first-of-type{
+			width: 50px;
+		}
+		td:nth-of-type(2){
+			width: 100px;
+		}
+		td:nth-of-type(3){
+			width: 300px;
+		}			
+		td:nth-of-type(4){
+			width: 300px;
+		}	
+		td:nth-of-type(5){
+			width: 100px;
+		}
+		td:nth-of-type(6){
+			width: 300px;
+		}
+		td:nth-of-type(7){
+			width: 150px;
+		}													
+		</style>
+		<script type="text/javascript">
+		function createXHR(){
+			//如果浏览器支持XMLHttpRquest那么直接创建返回该对象
+			
+			if(typeof XMLHttpRequest !="undefined"){
+				return new XMLHttpRequest();
+			}else if(typeof ActiveXObject !="undefined")
+			{
+				if(typeof arguments.callee.activeXString !="string"){
+					var versions=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp'];
+					for(var i=0;i<versions.length;i++){
+						try{
+							new ActiveXObject(versions[i]);
+							arguments.callee.activeXString=versions[i];
+						}catch(e){
+							
+						}
+						
+					}
+				}
+				
+				return new ActiveXObject(arguments.callee.activeXString);
+			}else{
+				throw new Error("无法正常创建ajax对象");
+			}
+		}
+		
+		var xhr=createXHR();		
+		xhr.open("get","http://127.0.0.1:5050/books/");
+		xhr.send(null);
+		xhr.onreadystatechange=function(){
+			if(xhr.status==200||xhr.status==304){
+				if(xhr.readyState==4){
+//				   console.log(xhr.responseText);
+				   var data=JSON.parse(xhr.responseText);
+				   console.log(data);
+				   //查询数据库数据，不为空，创建列表展示数据
+				   if (data.length>0){
+				   	  DataList(data);
+				   }
+				}
+			}
+		 
+		}
+		
+		
+		</script>
+		
+		<script>
+			//创建多行列表数据
+			
+			function DataList(data){
+				var form=document.getElementsByTagName("form")[0];
+				var table=document.createElement("table");				
+				for(var i=0;i<data.length;i++){
+					var tr=document.createElement("tr");
+					for(var j=0;j<7;j++){
+					var td=document.createElement("td");
+					td.innerHTML=data[j].bookname;
+					tr.appendChild(td);					
+					}				
+
+					table.appendChild(tr);
+					form.appendChild(table);
+				}
+			}
+		</script>
+	</head>
+	<body>
+	<button>添加数据</button>
+	<form action="">
+		<table>
+			<th>全选/反选</th><th>图片</th><th>名称</th><th>作者</th><th>价格</th><th>出版社</th><th>操作</th>
+		</table>
+	</form>
+	</body>
+</html>

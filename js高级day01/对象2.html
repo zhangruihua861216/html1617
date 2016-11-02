@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+//			function Human(){
+//				console.log("hello world");
+//				return new Object();
+//			}
+//          var a=Human();
+//			
+////			//同一个模型创建的两个不同对象
+//			var tom=new Human();
+//			var jarry=new Human();
+//			// 1.在浏览器中开辟一个空间
+//			// 2.创建对象，并把地址空间赋值给this
+//			// 3.执行构造函数代码
+//			// 4.如果有返回值，赋值给变量
+//			console.log(tom);
+//			console.log(jarry);
+//			console.log(a);
+//			console.log(tom==jarry);
+			//1.构造函数创建对象的方法
+			function Human(name,height){
+				this.name=name;
+				this.height=height;
+				this.sayHello=function(){
+					console.log(this.name+"大家好!");
+				}
+			}
+//			var tom=new Human("tom",174);
+//			console.log(tom);
+//			console.log(tom.name);
+//			tom.sayHello();
+//			var jarry=new Human("jarry",166);
+//			console.log(jarry.name);
+//			jarry.sayHello();
+			
+			//2.创建对象的方法：字面量
+			
+			var mark={
+				name:'mark',
+				height:170,
+				sayhello:function(){
+					console.log("my name is "+this.name);
+				}
+			}
+			
+			var tom={
+				name:'tom',
+				height:160,
+				sayhello:function(){
+					console.log("my name is "+this.name);
+				},
+				speak:function(){
+					console.log("speak"+this.name);
+				}
+			}
+			//3.Ess Object.create();
+			
+			//属性
+			
+			//1.数据属性
+			
+			//configurable  可配置
+			//enumerable  枚举
+			//writable  可写
+			//value  值
+			
+//		    console.log("mark.name="+mark.name);
+//		    
+//		    delete mark.name;//删除对象中指定的属性
+//		    
+//		    console.log("mark.name="+mark.name);
+//		    
+//		    var myArry=[1,2,3,4,6,7];
+//		    console.log(myArry);
+//		    myArry.name="我是数组";
+//		    console.log(myArry);
+//		    console.log(myArry.name);
+//		    console.log(myArry[name]);//错误 undefined
+//		    console.log(myArry["name"]);
+//		    console.log(myArry["0"]);
+//		    console.log(myArry[0]);
+//		    
+//		    for(var j=0;j<myArry.length;j++){
+//		    	console.log("myArry["+j+"]="+ myArry[j]);
+//		    }
+//		    
+//		    //for in 对象中所有的属性进行遍历
+//		    console.log("-------------------------");
+//		    for(var p in myArry){
+//		    	 console.log("属性名: "+p+",对应的值: "+myArry[p]);
+//		    	
+//		    }
+//		    console.log("-------------------------");
+//		    for(var prop in mark){
+//		    	console.log("属性名:"+prop+",值"+mark[prop]);
+//		    }
+		    
+		    var person=[mark,tom];
+		    for(var i=0;i<person.length;i++){
+		    	for(var prop in person[i]){
+		    		if(typeof person[i][prop]==="function")
+		    			person[i][prop]();
+		    		
+		    		
+		    	}
+		    }
+		    
+		    console.log(mark.name);
+		    mark.name="small mark";
+		    console.log(mark.name);
+		  
+		      
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

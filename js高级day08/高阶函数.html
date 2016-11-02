@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+
+		</style>
+	</head>
+	<body>
+	<div id="container"</div>
+	</body>
+	<script type="text/javascript">
+	//在容器中创建20个div元素
+	function createDiv(callback){
+		var container=document.getElementById("container");
+			for(var i=0;i<20;i++){
+				var subDiv=document.createElement("div");
+				subDiv.innerHTML=i+1;
+				container.appendChild(subDiv);
+				//把添加的div都隐藏
+	
+				
+				//子元素添加样式
+				if(typeof callback=="function"){
+				callback(subDiv);					
+				}
+
+			}		
+			
+	}
+
+		createDiv(defineStyle);
+		
+		function defineStyle(node){
+			node.style.width="1000px";
+			node.style.height="100px";
+			node.style.background="palevioletred";			
+		}
+	</script>
+</html>

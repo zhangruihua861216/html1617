@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 500px;
+				height: 500px;
+				background: red;
+			}
+			
+			#div2{
+				width: 300px;
+				height: 300px;
+				background: green;
+			}
+			
+			#div3{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var div1=document.querySelector('#div1');
+				var div2=document.querySelector('#div2');
+				var div3=document.querySelector('#div3');	
+				var body=document.body;
+				//通过DOM0级事件处理添加的事件,无法控制冒泡,捕获,但是可以取消事件冒泡(在冒泡阶段事件传递)
+				//默认:在事件冒泡阶段会从点击的标签开始依次触发父级标签的点击事件
+				//可以通过事件对象的cancelBubble属性的true值,或事件对象的stopPropagation()方法取消事件冒泡,阻止触发父标签的同类型事件.
+				
+				div1.onclick=function(ev){
+					var eventObj=ev||event;
+					alert("hehe");
+					//取消事件冒泡的两种方法:
+					eventObj.cancelBubble=true;
+					eventObj.stopPropagation();
+				}
+				div2.onclick=function(){
+					alert("world");
+				}
+				div3.onclick=function(){
+					alert("!!!");
+				}
+				
+				
+				//通过DOM2级事件处理添加进去的事件,我们可以控制事件的冒泡,捕获过程.当addEventListener方法的第三个参数为true时,表示只进行事件捕获,不执行事件冒泡,在捕获的过程中,触发途径标签的对应事件函数.当第三个参数为false,表示执行事件冒泡的过程(默认情况)
+				
+				//取消事件的传递,可以使用事件对象的stopPropagation()方法,阻止事件的的捕获,冒泡过程
+				div1.addEventListener('click',function say(){
+					alert("say");
+				},true);
+			    
+			    div2.addEventListener('click',function say(){
+			    	alert('good');
+			    },true);
+			    
+			    div3.addEventListener('click',function say(){
+			    	alert('bye');
+			    },true);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+		</div>
+	</body>
+</html>

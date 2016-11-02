@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 模拟简单的计算器。定义名为Number的构造函数，其中有两个整型数据成员n1和n2。在构造函数中，赋予n1和n2初始值，
+			 * 再为该构造函数定义加（addition）、减（subtration）、乘（multiplication）、除（division）等方法，
+			 * 分别对两个成员变量执行加、减、乘、除的运算。
+			 */
+			
+			function Number(){
+				
+			}
+			Number.prototype.setNumer=function(num1,num2){
+				this.num1=num1;
+				this.num2=num2;
+			}
+			Number.prototype.addition=function(){
+				var add=this.num1+this.num2;
+				console.log(add);
+			}
+			Number.prototype.subtration=function(){
+				var sub=this.num1-this.num2;
+				console.log(sub);
+			}
+			Number.prototype.multiplication=function(){
+				var mul=this.num1*this.num2;
+				console.log(mul);
+			}
+			Number.prototype.division=function(){
+				var div=this.num1/this.num2;
+				console.log(div);
+			}	
+			
+			var num=new Number();
+			num.setNumer(20,30);
+			num.subtration();
+			num.addition();
+			num.multiplication();
+			num.division();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

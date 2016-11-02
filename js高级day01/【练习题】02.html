@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Vehicle(speed,size){
+				this.speed=speed;
+				this.size=size;
+				this.move=function(){
+					console.log("汽车以"+this.speed+"在移动");
+				}
+				this.setSpeed=function(){
+					this.speed=speed;
+				}
+				
+				this.speedUp=function(){
+					this.speed++;
+				}
+				
+				this.speedDown=function(){
+					 this.speed--;
+				}
+			}
+			
+			var benz=new Vehicle(20,200);
+			benz.move();
+			benz.setSpeed(150);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

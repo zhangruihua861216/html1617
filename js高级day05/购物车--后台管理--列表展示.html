@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		body{
+			width: 1200px;
+			margin: 0 auto;
+			text-align: center;
+			border:1px solid red;
+			height: 3000px;
+			font-family: "微软雅黑";
+		}
+		button{
+			width: 130px;
+			height: 53px;
+			background: #282725;
+			color: #fff;
+			font-size: 22px;
+			border:3px solid #aebebe;
+			margin-bottom: 50px;
+			
+		 }
+		table{
+			border-collapse: collapse;
+			width: 1200px;
+			margin: 0 auto;
+		}
+		th{
+			border:1px solid black;
+			height: 35px;
+			background: #282725;
+			color: #FFFFFF;
+		}
+		
+		th:nth-of-type(1){
+			width: 100px;
+		}
+		th:nth-of-type(2){
+			width: 100px;
+		}
+		th:nth-of-type(3){
+			width: 300px;
+		}
+		th:nth-of-type(4){
+			width: 300px;
+		}	
+		th:nth-of-type(5){
+			width: 80px;
+		}
+		th:nth-of-type(6){
+			width: 180px;
+		}
+
+		
+		td{
+			border: 1px solid black;
+			height: 36px;
+		}
+		
+		tr:nth-of-type(even){
+			background:#edf8f3;
+		}
+		.imgShow{
+			height: 25px;
+		}
+		td:last-of-type a{
+			text-decoration: none;
+			padding: 0 5px;
+			color: #0000FF;
+			
+		}	
+
+		
+		td:last-of-type a:first-of-type{
+			border-right: 1px solid #0000FF;
+		}	
+		
+																
+		</style>
+		<script type="text/javascript">
+		function createXHR(){
+			//如果浏览器支持XMLHttpRquest那么直接创建返回该对象
+			
+			if(typeof XMLHttpRequest !="undefined"){
+				return new XMLHttpRequest();
+			}else if(typeof ActiveXObject !="undefined")
+			{
+				if(typeof arguments.callee.activeXString !="string"){
+					var versions=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp'];
+					for(var i=0;i<versions.length;i++){
+						try{
+							new ActiveXObject(versions[i]);
+							arguments.callee.activeXString=versions[i];
+						}catch(e){
+							
+						}
+						
+					}
+				}
+				
+				return new ActiveXObject(arguments.callee.activeXString);
+			}else{
+				throw new Error("无法正常创建ajax对象");
+			}
+		}
+		
+		var xhr=createXHR();		
+		xhr.open("get","http://127.0.0.1:5050/books/");
+		xhr.send(null);
+		xhr.onreadystatechange=function(){
+			if(xhr.status==200||xhr.status==304){
+				if(xhr.readyState==4){
+				   console.log(xhr.responseText);
+				   var data=JSON.parse(xhr.responseText);
+				   //查询数据库数据，不为空，创建列表展示数据
+				   if (data.length>0){
+				   	for(var i=0;i<data.length;i++){
+				   		 DataList(data[i]);
+				   		 colorSelect();
+				   		 imgSelect();
+				   	}
+				   	 
+				   }
+				}
+			}
+		 
+		}
+		
+		
+		</script>
+		
+		<script>
+		//列表显示数据
+        function DataList(data){
+        	var table=document.getElementsByTagName("table")[0];
+        	
+        	//显示checkbox
+        	var tr=document.createElement("tr");
+        	var td=document.createElement("td"); 
+        	var inputCheckBox=document.createElement("input");
+    	    inputCheckBox.type="checkbox";
+        	td.appendChild(inputCheckBox);
+        	tr.appendChild(td);
+ 
+         	//显示图片
+        	var td=document.createElement("td");
+        	var img=document.createElement("img");
+    		img.setAttribute("class","imgShow");
+   	        img.src=data.pic;
+	   	    var aHrefImg=document.createElement("a");
+   	        aHrefImg.setAttribute("href","#");
+   	        aHrefImg.appendChild(img);
+   	        td.appendChild(aHrefImg);
+        	tr.appendChild(td); 
+        	
+        	//显示名称
+        	var td=document.createElement("td");
+   	        td.innerHTML=data.bookname;
+        	tr.appendChild(td);        		
+
+        	//显示作者
+        	var td=document.createElement("td");
+   	        td.innerHTML=data.author;
+        	tr.appendChild(td); 
+        	
+          	//显示价格
+        	var td=document.createElement("td");
+   	        td.innerHTML=data.hyPrice;
+        	tr.appendChild(td);       	
+ 
+           	//显示出版社
+        	var td=document.createElement("td");
+   	        td.innerHTML=data.publisher;
+        	tr.appendChild(td); 
+        	
+           	//显示操作
+        	var td=document.createElement("td");
+        	var aHrefDelete=document.createElement("a");
+  	        aHrefDelete.setAttribute("href","#");
+  	        aHrefDelete.innerHTML="删除"; 
+  	        var aHrefModify=document.createElement("a");
+  	        aHrefModify.setAttribute("href","#");
+  	        aHrefModify.innerHTML="修改";
+            td.appendChild(aHrefDelete);
+            td.appendChild(aHrefModify);
+        	tr.appendChild(td);        	
+        	
+        	table.appendChild(tr);
+        	
+        }
+		</script>
+	</head>
+	<body>
+	<button>添加数据</button>
+	<form action="">
+		<table>
+			<tr><th><input type="checkbox" name="" id="" value="" />全选/反选</th><th>图片</th><th>名称</th><th>作者</th><th>VIP价格</th><th>出版社</th><th>操作</th></tr>
+		</table>
+	</form>
+	</body>
+	<script>
+	//选中行变色
+	function colorSelect(){
+		var trs=document.getElementsByTagName("tr");
+		for(var i=0;i<trs.length;i++){
+			trs[i].onmousemove=function(){
+				this.style.background="#8FBC8F";
+			}
+			trs[i].onmouseout=function(){
+				this.style.background="";
+			}
+		}		
+	}
+	//选中图片放大显示
+	function imgSelect(){
+		var imgs=document.querySelectorAll("tr td img");
+		for(var i=0;i<imgs.length;i++){	
+			imgs[i].onmouseover=function(){
+				this.parentElement.parentElement.style.position="relative";
+				var div=document.createElement("div");
+				div.style.position="absolute";
+				div.style.left="100px";
+				div.style.top="-70px";				
+				div.setAttribute("class","BigImg");
+				var img=document.createElement("img");
+				img.src=this.src;				
+				div.appendChild(img);
+				this.parentElement.parentElement.appendChild(div);
+
+			}
+		}
+
+		for(var i=0;i<imgs.length;i++){
+			imgs[i].onmouseout=function(){
+				var div=document.querySelector(".BigImg");
+				if(div!=null){
+	            	div.remove();					
+				}
+
+			}
+		}
+
+	}
+
+	</script>
+</html>

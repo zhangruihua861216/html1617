@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//call和apply的理解
+			//1.执行函数
+			//
+			var f=Function.prototype;
+			
+			function say(){
+				console.log("我是say");
+			}
+			
+			say.call();
+			say.apply();
+			
+//			function sum(a,b){
+//				return a+b;
+//			}
+			
+			function sum(){
+				return arguments[0]+arguments[1];
+			}
+			//第一个参数：执行环境
+			//后面的参数：参数
+//			 var r=sum.call(null,1,2);
+			 var r=sum.call(window,1,2);
+			 console.log(r);
+			 //第一个参数：执行环境
+			// 第二个参数：数组
+			 var r1=sum.apply(null,[10,20]);
+			 console.log(r1);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

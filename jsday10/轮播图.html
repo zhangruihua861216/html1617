@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#viewPort {
+				width: 500px;
+				height: 300px;
+				border: 10px solid salmon;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			#wrap {
+				width: 2500px;
+				height: 300px;
+				position: absolute;
+				/*transition: all 1s;
+				-ms-transition: all 1s;*/
+			}
+			
+			.img {
+				width: 500px;
+				height: 300px;
+				float: left;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				//获取到卷轴
+				var wrap = document.getElementById('wrap');
+
+				//使用定时器每隔若干秒修改一次卷轴位置
+
+				setInterval(function() {
+					console.log(wrap.offsetLeft);
+
+					//如果当前left值已经展示到最后一张,则回到第一张图片
+					if(wrap.offsetLeft <= -2000) {
+						wrap.style.left = '0px';
+					} else {
+						wrap.style.left = wrap.offsetLeft - 500 + 'px';
+
+					}
+				}, 2000);
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--用户能看见的视窗-->
+
+		<div id="viewPort">
+			<!--盛放展示图片的卷轴-->
+
+			<div id="wrap">
+				<!--要展示的图片-->
+
+				<div class="img"><img src="img/banner1.jpg" alt="" /></div>
+				<div class="img"><img src="img/banner2.png" alt="" /></div>
+				<div class="img"><img src="img/banner3.jpg" alt="" /></div>
+				<div class="img">图片4</div>
+				<div class="img">图片5</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//1.基本类型的json形式
+			var tom={
+				name:'tom',
+				age:12,
+				isMarry:true,
+				mother:null,
+				grandmother:{name:'joe',gender:'women',age:'34'	},
+				frends:["zhangsan","lisi"]
+			}
+			    
+			
+			var jarry=[{
+				name:'jarry',
+				age:12,
+				isMarry:true,
+				mother:null,
+			}]		
+			//2.把对象转成json格式
+			console.log(JSON.stringify(tom));
+			console.log(typeof JSON.stringify(tom));
+			console.log(JSON.stringify(jarry));
+			console.log(typeof JSON.stringify(jarry));
+			
+			
+			var str=[{"name":"jarry","age":12,"isMarry":true,"mother":null}];
+
+			console.log(str.JSON);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

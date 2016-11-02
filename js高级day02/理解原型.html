@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+		//任何函数都会包含原型对象prototype，protoype默认包含属性constructor
+		//对象里面都包含一个创建它的时候，指向原型的属性__proto__
+		//原型链作用：访问先在自身找，，如果不存在，则去原型找，如果不存在，再去原型的原型找。直到找到为止。
+		
+		
+			function Fruit(){
+				
+			}
+			
+			Fruit.prototype.water=true;
+			Fruit.prototype.name="水果";
+			Fruit.prototype.eated=function(){
+				console.log(this.name);
+			}
+			console.log(Fruit.prototype.constructor);
+			console.log(Fruit.prototype.constructor===Fruit);
+			
+			var a=new Fruit();//创建一个对象
+			console.log(a);
+			console.log(a.__proto__==Fruit.prototype);
+			
+			
+			var obj=new Object();
+			obj.constructor=Fruit;
+			obj.show=function(){
+				console.log("new prototype");
+			}
+			
+			console.log(obj);
+			
+			Fruit.prototype=obj;
+			
+			var b=new Fruit();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

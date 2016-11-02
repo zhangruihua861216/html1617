@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	    <script type="text/javascript">
+	    	jQuery.noConflict();//放弃使用$符代表JQuery对象
+	    	var m$=jQuery.noConflict();
+	    </script>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		console.log($);
+//		function $(){
+//			console.log("hello world");
+//		}
+//		console.log($);
+//      console.log($("li"));
+        console.log(jQuery("li"));
+        jQuery("li").css("border","1px solid pink");
+        m$("li").css("color","red");
+	</script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				//拿到body,操作body中的内容
+				var body=document.body;
+				
+				//获取当前节点下的所有子节点
+				
+				console.log(body.childNodes);
+				console.log(body.firstChild);
+				console.log(body.lastChild);
+				console.log(body.ownerDocument);
+				console.log(body.parentNode);
+				console.log(body.previousSibling);
+				console.log(body.nextSibling);
+				
+				var p1=document.getElementById('p1');
+				
+				//创建一个新标签
+				var img=document.createElement('img');
+				
+				//给img标签设置src属性
+				img.setAttribute('src','img/indexday12threeheaderthree.jpg');
+				
+				//把标签拼接进文档流
+				
+				var div=document.getElementById('div1');
+				
+				//把子标签拼接进父标签
+				
+				div.appendChild(img);
+				
+				//创建一个p标签,设置上文字,并把这个标签拼接在p3标签之前
+				
+				//1.创建p标签
+				
+				var p=document.createElement('p');
+				//2.设置p标签
+				
+				 p.innerHTML="hello world";
+				 
+				 //3.把新标签拼接进文档
+				 
+				 div.insertBefore(p,document.getElementById('p3'));
+				
+				
+				//替换节点
+				div.replaceChild(p,document.getElementById('p3'));
+				
+				
+				//删除div张的p1标签
+				div.removeChild(document.getElementById('p1'));
+				document.getElementById('p2').remove();
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<p id='p1'>hello</p>
+			<p id='p2'>world</p>
+			<p id='p3'>!!!</p>
+		</div>
+	</body>
+</html>

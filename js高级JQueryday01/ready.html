@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<img src="img/img_bg_level_1.jpg"/>
+		<img src="//www.baidu.com/img/bd_logo1.png"/>
+	</body>
+	<script type="text/javascript">
+	
+	//ready加载时间，页面加载完毕
+	//onload加载时间，页面加载完毕（包括图片、引入）
+		$(document).ready(function(event){
+			console.log("ready 1");
+		});
+		$(document).ready(function(event){
+			console.log("ready 2");
+		});		
+		window.onload=function(){
+			console.log(" onload 1");
+		}
+		window.onload=function(){
+			console.log(" onload 2");
+		}
+//		ready形式一
+		$(document).ready(function(){console.log("hi")});
+//      ready形式二
+		$(function(){
+			console.log("say");
+		})
+		
+
+	</script>
+</html>

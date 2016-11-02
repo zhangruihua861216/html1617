@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			function sum(a,b){
+				return a+b;
+			}
+			
+			var mySum= new Function("a","b","return a+b;");
+			
+			console.log(sum(1,2));
+			console.log(mySum(2,3));
+			
+			
+			function A(){
+				
+			}
+			
+			console.log(A);
+			
+			var o=Object.__proto__;
+			console.log(o);
+			
+			function Apple(name){
+				this.name=name;
+				
+				this.say=function(){
+					console.log("名字");
+				}
+			}
+			
+			var a1=new Apple("a1");
+			
+			var a2=new  Apple("a2");
+			console.log(a1.say==a2.say);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

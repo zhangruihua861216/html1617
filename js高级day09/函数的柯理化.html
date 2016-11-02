@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var monthCount=0;
+			//函数用于计算每天消费
+			
+			function cost(money){
+				monthCount +=money;
+			}
+			
+			//记录计算过程
+			
+			var costUpdate=(function(){
+				var args=[];//记录每次运算的数据
+				
+				return function(){
+					console.log(arguments.length);
+					if(arguments.length==0){
+					  var moneys=0;
+					  for(var i=0;i<args.length;i++){
+					  	moneys += arguments[i];
+					  }  
+					     console.log(moneys);
+					     return moneys;
+					}else{
+						args.push(arguments[0]);
+//						[].push.apply(args,arguments);
+//						Array.prototype.push.apply(args,arguments);
+					}
+				}
+			})();
+			
+			
+			console.log(costUpdate(100));
+			costUpdate(100);
+			var sum=costUpdate(); //不传参直接计算结果
+			
+			console.log(sum);
+			
+			
+			//通用柯理化的实现方式
+			
+			var curring=function(fn){
+				var args=[];
+				return function(){
+					if(arguments.length==0){
+					
+						return fn.apply(this,args);
+					}else{
+						[].push.apply(args,arguments);
+						//返回函数自身
+						 return arguments.callee();
+					}
+				}
+			}
+			
+			
+			var  myCost=(function(){
+				var money=0;
+				return function(){
+					for(var i=0;i<arguments.length;i++){
+						money+=arguments[i];
+					}
+					return money;
+				}
+			})();
+			
+			console.log(myCost(1,2,3,4));
+
+			var  myCost1=(function(){
+				var money=arguments[0];
+				return function(){
+					for(var i=0;i<arguments.length;i++){
+						money+=arguments[i];
+					}
+					return money;
+				}
+			})(120);
+			
+			//给求和的函数柯理化
+			
+			var myCurringCost=curring(myCost);
+			myCurringCost(19);
+			myCurringCost(20);
+			console.log(myCurringCost());
+			
+			//求差的函数柯理化
+			
+			var myCurringCost1=curring(myCost1);
+			myCurringCost1(100);
+			myCurringCost1(20);
+			console.log(myCurringCost1());
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

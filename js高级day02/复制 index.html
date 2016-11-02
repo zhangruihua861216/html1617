@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			 var tom={
+			 	name:"tom",
+			 	age:11,
+			 	gender:"man"
+			 }
+			 
+			 console.log("sex" in tom);
+			 console.log("name" in tom);
+			 
+			 var myArray=[1,2,3,4,5,6];
+			 
+			 console.log('0' in myArray);
+			 //返回值是对象，可以 用对象接收
+			 var desc=Object.getOwnPropertyDescriptor(tom,"name");
+			 console.log(desc);
+			 for (var p in tom){
+		 	    console.log("tom["+p+"]="+tom[p]);
+//			 	console.log("tom["+p+"]="+p);
+                console.log(Object.getOwnPropertyDescriptor(tom,p));
+			 }
+			 
+			 
+			 function Car(model,color){
+			 	this.model=model;
+			 	this.color=color;
+			 	this.run=function(){
+			 		console.log(this.model+" is running.............")
+			 	}
+			 }
+			 //工厂模式创建对象
+			 function factory(model,color){
+			 	
+	//			 function Car(model,color){
+	//			 	this.model=model;
+	//			 	this.color=color;
+	//			 }
+			 	var o=new Car(model,color);
+			 	return o;
+			 }
+			 
+			 
+			 
+			var c1=new Car("c1","blue");
+			var c2=new Car("c2","yellow");
+			
+			console.log(c1.run==c2.run);
+			
+			c1.run();
+			c2.run();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			//原型
+			//每一个函数都会关联一个原型对象
+			//对象也会有对应的原型对象
+			
+			console.log(Car.prototype instanceof Object);
+			
+			console.log(c1 instanceof Car);
+			
+			console.log(c1 instanceof Object);
+			
+			
+			
+			
+			function Apple(name){
+				this.name=name;
+			}
+			Apple.prototype.eated=function(){
+				console.log(this.name+"红了");
+			}
+			
+			var a1=new Apple("红富士");
+			var a2=new Apple("乔娜金");
+		
+		
+		
+		  console.log("-----原型--------");
+		  console.log(a1.eated==a2.eated)
+		  
+		  
+		  function Dog(name){
+		  	this.name=name;
+		  
+		  }
+		  
+		  Dog.prototype.count=0;
+		  Dog.prototype.calc=function(){
+		  	Dog.prototype.count++;
+		  }
+		  
+		  function dogFactory(n){
+		  	var o=new Dog(n);
+		  	o.calc();
+		  	return o;
+		  }
+          var arr=[];
+		  for(var i=0;i<Math.random()*100;i++){
+		  	arr.push(dogFactory("hi"));
+		  }
+		 for(var i=0;i<arr.length;i++){
+		 	console.log(arr[i].count);
+		 }
+		  console.log(count);
+		  
+		  
+			 
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

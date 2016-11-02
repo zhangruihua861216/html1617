@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var obj1={
+				name:'tom'
+			}
+			var obj2={
+				name:'jarry',
+				getName:function(){
+					console.log(this.name);
+				}
+			}
+			
+			//获取object对象中的name
+			console.log(obj1.name);
+			obj2.getName();
+			obj2.getName.call(obj1);
+		</script>
+	</body>
+</html>

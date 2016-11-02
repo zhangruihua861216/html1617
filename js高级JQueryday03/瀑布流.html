@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+		#wrap .cell{
+			padding: 10px;
+			border: 1px solid red;
+			box-shadow: 2px 2px 5px #ccc;
+			overflow: hidden;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="wrap" class="wrap clearfix">
+			<img src="" alt="" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		var data=[
+		{imgUrl:"img/1.jpg",alt:"第一个图片",height:100},
+		{imgUrl:"img/2.jpg",alt:"第一个图片"},
+		{imgUrl:"img/3.jpg",alt:"第一个图片"},
+		{imgUrl:"img/4.jpg",alt:"第一个图片"},
+		{imgUrl:"img/5.jpg",alt:"第一个图片"},
+		{imgUrl:"img/6.jpg",alt:"第一个图片"},
+		{imgUrl:"img/7.jpg",alt:"第一个图片"},
+		{imgUrl:"img/8.jpg",alt:"第一个图片"},
+		{imgUrl:"img/9.jpg",alt:"第一个图片"},
+		{imgUrl:"img/10.jpg",alt:"第一个图片"},
+		]
+		
+		var waterFall=function(options){
+			var id=options.id;
+			var picWidth=options.picWidth||190;
+			var columnPadding=options.columnPadding||5;
+			var columnBorder=options.columnBorder||1;
+			var columnMarginRight=options.columnMarginRight||20;
+			//单元格宽度
+			var cellClientWidth=picWidth+columnPadding*2+columnBorder*2;
+			//div容器
+			var oWrap=document.getElementById('wrap');
+			var nowNum=0;//记录当前插入到容器中的方块数量
+			var cells=[];//记录每个单独的对象
+			
+			
+			
+		}
+		
+		function createCell(left,top,link,imgUrl,imgHeight,alt){
+				var div=$("<div></div>");
+				var img=$("<img/>");
+				img.attr('src',imgUrl);
+				img.attr('alt',alt);
+				img.css("height",imgHeight+'px');
+				div.addClass("cell");
+				div.css({
+					'position':"absolute",
+					'left':left+"px",
+					'top':top+"px",
+					
+				});
+				div.append(img);
+				return div;
+			}
+		//测试
+//		$("#wrap").append(createCell(100,100,"",data[2]['imgUrl'],100,data[2]['alt']))
+		//插入数据
+		function insert(data){
+			var fragElement=document.createDocumentFragment();
+			if(data.length>0){
+				for(var i=0;i<data.length;i++){
+					var cell=createCell(-9999,-9999,"",data[i]['imgUrl'],data[i]['height'],data[i]['alt']);
+					fragElement.appendChild(cell);
+					cells.push(cell);
+				}
+				
+				oWrap.appendChild(fragElement);
+			}
+			//插入后排序
+			sort();
+		}
+		//排序的函数
+		function sort(){
+			var num=getColumNum(),left,top,column;
+			//nowNum 的作用不让
+			
+			for(var j=nowNum;j<cells.length;j++){
+				nowNum++;
+				top=0;
+				//获取当前为第几列
+				column=j<num?j:j%num;
+				
+				//计算可以得到当前列的left值
+				left=column*(cellClentWidth+columnMarginRight);
+				cell[j].style.left=left+"px";
+				if(j<num){
+					cell[j].style.top='0px';
+				}else{
+					//计算当前元素top值，等于当前div头上的每列的高度相加
+					for(var m=column;m<j;m=m+num){
+						top+=cells[m].offsetHeight;
+					}
+					
+					cell[i].style.top=top+"px";
+				}
+				
+			}
+		}
+		//重新排列
+		function resort(){
+			//nowNum=0
+			nowNum=0;
+			sort();
+		}
+	</script>
+</html>

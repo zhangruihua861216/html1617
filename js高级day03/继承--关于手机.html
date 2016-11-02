@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Base(brand,model,size,color,price){
+				this.brand=brand;
+				this.model=model;
+				this.size=size;
+				this.color=color;
+				this.price=price;
+				Base.prototype.call=function(){
+					console.log("打电话啦~~~~~~~~");
+				};
+				Base.prototype.sendMessage=function(){
+					console.log("发信息啦~~~~~");
+				};
+				Base.prototype.Ringo=function(){
+					console.log("闹铃响了~~~~~");
+				}
+			}
+			
+			function Mi(){};
+			Mi.prototype=new Base("小米","1s","5","白色","699");
+			
+			var mi=new Mi()
+			console.log(mi.brand);
+			mi.call();
+			mi.Ringo();
+			mi.sendMessage();
+			
+			function Apple(){};
+			Apple.prototype=new Base("苹果","7","5","金色","7112");
+			function Samsung(){};
+			Samsung.prototype=new Base("三星","galaxy note3 N9009","5","粉色","2999");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

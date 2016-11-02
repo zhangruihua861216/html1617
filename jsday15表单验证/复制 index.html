@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				width: 721px;
+				margin: 0 auto;
+				
+			}
+			
+			div{
+				height: 27px;
+				line-height: 27px;
+				font-size: 14px;
+			}
+			
+			label{
+				width: 100px;
+				display: inline-block;
+				text-align: right;
+			}
+			
+			input{
+				margin-left: 5px;
+				
+			}
+		    
+		    input[type='text'],input[type='password']{
+		    	width: 200px;
+		    }
+		    
+		    span{
+		    	margin-left: 6px;
+		    }
+		</style>
+		
+		<script type="text/javascript">
+			window.onload=function(){	
+			   
+			
+				var inputs=document.querySelectorAll('input');
+			    var spans=document.querySelectorAll('span');
+			    
+			    for(var i=0;i<inputs.length;i++){
+			    	inputs[i].index=i;
+			    	inputs[i].onfocus=function(){
+			    		spans[this.index].innerHTML='hehe';
+			    	}
+			    }
+
+   }
+			
+		</script>
+	</head>
+	<body>
+		<img src="img/logo.jpg"/>
+		<form action="http://www.baidu.com" method="get">	
+			
+			
+		<div><label>用户名</label><input type="text" /><span></span></div>				
+			
+			
+		<div><label>Email地址</label><input type="text" /><span></span></div>				
+			
+			
+		<div><label>手机号码</label><input type="text" /><span></span></div>				
+			
+			
+		<div><label>登录密码</label><input type="password" /><span></span></div>				
+			
+			
+		<div><label>确认密码</label><input type="password" /><span></span></div>				
+			
+			
+		<div><input type="submit" name="" id="" value="注册完成" /></div>
+			
+		
+		
+		</form>
+	</body>
+</html>

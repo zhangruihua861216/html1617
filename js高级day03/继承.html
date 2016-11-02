@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Base(name,model){
+				this.name=name;
+				this.model=model;				
+				if(Base.prototype.power==null){
+					Base.prototype.power=function(){
+						console.log("power");
+					}
+				}
+			}
+			
+			
+			function Feimaotui(){
+				
+			}
+			Feimaotui.prototype=new Base("飞毛腿","s1");
+			var fmt1=new Feimaotui();
+		  console.log(fmt1.name);
+		  console.log(fmt1.model);
+		  fmt1.power();
+		  
+		  console.log(fmt1 instanceof Feimaotui);
+		  
+		  console.log(fmt1 instanceof Base);
+		  
+		  console.log(fmt1 instanceof Object);
+		  
+		  console.log(fmt1 instanceof null);   //报错，不允许这样写
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
